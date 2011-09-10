@@ -1,14 +1,14 @@
 package turtle.gui;
 
 import java.util.Observable;
-import java.util.Observer;
 
-import javax.swing.JFrame;
+import turtle.entity.Game;
 
-public class InformationWindow extends JFrame implements Observer
+public class InformationWindow extends AbstractWindow
 {
-    public InformationWindow()
+    public InformationWindow(Game game)
     {
+        super(game);
     }
 
     @Override
