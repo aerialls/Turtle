@@ -34,31 +34,63 @@ public class Turtle
         mBehavior = behavior;
     }
 
+    /**
+     * Retourne la position du joueur sur le terrain
+     *
+     * @return La position du joueur
+     */
     public Point getPosition()
     {
         return mPosition;
     }
 
+    /**
+     * Change la position du joueur sur le terrain
+     *
+     * @param x Le distance sur l'axe des X
+     * @param y La distance sur l'axe des Y
+     */
     public void setPosition(Point position)
     {
         mPosition = position;
     }
 
+    /**
+     * Change la position du joueur sur le terrain
+     *
+     * @param x Le distance sur l'axe des X
+     * @param y La distance sur l'axe des Y
+     */
     public void setPosition(int x, int y)
     {
         mPosition = new Point(x, y);
     }
 
+    /**
+     * Retourne le comportement du joueur
+     *
+     * @return Le comportement
+     */
     public TurtleBehaviorInterface getBehavior()
     {
         return mBehavior;
     }
 
+    /**
+     * Change le comportement du joueur
+     *
+     * @param behavior Le nouveau comportement
+     */
     public void setBehavior(TurtleBehaviorInterface behavior)
     {
         mBehavior = behavior;
     }
 
+    /**
+     * Retourne la vitesse de déplacement du joueur
+     *
+     * @return La vitesse
+     */
     public float getSpeed()
     {
         return mBehavior.getSpeed();
