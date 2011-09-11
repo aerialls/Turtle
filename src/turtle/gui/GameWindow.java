@@ -20,7 +20,7 @@ public class GameWindow extends AbstractWindow
         super(kernel);
 
         // Window informations
-        setTitle("Turtle game / Game informations - Version" + Kernel.VERSION);
+        setTitle("Game / Turtle Game - Version " + Kernel.VERSION);
 
         //TODO: We need to define a callback here for closing all the windows at the same time
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
