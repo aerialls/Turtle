@@ -47,7 +47,9 @@ public class Game extends Observable
         mMaxTime = 120;
 
         // Creation of the teams
-        mTeamA = new Team(Color.RED);
-        mTeamB = new Team(Color.BLUE);
+        TeamFactory factory = new TeamFactory(this);
+
+        mTeamA = factory.createDefaultTeam(Color.RED);
+        mTeamB = factory.createDefaultTeam(Color.BLUE);
     }
 }

@@ -37,12 +37,16 @@ public class Team
      */
     protected TeamBehaviorInterface mBehavior;
 
-    public Team(Color color)
+    public Team(Color color, Set<Turtle> players)
     {
         mColor = color;
         mScore = 0;
 
-        mPlayers = new HashSet<Turtle>();
+        if (players == null) {
+            throw new IllegalArgumentException("A team must have at least one player.");
+        }
+
+        mPlayers = players;
     }
 
     public Set<Turtle> getPlayers()
