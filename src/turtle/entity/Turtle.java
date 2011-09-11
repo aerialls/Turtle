@@ -25,8 +25,13 @@ public class Turtle
      */
     protected TurtleBehaviorInterface mBehavior;
 
-    public Turtle()
+    public Turtle(TurtleBehaviorInterface behavior)
     {
+        if (behavior == null) {
+            throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");
+        }
+
+        mBehavior = behavior;
     }
 
     public Point getPosition()
