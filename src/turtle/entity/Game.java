@@ -14,11 +14,39 @@ import java.util.Observable;
 
 public class Game extends Observable
 {
+    /**
+     * Première équipe
+     */
     protected Team mTeamA;
+
+    /**
+     * Deuxième équipe
+     */
     protected Team mTeamB;
+
+    /**
+     * Si la partie est lancée ou non
+     */
+    protected boolean mLaunched;
+
+    /**
+     * Le temps depuis le commencement de la partie
+     */
+    protected float mCurrentTime;
+
+    /**
+     * Le temps maximal d'une partie en secondes
+     */
+    protected float mMaxTime;
 
     public Game()
     {
+        mLaunched = false;
+        mCurrentTime = 0.0f;
+        // Hardcoded for the moment
+        mMaxTime = 120;
+
+        // Creation of the teams
         mTeamA = new Team(Color.RED);
         mTeamB = new Team(Color.BLUE);
     }

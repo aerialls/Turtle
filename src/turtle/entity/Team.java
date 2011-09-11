@@ -17,10 +17,13 @@ public class Team
 {
     protected Set<Turtle> mPlayers;
     protected Color mColor;
+    protected int mScore;
 
     public Team(Color color)
     {
         mColor = color;
+        mScore = 0;
+
         mPlayers = new HashSet<Turtle>();
     }
 
