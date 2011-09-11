@@ -25,11 +25,6 @@ public class Turtle
      */
     protected TurtleBehaviorInterface mBehavior;
 
-    public Turtle()
-    {
-        this(new Point(0, 0));
-    }
-
     public Turtle(Point position)
     {
         if (position == null) {
