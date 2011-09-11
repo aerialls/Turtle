@@ -10,18 +10,12 @@
 package turtle.gui;
 
 import java.util.Observable;
-
-import turtle.entity.Game;
+import java.util.Observer;
 
 public class GameWindow extends AbstractWindow
 {
-    public GameWindow(Game game)
-    {
-        super(game);
-    }
-
     @Override
-    public void update(Observable o, Object arg)
+    public void updateGame(Object arg)
     {
     }
 }

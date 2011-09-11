@@ -9,18 +9,28 @@
 
 package turtle.gui;
 
+import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JFrame;
 
 import turtle.entity.Game;
 
-abstract public class AbstractWindow extends JFrame implements Observer
+abstract public class AbstractWindow extends JFrame implements WindowInterface, Observer
 {
     protected Game mGame;
 
-    public AbstractWindow(Game game)
+    @Override
+    public void setGame(Game game)
     {
         mGame = game;
+    }
+
+    @Override
+    public void update(Observable o, Object arg)
+    {
+        if (o instanceof Game && o != null) {
+            updateGame(arg);
+        }
     }
 }
