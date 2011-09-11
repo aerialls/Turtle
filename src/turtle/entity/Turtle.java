@@ -25,12 +25,32 @@ public class Turtle
      */
     protected TurtleBehaviorInterface mBehavior;
 
-    public Turtle(Point position)
+    public Turtle()
     {
-        if (position == null) {
-            throw new IllegalArgumentException("You need to enter a correct position");
-        }
+    }
 
+    public Point getPosition()
+    {
+        return mPosition;
+    }
+
+    public void setPosition(Point position)
+    {
         mPosition = position;
+    }
+
+    public void setPosition(int x, int y)
+    {
+        mPosition = new Point(x, y);
+    }
+
+    public TurtleBehaviorInterface getBehavior()
+    {
+        return mBehavior;
+    }
+
+    public void setBehavior(TurtleBehaviorInterface behavior)
+    {
+        mBehavior = behavior;
     }
 }
