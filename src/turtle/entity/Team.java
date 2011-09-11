@@ -15,8 +15,19 @@ import java.util.Set;
 
 public class Team
 {
+    /**
+     * L'ensemble des joueurs de l'équipe
+     */
     protected Set<Turtle> mPlayers;
+
+    /**
+     * La couleur des joueurs
+     */
     protected Color mColor;
+
+    /**
+     * Le score actuel de l'équipe
+     */
     protected int mScore;
 
     public Team(Color color)
