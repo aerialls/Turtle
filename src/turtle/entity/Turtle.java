@@ -15,6 +15,9 @@ import turtle.behavior.turtle.TurtleBehaviorInterface;
 
 public class Turtle
 {
+    /**
+     * La position du joueur sur le terrain
+     */
     protected Point mPosition;
 
     /**
