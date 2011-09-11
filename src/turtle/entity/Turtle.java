@@ -11,9 +11,16 @@ package turtle.entity;
 
 import java.awt.Point;
 
+import turtle.behavior.turtle.TurtleBehaviorInterface;
+
 public class Turtle
 {
     protected Point mPosition;
+
+    /**
+     * Le comportement du joueur
+     */
+    protected TurtleBehaviorInterface mBehavior;
 
     public Turtle()
     {

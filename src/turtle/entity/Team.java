@@ -13,6 +13,8 @@ import java.awt.Color;
 import java.util.HashSet;
 import java.util.Set;
 
+import turtle.behavior.team.TeamBehaviorInterface;
+
 public class Team
 {
     /**
@@ -29,6 +31,11 @@ public class Team
      * Le score actuel de l'équipe
      */
     protected int mScore;
+
+    /**
+     * Le comportement de l'équipe
+     */
+    protected TeamBehaviorInterface mBehavior;
 
     public Team(Color color)
     {
