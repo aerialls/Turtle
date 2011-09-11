@@ -9,9 +9,18 @@
 
 package turtle;
 
+import turtle.entity.Game;
+import turtle.gui.WindowManager;
+
 public class TurtleGame
 {
     public static void main(String[] args)
     {
+        Game game = new Game();
+
+        Kernel kernel = new Kernel(game);
+
+        WindowManager manager = new WindowManager(kernel);
+        manager.link(game);
     }
 }
