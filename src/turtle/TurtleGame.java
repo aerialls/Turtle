@@ -17,10 +17,10 @@ public class TurtleGame
     public static void main(String[] args)
     {
         Game game = new Game();
-
         Kernel kernel = new Kernel(game);
-
         WindowManager manager = new WindowManager(kernel);
+
         manager.link(game);
+        manager.display();
     }
 }
