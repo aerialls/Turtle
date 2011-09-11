@@ -9,6 +9,8 @@
 
 package turtle.gui;
 
+import javax.swing.JFrame;
+
 import turtle.Kernel;
 
 public class GameWindow extends AbstractWindow
@@ -16,6 +18,15 @@ public class GameWindow extends AbstractWindow
     public GameWindow(Kernel kernel)
     {
         super(kernel);
+
+        // Window informations
+        setTitle("Turtle game / Game informations - Version" + Kernel.VERSION);
+
+        //TODO: We need to define a callback here for closing all the windows at the same time
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(500, 400);
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     @Override
