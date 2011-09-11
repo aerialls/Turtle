@@ -17,18 +17,15 @@ import turtle.entity.Game;
 public class WindowManager
 {
     protected ArrayList<AbstractWindow> mWindows;
-    protected Kernel mKernel;
 
     public WindowManager(Kernel kernel)
     {
-        mKernel = kernel;
-
-        //TODO: Make a better system
+        //TODO: Make a better system, it sucks
         mWindows = new ArrayList<AbstractWindow>();
 
-        mWindows.add(new InformationWindow());
-        mWindows.add(new ScoreWindow());
-        mWindows.add(new GameWindow());
+        mWindows.add(new InformationWindow(kernel));
+        mWindows.add(new ScoreWindow(kernel));
+        mWindows.add(new GameWindow(kernel));
     }
 
     public void link(Game game)

@@ -9,8 +9,15 @@
 
 package turtle.gui;
 
+import turtle.Kernel;
+
 public class InformationWindow extends AbstractWindow
 {
+    public InformationWindow(Kernel kernel)
+    {
+        super(kernel);
+    }
+
     @Override
     public void updateGame(Object arg)
     {

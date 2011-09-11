@@ -14,11 +14,18 @@ import java.util.Observer;
 
 import javax.swing.JFrame;
 
+import turtle.Kernel;
 import turtle.entity.Game;
 
 abstract public class AbstractWindow extends JFrame implements WindowInterface, Observer
 {
     protected Game mGame;
+    protected Kernel mKernel;
+
+    public AbstractWindow(Kernel kernel)
+    {
+        mKernel = kernel;
+    }
 
     @Override
     public void setGame(Game game)

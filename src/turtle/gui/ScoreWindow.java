@@ -9,11 +9,15 @@
 
 package turtle.gui;
 
-import java.util.Observable;
-import java.util.Observer;
+import turtle.Kernel;
 
 public class ScoreWindow extends AbstractWindow
 {
+    public ScoreWindow(Kernel kernel)
+    {
+        super(kernel);
+    }
+
     @Override
     public void updateGame(Object arg)
     {
