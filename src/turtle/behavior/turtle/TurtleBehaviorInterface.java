@@ -11,5 +11,5 @@ package turtle.behavior.turtle;
 
 public interface TurtleBehaviorInterface
 {
-
+    public float getSpeed();
 }

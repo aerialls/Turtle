@@ -58,4 +58,9 @@ public class Turtle
     {
         mBehavior = behavior;
     }
+
+    public float getSpeed()
+    {
+        return mBehavior.getSpeed();
+    }
 }
