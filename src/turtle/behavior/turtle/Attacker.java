@@ -12,6 +12,12 @@ package turtle.behavior.turtle;
 import turtle.entity.Game;
 import turtle.entity.Turtle;
 
+/**
+ * Comportement d'un attaquant
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class Attacker extends AbstractTurtleBehavior
 {
     public Attacker(Game game, Turtle turtle)

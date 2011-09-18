@@ -14,6 +14,12 @@ import javax.swing.JFrame;
 import turtle.Kernel;
 import turtle.entity.Game;
 
+/**
+ * Fenêtre ou les scores sont affichés
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class ScoreWindow extends AbstractWindow
 {
     public ScoreWindow(Kernel kernel, Game game)

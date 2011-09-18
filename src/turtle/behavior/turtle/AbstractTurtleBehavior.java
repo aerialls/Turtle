@@ -12,6 +12,12 @@ package turtle.behavior.turtle;
 import turtle.entity.Game;
 import turtle.entity.Turtle;
 
+/**
+ * Comportement d'un joueur abstrait
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 abstract public class AbstractTurtleBehavior implements TurtleBehaviorInterface
 {
     /**

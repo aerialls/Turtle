@@ -12,6 +12,12 @@ package turtle;
 import turtle.entity.Game;
 import turtle.gui.WindowManager;
 
+/**
+ * Point de départ du programme
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class TurtleGame
 {
     public static void main(String[] args)

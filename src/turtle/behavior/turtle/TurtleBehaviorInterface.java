@@ -9,6 +9,12 @@
 
 package turtle.behavior.turtle;
 
+/**
+ * Interface pour l'ensemble des comportements d'un joueur
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public interface TurtleBehaviorInterface
 {
     public float getSpeed();

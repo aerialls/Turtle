@@ -12,6 +12,12 @@ package turtle.entity;
 import java.awt.Color;
 import java.util.Observable;
 
+/**
+ * Représentation d'un jeu de foot (au niveau du modèle)
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class Game extends Observable
 {
     /**

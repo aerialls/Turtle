@@ -12,6 +12,12 @@ package turtle.behavior.turtle;
 import turtle.entity.Game;
 import turtle.entity.Turtle;
 
+/**
+ * Comportement d'un défenseur
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class Defender extends AbstractTurtleBehavior
 {
     public Defender(Game game, Turtle turtle)

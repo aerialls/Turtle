@@ -17,6 +17,12 @@ import javax.swing.JFrame;
 import turtle.Kernel;
 import turtle.entity.Game;
 
+/**
+ * Fenêtre abstraite
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 abstract public class AbstractWindow extends JFrame implements WindowInterface, Observer
 {
     protected Game mGame;

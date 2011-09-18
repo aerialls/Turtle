@@ -14,6 +14,13 @@ import java.util.ArrayList;
 import turtle.Kernel;
 import turtle.entity.Game;
 
+/**
+ * Permet d'instancier plus facilement l'ensemble des fenêtres
+ * du jeu de foot
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class WindowManager
 {
     protected ArrayList<AbstractWindow> mWindows;

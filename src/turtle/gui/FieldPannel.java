@@ -15,6 +15,12 @@ import javax.swing.JPanel;
 
 import turtle.entity.Field;
 
+/**
+ * Représentation de la vue d'un terrain de foot
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class FieldPannel extends JPanel
 {
     protected Field mField;

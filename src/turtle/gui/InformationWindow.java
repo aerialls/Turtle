@@ -14,6 +14,12 @@ import javax.swing.JFrame;
 import turtle.Kernel;
 import turtle.entity.Game;
 
+/**
+ * Fenêtre permettant la modification des variables du jeu
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class InformationWindow extends AbstractWindow
 {
     public InformationWindow(Kernel kernel, Game game)

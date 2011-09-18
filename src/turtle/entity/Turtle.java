@@ -13,6 +13,12 @@ import java.awt.Point;
 
 import turtle.behavior.turtle.TurtleBehaviorInterface;
 
+/**
+ * Représentation d'un joueur de foot
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class Turtle
 {
     /**

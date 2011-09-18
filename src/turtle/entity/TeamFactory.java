@@ -11,6 +11,12 @@ package turtle.entity;
 
 import java.awt.Color;
 
+/**
+ * Permet la simplification de la création d'une équipe
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class TeamFactory
 {
     public final static int TEAM_LEFT = 1;

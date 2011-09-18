@@ -14,6 +14,12 @@ import javax.swing.JFrame;
 import turtle.Kernel;
 import turtle.entity.Game;
 
+/**
+ * Fenêtre principale (ou se déroule le jeu de foot)
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class GameWindow extends AbstractWindow
 {
     protected FieldPannel mFieldPannel;

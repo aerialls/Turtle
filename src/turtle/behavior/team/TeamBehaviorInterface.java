@@ -9,7 +9,12 @@
 
 package turtle.behavior.team;
 
+/**
+ * Interface pour l'ensemble des comportements d'une équipe
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public interface TeamBehaviorInterface
 {
-
 }

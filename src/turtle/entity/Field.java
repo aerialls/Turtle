@@ -11,6 +11,12 @@ package turtle.entity;
 
 import java.awt.Dimension;
 
+/**
+ * Représentation d'un terrain de foot
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public class Field
 {
     protected Dimension mDimension;

@@ -9,6 +9,12 @@
 
 package turtle.gui;
 
+/**
+ * Interface pour une fenêtre
+ *
+ * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
+ * @since 1.0
+ */
 public interface WindowInterface
 {
     public void updateView(Object arg);
