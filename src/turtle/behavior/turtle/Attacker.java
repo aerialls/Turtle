@@ -10,12 +10,13 @@
 package turtle.behavior.turtle;
 
 import turtle.entity.Game;
+import turtle.entity.Turtle;
 
 public class Attacker extends AbstractTurtleBehavior
 {
-    public Attacker(Game game)
+    public Attacker(Game game, Turtle turtle)
     {
-        super(game);
+        super(game, turtle);
     }
 
     @Override

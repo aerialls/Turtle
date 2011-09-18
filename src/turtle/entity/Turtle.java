@@ -20,17 +20,20 @@ public class Turtle
      */
     protected Point mPosition;
 
+    protected Team mTeam;
+
     /**
      * Le comportement du joueur
      */
     protected TurtleBehaviorInterface mBehavior;
 
-    public Turtle(TurtleBehaviorInterface behavior)
+    public Turtle(Team team, TurtleBehaviorInterface behavior)
     {
         if (behavior == null) {
             throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");
         }
 
+        mTeam = team;
         mBehavior = behavior;
     }
 

@@ -10,13 +10,23 @@
 package turtle.behavior.turtle;
 
 import turtle.entity.Game;
+import turtle.entity.Turtle;
 
 abstract public class AbstractTurtleBehavior implements TurtleBehaviorInterface
 {
+    /**
+     * Le joueur concerné par le comportement
+     */
+    protected Turtle mTurtle;
+
+    /**
+     * Le jeu
+     */
     protected Game mGame;
 
-    public AbstractTurtleBehavior(Game game)
+    public AbstractTurtleBehavior(Game game, Turtle turtle)
     {
         mGame = game;
+        mTurtle = turtle;
     }
 }
