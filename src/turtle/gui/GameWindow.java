@@ -16,17 +16,29 @@ import turtle.entity.Game;
 
 public class GameWindow extends AbstractWindow
 {
+    protected FieldPannel mFieldPannel;
+
     public GameWindow(Kernel kernel, Game game)
     {
         super(kernel, game);
+
+        initialize();
 
         // Window informations
         setTitle("Game / Turtle Game - Version " + Kernel.VERSION);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 400);
         setLocationRelativeTo(null);
         setResizable(false);
+    }
+
+    protected void initialize()
+    {
+        setSize(mGame.getFieldDimension());
+
+        mFieldPannel = new FieldPannel(mGame);
+
+        getContentPane().add(mFieldPannel);
     }
 
     @Override

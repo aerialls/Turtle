@@ -9,7 +9,20 @@
 
 package turtle.gui;
 
-public interface WindowInterface
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
+import turtle.entity.Game;
+
+public class FieldPannel extends JPanel
 {
-    public void updateGame(Object arg);
+    protected Game mGame;
+
+    public FieldPannel(Game game)
+    {
+        mGame = game;
+
+        setBackground(new Color(31, 160, 31));
+    }
 }

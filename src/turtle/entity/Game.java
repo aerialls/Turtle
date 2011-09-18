@@ -43,7 +43,7 @@ public class Game extends Observable
     /**
      * Les dimensions du terrain
      */
-    protected Dimension mField;
+    protected Dimension mFieldDimension;
 
     public Game()
     {
@@ -52,7 +52,7 @@ public class Game extends Observable
         // Hardcoded for the moment
         mMaxTime = 120;
 
-        mField = new Dimension(500, 300);
+        mFieldDimension = new Dimension(500, 300);
 
         // Creation of the teams
         TeamFactory factory = new TeamFactory(this);
@@ -61,8 +61,8 @@ public class Game extends Observable
         mTeamB = factory.createDefaultTeam(Color.BLUE);
     }
 
-    public Dimension getField()
+    public Dimension getFieldDimension()
     {
-        return mField;
+        return mFieldDimension;
     }
 }
