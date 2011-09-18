@@ -9,7 +9,7 @@
 
 package turtle.entity;
 
-import java.awt.Point;
+import java.awt.geom.Point2D;
 
 import turtle.behavior.turtle.TurtleBehaviorInterface;
 
@@ -24,8 +24,11 @@ public class Turtle
     /**
      * La position du joueur sur le terrain
      */
-    protected Point mPosition;
+    protected Point2D mPosition;
 
+    /**
+     * L'équipe du joueur
+     */
     protected Team mTeam;
 
     /**
@@ -33,7 +36,7 @@ public class Turtle
      */
     protected TurtleBehaviorInterface mBehavior;
 
-    public Turtle(Team team, TurtleBehaviorInterface behavior)
+    public Turtle(Team team, TurtleBehaviorInterface behavior, Point2D position)
     {
         if (behavior == null) {
             throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");
@@ -41,6 +44,7 @@ public class Turtle
 
         mTeam = team;
         mBehavior = behavior;
+        mPosition = position;
     }
 
     /**
@@ -48,7 +52,7 @@ public class Turtle
      *
      * @return La position du joueur
      */
-    public Point getPosition()
+    public Point2D getPosition()
     {
         return mPosition;
     }
@@ -58,7 +62,7 @@ public class Turtle
      *
      * @param position L'objet position
      */
-    public void setPosition(Point position)
+    public void setPosition(Point2D position)
     {
         mPosition = position;
     }
@@ -69,9 +73,9 @@ public class Turtle
      * @param x Le distance sur l'axe des X
      * @param y La distance sur l'axe des Y
      */
-    public void setPosition(int x, int y)
+    public void setPosition(float x, float y)
     {
-        mPosition = new Point(x, y);
+        mPosition = new Point2D.Float(x, y);
     }
 
     /**
