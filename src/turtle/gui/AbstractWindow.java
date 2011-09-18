@@ -22,20 +22,15 @@ abstract public class AbstractWindow extends JFrame implements WindowInterface, 
     protected Game mGame;
     protected Kernel mKernel;
 
-    public AbstractWindow(Kernel kernel)
+    public AbstractWindow(Kernel kernel, Game game)
     {
+        mGame = game;
         mKernel = kernel;
     }
 
     public void display()
     {
         setVisible(true);
-    }
-
-    @Override
-    public void setGame(Game game)
-    {
-        mGame = game;
     }
 
     @Override

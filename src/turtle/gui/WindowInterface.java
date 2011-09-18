@@ -13,6 +13,5 @@ import turtle.entity.Game;
 
 public interface WindowInterface
 {
-    public void setGame(Game game);
     public void updateGame(Object arg);
 }

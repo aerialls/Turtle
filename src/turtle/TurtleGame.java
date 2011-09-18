@@ -18,9 +18,9 @@ public class TurtleGame
     {
         Game game = new Game();
         Kernel kernel = new Kernel(game);
-        WindowManager manager = new WindowManager(kernel);
+        WindowManager manager = new WindowManager(kernel, game);
 
-        manager.link(game);
+        manager.link();
         manager.display();
     }
 }

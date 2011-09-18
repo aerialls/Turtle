@@ -17,23 +17,24 @@ import turtle.entity.Game;
 public class WindowManager
 {
     protected ArrayList<AbstractWindow> mWindows;
+    protected Game mGame;
 
-    public WindowManager(Kernel kernel)
+    public WindowManager(Kernel kernel, Game game)
     {
+        mGame = game;
+
         //TODO: Make a better system, it sucks
         mWindows = new ArrayList<AbstractWindow>();
 
-        mWindows.add(new InformationWindow(kernel));
-        mWindows.add(new ScoreWindow(kernel));
-        mWindows.add(new GameWindow(kernel));
+        mWindows.add(new InformationWindow(kernel, game));
+        mWindows.add(new ScoreWindow(kernel, game));
+        mWindows.add(new GameWindow(kernel, game));
     }
 
-    public void link(Game game)
+    public void link()
     {
         for (AbstractWindow window : mWindows) {
-            window.setGame(game);
-            // We need to link the model with the view
-            game.addObserver(window);
+            mGame.addObserver(window);
         }
     }
 

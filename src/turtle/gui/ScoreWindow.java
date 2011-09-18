@@ -12,12 +12,13 @@ package turtle.gui;
 import javax.swing.JFrame;
 
 import turtle.Kernel;
+import turtle.entity.Game;
 
 public class ScoreWindow extends AbstractWindow
 {
-    public ScoreWindow(Kernel kernel)
+    public ScoreWindow(Kernel kernel, Game game)
     {
-        super(kernel);
+        super(kernel, game);
 
         // Window informations
         setTitle("Score / Turtle Game - Version " + Kernel.VERSION);
