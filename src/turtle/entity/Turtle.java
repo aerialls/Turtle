@@ -50,8 +50,7 @@ public class Turtle
     /**
      * Change la position du joueur sur le terrain
      *
-     * @param x Le distance sur l'axe des X
-     * @param y La distance sur l'axe des Y
+     * @param position L'objet position
      */
     public void setPosition(Point position)
     {
