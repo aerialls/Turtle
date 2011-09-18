@@ -43,6 +43,12 @@ public class Team
      */
     protected TeamBehaviorInterface mBehavior;
 
+    /**
+     * Création d'une équipe
+     *
+     * @param color   La couleur de l'équipe
+     * @param players L'ensemble des joueurs
+     */
     public Team(Color color, Set<Turtle> players)
     {
         mColor = color;

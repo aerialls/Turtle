@@ -19,13 +19,22 @@ import java.awt.Dimension;
  */
 public class Field
 {
+    /**
+     * Les dimensions du terrain
+     */
     protected Dimension mDimension;
 
+    /**
+     * Construction du terrain de foot
+     */
     public Field()
     {
         mDimension = new Dimension(700, 500);
     }
 
+    /**
+     * Retourne les dimensions du terrain
+     */
     public Dimension getDimension()
     {
         return mDimension;

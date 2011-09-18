@@ -36,6 +36,13 @@ public class Turtle
      */
     protected TurtleBehaviorInterface mBehavior;
 
+    /**
+     * Création d'un joueur
+     *
+     * @param team     L'équipe du joueur
+     * @param behavior Le comportement
+     * @param position La position sur le terrain
+     */
     public Turtle(Team team, TurtleBehaviorInterface behavior, Point2D position)
     {
         if (behavior == null) {

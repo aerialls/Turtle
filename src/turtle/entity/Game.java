@@ -50,6 +50,9 @@ public class Game extends Observable
      */
     protected Field mField;
 
+    /**
+     * Création du modèle
+     */
     public Game()
     {
         mLaunched = false;
@@ -66,6 +69,9 @@ public class Game extends Observable
         mTeamB = factory.createDefaultTeam(Color.BLUE, TeamFactory.TEAM_RIGHT);
     }
 
+    /**
+     * Retourne le terrain de foot
+     */
     public Field getField()
     {
         return mField;

@@ -30,6 +30,13 @@ public class Goal
      */
     protected Team mTeam;
 
+    /**
+     * Création d'un but d'une équipe
+     *
+     * @param team      Le propriétaire du but
+     * @param positionA Le premier point pour la position du but
+     * @param positionB Le deuxième point pour la position du but
+     */
     public Goal(Team team, Point2D positionA, Point2D positionB)
     {
         mLine = new Line2D.Float(positionA, positionB);

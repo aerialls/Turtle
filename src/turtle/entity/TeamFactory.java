@@ -40,7 +40,7 @@ public class TeamFactory
     /**
      * Création d'une équipe standard
      *
-     * @param color La couleur de l'équipe
+     * @param color        La couleur de l'équipe
      * @param teamPosition La position de l'équipe
      *
      * @return Une nouvelle instance de Team

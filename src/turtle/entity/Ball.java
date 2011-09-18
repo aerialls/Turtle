@@ -24,6 +24,11 @@ public class Ball
      */
     protected Point2D mPosition;
 
+    /**
+     * Construction du ballon
+     *
+     * @param position La position sur le terrain
+     */
     public Ball(Point2D position)
     {
         mPosition = position;
