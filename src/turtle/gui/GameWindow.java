@@ -34,9 +34,9 @@ public class GameWindow extends AbstractWindow
 
     protected void initialize()
     {
-        setSize(mGame.getFieldDimension());
+        setSize(mGame.getField().getDimension());
 
-        mFieldPannel = new FieldPannel(mGame);
+        mFieldPannel = new FieldPannel(mGame.getField());
 
         getContentPane().add(mFieldPannel);
     }

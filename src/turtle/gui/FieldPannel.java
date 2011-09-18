@@ -13,15 +13,15 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 
-import turtle.entity.Game;
+import turtle.entity.Field;
 
 public class FieldPannel extends JPanel
 {
-    protected Game mGame;
+    protected Field mField;
 
-    public FieldPannel(Game game)
+    public FieldPannel(Field field)
     {
-        mGame = game;
+        mField = field;
 
         setBackground(new Color(31, 160, 31));
     }
