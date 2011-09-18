@@ -11,5 +11,5 @@ package turtle.gui;
 
 public interface WindowInterface
 {
-    public void updateGame(Object arg);
+    public void updateView(Object arg);
 }

@@ -42,7 +42,7 @@ public class GameWindow extends AbstractWindow
     }
 
     @Override
-    public void updateGame(Object arg)
+    public void updateView(Object arg)
     {
     }
 }

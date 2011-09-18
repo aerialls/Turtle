@@ -37,7 +37,7 @@ abstract public class AbstractWindow extends JFrame implements WindowInterface, 
     public void update(Observable o, Object arg)
     {
         if (o instanceof Game && o != null) {
-            updateGame(arg);
+            updateView(arg);
         }
     }
 }
