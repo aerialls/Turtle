@@ -22,7 +22,6 @@ public class ScoreWindow extends AbstractWindow
         // Window informations
         setTitle("Score / Turtle Game - Version " + Kernel.VERSION);
 
-        //TODO: We need to define a callback here for closing all the windows at the same time
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(200, 150);
         setResizable(false);
