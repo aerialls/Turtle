@@ -52,7 +52,7 @@ public class Game extends Observable
         // Hardcoded for the moment
         mMaxTime = 120;
 
-        mFieldDimension = new Dimension(500, 300);
+        mFieldDimension = new Dimension(700, 500);
 
         // Creation of the teams
         TeamFactory factory = new TeamFactory(this);
