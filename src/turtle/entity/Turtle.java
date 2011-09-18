@@ -27,6 +27,11 @@ public class Turtle
     protected Point2D mPosition;
 
     /**
+     * La direction du joueur sur le terrain
+     */
+    protected float mDirection;
+
+    /**
      * L'équipe du joueur
      */
     protected Team mTeam;
@@ -39,11 +44,12 @@ public class Turtle
     /**
      * Création d'un joueur
      *
-     * @param team     L'équipe du joueur
-     * @param behavior Le comportement
-     * @param position La position sur le terrain
+     * @param team       L'équipe du joueur
+     * @param behavior   Le comportement
+     * @param position   La position sur le terrain
+     * @param direcction La direction sur le terrain
      */
-    public Turtle(Team team, TurtleBehaviorInterface behavior, Point2D position)
+    public Turtle(Team team, TurtleBehaviorInterface behavior, Point2D position, float direction)
     {
         if (behavior == null) {
             throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");
@@ -51,13 +57,13 @@ public class Turtle
 
         mTeam = team;
         mBehavior = behavior;
+
         mPosition = position;
+        mDirection = direction;
     }
 
     /**
      * Retourne la position du joueur sur le terrain
-     *
-     * @return La position du joueur
      */
     public Point2D getPosition()
     {
@@ -72,6 +78,24 @@ public class Turtle
     public void setPosition(Point2D position)
     {
         mPosition = position;
+    }
+
+    /**
+     * Retourne la direction du joueur sur le terrain
+     */
+    public float getDirection()
+    {
+        return mDirection;
+    }
+
+    /**
+     * Change la direction du joueur sur le terrain
+     *
+     * @param direction La direction du joueur
+     */
+    public void setDirection(float direction)
+    {
+        mDirection = direction;
     }
 
     /**
