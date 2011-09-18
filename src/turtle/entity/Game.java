@@ -10,6 +10,7 @@
 package turtle.entity;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.Observable;
 
 public class Game extends Observable
@@ -39,6 +40,11 @@ public class Game extends Observable
      */
     protected float mMaxTime;
 
+    /**
+     * Les dimensions du terrain
+     */
+    protected Dimension mField;
+
     public Game()
     {
         mLaunched = false;
@@ -46,10 +52,17 @@ public class Game extends Observable
         // Hardcoded for the moment
         mMaxTime = 120;
 
+        mField = new Dimension(500, 300);
+
         // Creation of the teams
         TeamFactory factory = new TeamFactory(this);
 
         mTeamA = factory.createDefaultTeam(Color.RED);
         mTeamB = factory.createDefaultTeam(Color.BLUE);
+    }
+
+    public Dimension getField()
+    {
+        return mField;
     }
 }
