@@ -10,7 +10,6 @@
 package turtle.entity;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.util.Observable;
 
 public class Game extends Observable
@@ -57,8 +56,8 @@ public class Game extends Observable
         // Creation of the teams
         TeamFactory factory = new TeamFactory(this);
 
-        mTeamA = factory.createDefaultTeam(Color.RED);
-        mTeamB = factory.createDefaultTeam(Color.BLUE);
+        mTeamA = factory.createDefaultTeam(Color.RED, TeamFactory.TEAM_LEFT);
+        mTeamB = factory.createDefaultTeam(Color.BLUE, TeamFactory.TEAM_RIGHT);
     }
 
     public Field getField()

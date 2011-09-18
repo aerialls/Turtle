@@ -13,6 +13,9 @@ import java.awt.Color;
 
 public class TeamFactory
 {
+    public final static int TEAM_LEFT = 1;
+    public final static int TEAM_RIGHT = 2;
+
     /**
      * Le nombre de joueur dans une équipe
      */
@@ -32,10 +35,14 @@ public class TeamFactory
      * Création d'une équipe standard
      *
      * @param color La couleur de l'équipe
+     * @param teamPosition La position de l'équipe
      *
      * @return Une nouvelle instance de Team
+     *
+     * @see TeamFactory#TEAM_LEFT
+     * @see TeamFactory#TEAM_RIGHT
      */
-    public Team createDefaultTeam(Color color)
+    public Team createDefaultTeam(Color color, int teamPosition)
     {
         return null;
     }
