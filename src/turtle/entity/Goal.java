@@ -42,4 +42,12 @@ public class Goal
         mLine = new Line2D.Float(positionA, positionB);
         mTeam = team;
     }
+
+    /**
+     * Retourne la ligne modélisant le but
+     */
+    public Line2D getLine()
+    {
+        return mLine;
+    }
 }

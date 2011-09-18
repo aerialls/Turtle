@@ -33,4 +33,22 @@ public class Ball
     {
         mPosition = position;
     }
+
+    /**
+     * Change la position du ballon
+     *
+     * @param position La nouvelle position du ballon
+     */
+    public void setPosition(Point2D position)
+    {
+        mPosition = position;
+    }
+
+    /**
+     * Retourne la position du ballon
+     */
+    public Point2D getPosition()
+    {
+        return mPosition;
+    }
 }
