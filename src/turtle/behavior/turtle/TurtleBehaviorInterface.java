@@ -9,6 +9,8 @@
 
 package turtle.behavior.turtle;
 
+import turtle.entity.Turtle;
+
 /**
  * Interface pour l'ensemble des comportements d'un joueur
  *
@@ -18,4 +20,6 @@ package turtle.behavior.turtle;
 public interface TurtleBehaviorInterface
 {
     public float getSpeed();
+
+    public void setTurtle(Turtle turtle);
 }

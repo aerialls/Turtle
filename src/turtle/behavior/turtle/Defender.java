@@ -20,9 +20,9 @@ import turtle.entity.Turtle;
  */
 public class Defender extends AbstractTurtleBehavior
 {
-    public Defender(Game game, Turtle turtle)
+    public Defender(Game game)
     {
-        super(game, turtle);
+        super(game);
     }
 
     @Override

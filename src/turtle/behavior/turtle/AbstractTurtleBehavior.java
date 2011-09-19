@@ -30,9 +30,14 @@ abstract public class AbstractTurtleBehavior implements TurtleBehaviorInterface
      */
     protected Game mGame;
 
-    public AbstractTurtleBehavior(Game game, Turtle turtle)
+    public AbstractTurtleBehavior(Game game)
     {
         mGame = game;
+    }
+
+    @Override
+    public void setTurtle(Turtle turtle)
+    {
         mTurtle = turtle;
     }
 }
