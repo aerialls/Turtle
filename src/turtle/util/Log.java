@@ -54,7 +54,7 @@ public final class Log
 
     public static void println(int priority, String msg)
     {
-        String state;
+        String state = "Unknown";
 
         switch (priority) {
             case VERBOSE:
@@ -70,7 +70,6 @@ public final class Log
                 state = "Error";
                 break;
             case INFO:
-            default:
                 state = "Information";
                 break;
         }
