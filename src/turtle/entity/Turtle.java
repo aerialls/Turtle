@@ -11,7 +11,9 @@ package turtle.entity;
 
 import java.awt.geom.Point2D;
 
+import turtle.Kernel;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
+import turtle.util.Log;
 
 /**
  * Représentation d'un joueur de foot
@@ -44,20 +46,21 @@ public class Turtle
     /**
      * Création d'un joueur
      *
-     * @param team       L'équipe du joueur
-     * @param behavior   Le comportement
-     * @param position   La position sur le terrain
-     * @param direcction La direction sur le terrain
+     * @param behavior  Le comportement
+     * @param position  La position sur le terrain
+     * @param direction La direction sur le terrain
      */
-    public Turtle(Team team, TurtleBehaviorInterface behavior, Point2D position, float direction)
+    public Turtle(TurtleBehaviorInterface behavior, Point2D position, float direction)
     {
         if (behavior == null) {
             throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");
         }
 
-        mTeam = team;
-        mBehavior = behavior;
+        if (Kernel.DEBUG) {
+            Log.i(String.format("Turtle creation (behavior=%s, position=%s)", behavior, position));
+        }
 
+        mBehavior = behavior;
         mPosition = position;
         mDirection = direction;
     }
@@ -127,6 +130,16 @@ public class Turtle
     public void setBehavior(TurtleBehaviorInterface behavior)
     {
         mBehavior = behavior;
+    }
+
+    /**
+     * Associe une équipe au joueur
+     *
+     * @param team L'équipe
+     */
+    public void setTeam(Team team)
+    {
+        mTeam = team;
     }
 
     /**

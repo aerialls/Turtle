@@ -10,8 +10,12 @@
 package turtle.entity;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.geom.Point2D;
 
 import turtle.Kernel;
+import turtle.behavior.turtle.Attacker;
+import turtle.behavior.turtle.TurtleBehaviorInterface;
 import turtle.util.Log;
 
 /**
@@ -30,14 +34,11 @@ public class TeamFactory
      */
     protected final int players = 6;
 
-    /**
-     * Le terrain de foot
-     */
-    protected Field mField;
+    protected Game mGame;
 
-    public TeamFactory(Field field)
+    public TeamFactory(Game game)
     {
-        mField = field;
+        mGame = game;
     }
 
     /**
@@ -53,10 +54,30 @@ public class TeamFactory
      */
     public Team createDefaultTeam(Color color, int teamPosition)
     {
+        Dimension fieldDimension = mGame.getField().getDimension();
+
         if (Kernel.DEBUG) {
-            Log.i("Création d'une nouvelle équipe (color:" + color + ", teamPosition:" + teamPosition + ')');
+            Log.i(String.format("Team creation (color:%s, teamPosition:%s)", color, teamPosition));
         }
 
-        return null;
+        TurtleBehaviorInterface behavior = new Attacker(mGame);
+        Team team = new Team(color);
+
+        float height = (float) (fieldDimension.getHeight() / 2);
+        float width  = (float) (fieldDimension.getWidth() / 4);
+
+        if (teamPosition == TEAM_RIGHT) {
+            width = (float) (fieldDimension.getWidth() - width);
+        }
+
+        //TODO Change the direction
+        Turtle turtle = new Turtle(behavior, new Point2D.Float(width, height), 0.0f);
+
+        // Links between classes
+        behavior.setTurtle(turtle);
+        turtle.setTeam(team);
+        team.addTurtle(turtle);
+
+        return team;
     }
 }
