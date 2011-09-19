@@ -26,7 +26,7 @@ public class Team
     /**
      * L'ensemble des joueurs de l'équipe
      */
-    protected Set<Turtle> mPlayers;
+    protected Set<Turtle> mTurtles;
 
     /**
      * La couleur des joueurs
@@ -47,23 +47,28 @@ public class Team
      * Création d'une équipe
      *
      * @param color   La couleur de l'équipe
-     * @param players L'ensemble des joueurs
      */
-    public Team(Color color, Set<Turtle> players)
+    public Team(Color color)
     {
+        mTurtles = new HashSet<Turtle>();
+
         mColor = color;
         mScore = 0;
-
-        if (players == null) {
-            throw new IllegalArgumentException("A team must have at least one player.");
-        }
-
-        mPlayers = players;
     }
 
-    public Set<Turtle> getPlayers()
+    /**
+     * Ajoute un joueur dans l'équipe
+     *
+     * @param turtle Le joueur à ajouter
+     */
+    public void addTurtle(Turtle turtle)
     {
-        return mPlayers;
+        mTurtles.add(turtle);
+    }
+
+    public Set<Turtle> getTurtles()
+    {
+        return mTurtles;
     }
 
     public Color getColor()
