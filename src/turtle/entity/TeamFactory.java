@@ -11,6 +11,9 @@ package turtle.entity;
 
 import java.awt.Color;
 
+import turtle.Kernel;
+import turtle.util.Log;
+
 /**
  * Permet la simplification de la création d'une équipe
  *
@@ -50,6 +53,10 @@ public class TeamFactory
      */
     public Team createDefaultTeam(Color color, int teamPosition)
     {
+        if (Kernel.DEBUG) {
+            Log.i("Création d'une nouvelle équipe (color:" + color + ", teamPosition:" + teamPosition + ')');
+        }
+
         return null;
     }
 }
