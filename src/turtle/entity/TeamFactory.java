@@ -32,7 +32,7 @@ public class TeamFactory
     /**
      * Le nombre de joueur dans une équipe
      */
-    protected final int players = 6;
+    protected final int mPlayers = 6;
 
     protected Game mGame;
 
