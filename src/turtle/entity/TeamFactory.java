@@ -28,13 +28,13 @@ public class TeamFactory
     protected final int players = 6;
 
     /**
-     * La partie
+     * Le terrain de foot
      */
-    protected Game mGame;
+    protected Field mField;
 
-    public TeamFactory(Game game)
+    public TeamFactory(Field field)
     {
-        mGame = game;
+        mField = field;
     }
 
     /**
