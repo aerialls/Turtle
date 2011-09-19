@@ -50,7 +50,7 @@ public class Turtle
      * @param position  La position sur le terrain
      * @param direction La direction sur le terrain
      */
-    public Turtle(TurtleBehaviorInterface behavior, Point2D position, float direction)
+    public Turtle(Team team, TurtleBehaviorInterface behavior, Point2D position, float direction)
     {
         if (behavior == null) {
             throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");
@@ -60,6 +60,10 @@ public class Turtle
             Log.i(String.format("Turtle creation (behavior=%s, position=%s)", behavior, position));
         }
 
+        behavior.setTurtle(this);
+        team.addTurtle(this);
+
+        mTeam = team;
         mBehavior = behavior;
         mPosition = position;
         mDirection = direction;
@@ -120,16 +124,6 @@ public class Turtle
     public TurtleBehaviorInterface getBehavior()
     {
         return mBehavior;
-    }
-
-    /**
-     * Change le comportement du joueur
-     *
-     * @param behavior Le nouveau comportement
-     */
-    public void setBehavior(TurtleBehaviorInterface behavior)
-    {
-        mBehavior = behavior;
     }
 
     /**

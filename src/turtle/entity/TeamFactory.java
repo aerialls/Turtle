@@ -36,9 +36,12 @@ public class TeamFactory
 
     protected Game mGame;
 
+    protected TurtleFactory mTurtleFactory;
+
     public TeamFactory(Game game)
     {
         mGame = game;
+        mTurtleFactory = new TurtleFactory(game);
     }
 
     /**
@@ -60,7 +63,6 @@ public class TeamFactory
             Log.i(String.format("Team creation (color:%s, teamPosition:%s)", color, teamPosition));
         }
 
-        TurtleBehaviorInterface behavior = new Attacker(mGame);
         Team team = new Team(color);
 
         float height = (float) (fieldDimension.getHeight() / 2);
@@ -71,12 +73,7 @@ public class TeamFactory
         }
 
         //TODO Change the direction
-        Turtle turtle = new Turtle(behavior, new Point2D.Float(width, height), 0.0f);
-
-        // Links between classes
-        behavior.setTurtle(turtle);
-        turtle.setTeam(team);
-        team.addTurtle(turtle);
+        mTurtleFactory.createAttacker(team, new Point2D.Float(width, height), 0.0f);
 
         return team;
     }
