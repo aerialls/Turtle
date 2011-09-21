@@ -16,6 +16,7 @@ import java.awt.geom.Line2D;
 import javax.swing.JPanel;
 
 import turtle.entity.Field;
+import turtle.entity.Goal;
 
 /**
  * Représentation de la vue d'un terrain de foot
@@ -44,10 +45,21 @@ public class FieldPannel extends JPanel
         // White
         g.setColor(Color.WHITE);
 
-        // Goal A
-        Line2D line = mField.getGoalA().getLine();
+        // Goals
+        paintGoal(g, mField.getGoalA());
+        paintGoal(g, mField.getGoalB());
+    }
+
+    /**
+     * Dessine un but sur le terrain
+     *
+     * @param g    L'object Graphics
+     * @param goal Le but a dessiner
+     */
+    private void paintGoal(Graphics g, Goal goal)
+    {
+        Line2D line = goal.getLine();
 
         g.drawLine((int) line.getX1(), (int) line.getY1(), (int) line.getX2(), (int) line.getY2());
-
     }
 }

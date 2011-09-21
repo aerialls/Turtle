@@ -53,12 +53,17 @@ public class Field
         mDimension = new Dimension(mWidth, mHeight);
 
         // Goal A
-        float height = (float) (0.3 * mHeight);
+        float height = (float) (0.35 * mHeight);
 
         float x = (float) (0.05 * mWidth);
         float y = (mHeight - height) / 2;
 
         mGoalA = new Goal(teamA, new Point2D.Float(x, y), new Point2D.Float(x, y + height));
+
+        // Goal B
+        x = mWidth - x;
+
+        mGoalB = new Goal(teamA, new Point2D.Float(x, y), new Point2D.Float(x, y + height));
     }
 
     /**
