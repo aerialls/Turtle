@@ -10,6 +10,8 @@
 package turtle.gui;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.geom.Line2D;
 
 import javax.swing.JPanel;
 
@@ -28,7 +30,24 @@ public class FieldPannel extends JPanel
     public FieldPannel(Field field)
     {
         mField = field;
+    }
 
-        setBackground(new Color(31, 160, 31));
+    @Override
+    public void paintComponent(Graphics g)
+    {
+        // Green
+        g.setColor(new Color(31, 160, 31));
+
+        // Background
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+
+        // White
+        g.setColor(Color.WHITE);
+
+        // Goal A
+        Line2D line = mField.getGoalA().getLine();
+
+        g.drawLine((int) line.getX1(), (int) line.getY1(), (int) line.getX2(), (int) line.getY2());
+
     }
 }
