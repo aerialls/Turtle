@@ -9,7 +9,12 @@
 
 package turtle.gui;
 
+import java.awt.BorderLayout;
+import java.awt.Font;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import turtle.Kernel;
 import turtle.entity.Game;
@@ -22,16 +27,49 @@ import turtle.entity.Game;
  */
 public class ScoreWindow extends AbstractWindow
 {
+    /**
+     * Le label où est affiché le score
+     */
+    protected JLabel mScoreLabel;
+
+    /**
+     * Le label où est affiché le temps restant
+     */
+    protected JLabel mTimeLabel;
+
     public ScoreWindow(Kernel kernel, Game game)
     {
         super(kernel, game);
+
+        initialize();
 
         // Window informations
         setTitle("Score / Turtle Game - Version " + Kernel.VERSION);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(200, 150);
+        setSize(170, 120);
         setResizable(false);
+    }
+
+    protected void initialize()
+    {
+        JPanel score = new JPanel();
+        mScoreLabel  = new JLabel("0 - 0");
+
+        Font font = mScoreLabel.getFont();
+        mScoreLabel.setFont(new Font(font.getFontName(), font.getStyle(), 40));
+
+        score.add(mScoreLabel);
+        getContentPane().add(score, BorderLayout.CENTER);
+
+        JPanel time = new JPanel();
+        mTimeLabel  = new JLabel("90:00");
+
+        font = mTimeLabel.getFont();
+        mTimeLabel.setFont(new Font(font.getFontName(), font.getStyle(), 15));
+
+        time.add(mTimeLabel);
+        getContentPane().add(time, BorderLayout.SOUTH);
     }
 
     @Override
