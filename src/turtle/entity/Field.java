@@ -10,6 +10,7 @@
 package turtle.entity;
 
 import java.awt.Dimension;
+import java.awt.geom.Point2D;
 
 /**
  * Représentation d'un terrain de foot
@@ -25,11 +26,39 @@ public class Field
     protected Dimension mDimension;
 
     /**
+     * Le premier but
+     */
+    protected Goal mGoalA;
+
+    /**
+     * Le deuxième but
+     */
+    protected Goal mGoalB;
+
+    /**
+     * La largeur du terrain de foot
+     */
+    private final int mWidth = 700;
+
+    /**
+     * La hauteur du terrain de foot
+     */
+    private final int mHeight = 500;
+
+    /**
      * Construction du terrain de foot
      */
-    public Field()
+    public Field(Team teamA, Team teamB)
     {
-        mDimension = new Dimension(700, 500);
+        mDimension = new Dimension(mWidth, mHeight);
+
+        // Goal A
+        float height = (float) (0.3 * mHeight);
+
+        float x = (float) (0.05 * mWidth);
+        float y = (mHeight - height) / 2;
+
+        mGoalA = new Goal(teamA, new Point2D.Float(x, y), new Point2D.Float(x, y + height));
     }
 
     /**
@@ -38,5 +67,21 @@ public class Field
     public Dimension getDimension()
     {
         return mDimension;
+    }
+
+    /**
+     * Retourne le but de l'équipe A
+     */
+    public Goal getGoalA()
+    {
+        return mGoalA;
+    }
+
+    /**
+     * Retourne le but de l'équipe B
+     */
+    public Goal getGoalB()
+    {
+        return mGoalB;
     }
 }
