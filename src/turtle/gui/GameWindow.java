@@ -31,7 +31,7 @@ public class GameWindow extends AbstractWindow
         initialize();
 
         // Window informations
-        setTitle("Game / Turtle Game - Version " + Kernel.VERSION);
+        setTitle("Game");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);

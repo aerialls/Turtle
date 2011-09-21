@@ -40,6 +40,14 @@ abstract public class AbstractWindow extends JFrame implements WindowInterface, 
     }
 
     @Override
+    public void setTitle(String title)
+    {
+        title += " / Turtle Game (Version " + Kernel.VERSION + ")";
+
+        super.setTitle(title);
+    }
+
+    @Override
     public void update(Observable o, Object arg)
     {
         if (o instanceof Game && o != null) {

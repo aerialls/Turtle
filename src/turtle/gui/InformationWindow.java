@@ -27,7 +27,7 @@ public class InformationWindow extends AbstractWindow
         super(kernel, game);
 
         // Window informations
-        setTitle("Informations / Turtle Game - Version " + Kernel.VERSION);
+        setTitle("Informations");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(200, 100);

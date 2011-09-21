@@ -44,7 +44,7 @@ public class ScoreWindow extends AbstractWindow
         initialize();
 
         // Window informations
-        setTitle("Score / Turtle Game - Version " + Kernel.VERSION);
+        setTitle("Score");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(170, 120);
