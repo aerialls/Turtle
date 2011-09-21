@@ -51,6 +51,9 @@ public class ScoreWindow extends AbstractWindow
         setResizable(false);
     }
 
+    /**
+     * Création de la fenêtre et de ses composants
+     */
     protected void initialize()
     {
         JPanel score = new JPanel();

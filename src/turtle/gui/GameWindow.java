@@ -38,6 +38,9 @@ public class GameWindow extends AbstractWindow
         setResizable(false);
     }
 
+    /**
+     * Création de la fenêtre et de ses composants
+     */
     protected void initialize()
     {
         setSize(mGame.getField().getDimension());
