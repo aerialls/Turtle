@@ -62,7 +62,7 @@ public class Game extends Observable
         // Hardcoded for the moment
         mMaxTime = 120;
 
-        mField = new Field();
+        mField = new Field(700, 500);
 
         // Creation of the teams
         TeamFactory factory = new TeamFactory(this);

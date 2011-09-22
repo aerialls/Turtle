@@ -41,37 +41,29 @@ public class Field
     protected Ball mBall;
 
     /**
-     * La largeur du terrain de foot
-     */
-    private final int mWidth = 700;
-
-    /**
-     * La hauteur du terrain de foot
-     */
-    private final int mHeight = 500;
-
-    /**
      * Construction du terrain de foot
      */
-    public Field()
+    public Field(int width, int height)
     {
-        mDimension = new Dimension(mWidth, mHeight);
+        mDimension = new Dimension(width, height);
 
         // The ball
         mBall = new Ball(new Point2D.Float(0.0f, 0.0f));
 
         // Goal A
-        float height = (float) (0.35 * mHeight);
+        float goal = (float) (0.35 * height);
 
-        float x = (float) (0.05 * mWidth);
-        float y = (mHeight - height) / 2;
+        float x = (float) (0.05 * width);
+        float y = (height - goal) / 2;
 
-        mGoalA = new Goal(new Point2D.Float(x, y), new Point2D.Float(x, y + height));
+        //TODO We have a problem (with float goal)
+
+        mGoalA = new Goal(new Point2D.Float(x, y), new Point2D.Float(x, y + goal));
 
         // Goal B
-        x = mWidth - x;
+        x = width - x;
 
-        mGoalB = new Goal(new Point2D.Float(x, y), new Point2D.Float(x, y + height));
+        mGoalB = new Goal(new Point2D.Float(x, y), new Point2D.Float(x, y + goal));
     }
 
     /**
