@@ -12,8 +12,6 @@ package turtle.entity.field;
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
 
-import turtle.entity.Team;
-
 /**
  * Représentation d'un terrain de foot
  *
@@ -50,7 +48,7 @@ public class Field
     /**
      * Construction du terrain de foot
      */
-    public Field(Team teamA, Team teamB)
+    public Field()
     {
         mDimension = new Dimension(mWidth, mHeight);
 
@@ -60,12 +58,12 @@ public class Field
         float x = (float) (0.05 * mWidth);
         float y = (mHeight - height) / 2;
 
-        mGoalA = new Goal(teamA, new Point2D.Float(x, y), new Point2D.Float(x, y + height));
+        mGoalA = new Goal(new Point2D.Float(x, y), new Point2D.Float(x, y + height));
 
         // Goal B
         x = mWidth - x;
 
-        mGoalB = new Goal(teamA, new Point2D.Float(x, y), new Point2D.Float(x, y + height));
+        mGoalB = new Goal(new Point2D.Float(x, y), new Point2D.Float(x, y + height));
     }
 
     /**
