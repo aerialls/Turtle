@@ -36,6 +36,11 @@ public class Field
     protected Goal mGoalB;
 
     /**
+     * Le ballon sur le terrain de foot
+     */
+    protected Ball mBall;
+
+    /**
      * La largeur du terrain de foot
      */
     private final int mWidth = 700;
@@ -51,6 +56,9 @@ public class Field
     public Field()
     {
         mDimension = new Dimension(mWidth, mHeight);
+
+        // The ball
+        mBall = new Ball(new Point2D.Float(0.0f, 0.0f));
 
         // Goal A
         float height = (float) (0.35 * mHeight);
@@ -88,5 +96,13 @@ public class Field
     public Goal getGoalB()
     {
         return mGoalB;
+    }
+
+    /**
+     * Retourne le ballon du terrain de foot
+     */
+    public Ball getBall()
+    {
+        return mBall;
     }
 }
