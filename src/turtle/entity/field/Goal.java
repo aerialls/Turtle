@@ -7,10 +7,12 @@
  * file that was distributed with this source code.
  */
 
-package turtle.entity;
+package turtle.entity.field;
 
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
+
+import turtle.entity.Team;
 
 /**
  * Représentation d'un but

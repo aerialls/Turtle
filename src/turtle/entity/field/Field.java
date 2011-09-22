@@ -7,10 +7,12 @@
  * file that was distributed with this source code.
  */
 
-package turtle.entity;
+package turtle.entity.field;
 
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
+
+import turtle.entity.Team;
 
 /**
  * Représentation d'un terrain de foot

@@ -15,8 +15,8 @@ import java.awt.geom.Line2D;
 
 import javax.swing.JPanel;
 
-import turtle.entity.Field;
-import turtle.entity.Goal;
+import turtle.entity.field.Field;
+import turtle.entity.field.Goal;
 
 /**
  * Représentation de la vue d'un terrain de foot

@@ -12,6 +12,8 @@ package turtle.entity;
 import java.awt.Color;
 import java.util.Observable;
 
+import turtle.entity.field.Field;
+
 /**
  * Représentation d'un jeu de foot (au niveau du modèle)
  *

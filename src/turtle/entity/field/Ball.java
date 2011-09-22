@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-package turtle.entity;
+package turtle.entity.field;
 
 import java.awt.geom.Point2D;
 
