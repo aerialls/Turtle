@@ -14,6 +14,7 @@ import java.awt.geom.Point2D;
 import turtle.behavior.turtle.Attacker;
 import turtle.behavior.turtle.Defender;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
+import turtle.entity.field.Field;
 
 /**
  * Permet la simplification de la création des joueurs
@@ -23,20 +24,51 @@ import turtle.behavior.turtle.TurtleBehaviorInterface;
  */
 public class TurtleFactory
 {
-    protected Game mGame;
+    /**
+     * L'instance pour le singleton
+     */
+    protected static TurtleFactory mInstance;
 
-    public TurtleFactory(Game game)
+    /**
+     * Impossible d'instancier cet object via le constructeur
+     *
+     * @see TurtleFactory#getInstance()
+     */
+    private TurtleFactory()
     {
-        mGame = game;
     }
 
-    public Turtle createAttacker(Team team, Point2D position, float direction)
+    /**
+     * Retourne l'instance pour le singleton
+     */
+    public static TurtleFactory getInstance()
     {
-        return new Turtle(team, new Attacker(mGame), position, direction);
+        return (mInstance == null) ? (mInstance = new TurtleFactory()) : mInstance;
     }
 
-    public Turtle createDefender(Team team, Point2D position, float direction)
+    /**
+     * Création d'un nouvel attaquant
+     *
+     * @param field     Le terrain de foot
+     * @param team      L'équipe du joueur
+     * @param position  La position sur le terrain de foot
+     * @param direction La direction du joueur
+     */
+    public Turtle createAttacker(Field field, Team team, Point2D position, float direction)
     {
-        return new Turtle(team, new Defender(mGame), position, direction);
+        return new Turtle(team, new Attacker(field), position, direction);
+    }
+
+    /**
+     * Création d'un nouveau défenseur
+     *
+     * @param field     Le terrain de foot
+     * @param team      L'équipe du joueur
+     * @param position  La position sur le terrain de foot
+     * @param direction La direction du joueur
+     */
+    public Turtle createDefender(Field field, Team team, Point2D position, float direction)
+    {
+        return new Turtle(team, new Defender(field), position, direction);
     }
 }

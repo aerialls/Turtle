@@ -9,7 +9,7 @@
 
 package turtle.behavior.turtle;
 
-import turtle.entity.Game;
+import turtle.entity.field.Field;
 import turtle.entity.Turtle;
 
 /**
@@ -28,11 +28,11 @@ abstract public class AbstractTurtleBehavior implements TurtleBehaviorInterface
     /**
      * Le jeu
      */
-    protected Game mGame;
+    protected Field mField;
 
-    public AbstractTurtleBehavior(Game game)
+    public AbstractTurtleBehavior(Field field)
     {
-        mGame = game;
+        mField = field;
     }
 
     @Override

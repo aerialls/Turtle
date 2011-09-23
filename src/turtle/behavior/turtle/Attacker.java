@@ -11,6 +11,7 @@ package turtle.behavior.turtle;
 
 import turtle.entity.Game;
 import turtle.entity.Turtle;
+import turtle.entity.field.Field;
 
 /**
  * Comportement d'un attaquant
@@ -20,9 +21,9 @@ import turtle.entity.Turtle;
  */
 public class Attacker extends AbstractTurtleBehavior
 {
-    public Attacker(Game game)
+    public Attacker(Field field)
     {
-        super(game);
+        super(field);
     }
 
     @Override

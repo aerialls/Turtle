@@ -14,8 +14,7 @@ import java.awt.Dimension;
 import java.awt.geom.Point2D;
 
 import turtle.Kernel;
-import turtle.behavior.turtle.Attacker;
-import turtle.behavior.turtle.TurtleBehaviorInterface;
+import turtle.entity.field.Field;
 import turtle.util.Log;
 
 /**
@@ -24,7 +23,7 @@ import turtle.util.Log;
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-public class TeamFactory
+public class TeamBuilder
 {
     public final static int TEAM_LEFT = 1;
     public final static int TEAM_RIGHT = 2;
@@ -34,30 +33,43 @@ public class TeamFactory
      */
     protected final int mPlayers = 6;
 
-    protected Game mGame;
+    /**
+     * L'instance pour le singleton
+     */
+    protected static TeamBuilder mInstance;
 
-    protected TurtleFactory mTurtleFactory;
-
-    public TeamFactory(Game game)
+    /**
+     * Impossible d'instancier cet object via le constructeur
+     *
+     * @see TeamBuilder#getInstance()
+     */
+    private TeamBuilder()
     {
-        mGame = game;
-        mTurtleFactory = new TurtleFactory(game);
+    }
+
+    /**
+     * Retourne l'instance pour le singleton
+     */
+    public static TeamBuilder getInstance()
+    {
+        return (mInstance == null) ? (mInstance = new TeamBuilder()) : mInstance;
     }
 
     /**
      * Création d'une équipe standard
      *
+     * @param field        Le terrain de foot
      * @param color        La couleur de l'équipe
      * @param teamPosition La position de l'équipe
      *
      * @return Une nouvelle instance de Team
      *
-     * @see TeamFactory#TEAM_LEFT
-     * @see TeamFactory#TEAM_RIGHT
+     * @see TeamBuilder#TEAM_LEFT
+     * @see TeamBuilder#TEAM_RIGHT
      */
-    public Team createDefaultTeam(Color color, int teamPosition)
+    public Team create(Field field, Color color, int teamPosition)
     {
-        Dimension fieldDimension = mGame.getField().getDimension();
+        Dimension fieldDimension = field.getDimension();
 
         if (Kernel.DEBUG) {
             Log.i(String.format("Team creation (color:%s, teamPosition:%s)", color, teamPosition));
@@ -73,7 +85,7 @@ public class TeamFactory
         }
 
         //TODO Change the direction
-        mTurtleFactory.createAttacker(team, new Point2D.Float(width, height), 0.0f);
+        TurtleFactory.getInstance().createAttacker(field, team, new Point2D.Float(width, height), 0.0f);
 
         return team;
     }

@@ -65,10 +65,10 @@ public class Game extends Observable
         mField = new Field(700, 500);
 
         // Creation of the teams
-        TeamFactory factory = new TeamFactory(this);
+        TeamBuilder builder = TeamBuilder.getInstance();
 
-        mTeamA = factory.createDefaultTeam(Color.RED, TeamFactory.TEAM_LEFT);
-        mTeamB = factory.createDefaultTeam(Color.BLUE, TeamFactory.TEAM_RIGHT);
+        mTeamA = builder.create(mField, Color.RED, TeamBuilder.TEAM_LEFT);
+        mTeamB = builder.create(mField, Color.BLUE, TeamBuilder.TEAM_RIGHT);
     }
 
     /**
