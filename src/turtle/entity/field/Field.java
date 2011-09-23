@@ -56,8 +56,6 @@ public class Field
         float x = (float) (0.05 * width);
         float y = (height - goal) / 2;
 
-        //TODO We have a problem (with float goal)
-
         mGoalA = new Goal(new Point2D.Float(x, y), new Point2D.Float(x, y + goal));
 
         // Goal B
