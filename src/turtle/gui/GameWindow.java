@@ -49,8 +49,8 @@ public class GameWindow extends AbstractWindow
 
         mFieldPannel = new FieldPannel(mGame.getField());
 
-       add(mFieldPannel, BorderLayout.CENTER);
-       pack();
+        add(mFieldPannel, BorderLayout.CENTER);
+        pack();
     }
 
     @Override
