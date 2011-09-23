@@ -36,19 +36,9 @@ public class Kernel implements Runnable
     protected Game mGame;
 
     /**
-     * Le numéro de la frame en cours
-     */
-    protected int mFrame;
-
-    /**
      * Le temps entre chaque frame
      */
     protected int mDelay;
-
-    /**
-     * Le nombre d'image par seconde
-     */
-    protected final int mFps = 25;
 
     /**
      * Création du contrôlleur
@@ -58,7 +48,6 @@ public class Kernel implements Runnable
     public Kernel(Game game)
     {
         mGame = game;
-        mFrame = 0;
 
         // The frame rate for 25 images per seconde
         mDelay = 40;
@@ -71,14 +60,19 @@ public class Kernel implements Runnable
     {
         long startTime = System.currentTimeMillis();
 
-        while (true) {
-            mFrame++;
+        long delay = 0;
+        long frame = 0;
 
-            // Do stuff later
+        while (true) {
+            frame++;
+
+            Log.i(String.format("New frame (number=%d, delay=%dms)", frame, delay));
+
+            startTime += mDelay;
+            delay = startTime - System.currentTimeMillis();
 
             try {
-                startTime += mDelay;
-                Thread.sleep(Math.max(0, startTime - System.currentTimeMillis()));
+                Thread.sleep(delay);
             } catch (InterruptedException e) {
                 Log.e("Thread.sleep exception : " + e.getMessage());
                 break;
