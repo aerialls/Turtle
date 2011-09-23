@@ -31,6 +31,8 @@ public class FieldPannel extends JPanel
     public FieldPannel(Field field)
     {
         mField = field;
+
+        setPreferredSize(field.getDimension());
     }
 
     @Override

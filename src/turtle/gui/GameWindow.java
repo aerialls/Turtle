@@ -9,6 +9,8 @@
 
 package turtle.gui;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 
 import turtle.Kernel;
@@ -43,11 +45,12 @@ public class GameWindow extends AbstractWindow
      */
     protected void initialize()
     {
-        setSize(mGame.getField().getDimension());
+        setLayout(new BorderLayout());
 
         mFieldPannel = new FieldPannel(mGame.getField());
 
-        getContentPane().add(mFieldPannel);
+       add(mFieldPannel, BorderLayout.CENTER);
+       pack();
     }
 
     @Override
