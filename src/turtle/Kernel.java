@@ -72,7 +72,7 @@ public class Kernel implements Runnable
             delay = startTime - System.currentTimeMillis();
 
             try {
-                Thread.sleep(delay);
+                Thread.sleep(Math.max(0, delay));
             } catch (InterruptedException e) {
                 Log.e("Thread.sleep exception : " + e.getMessage());
                 break;
