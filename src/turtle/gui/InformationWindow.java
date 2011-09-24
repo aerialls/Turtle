@@ -26,12 +26,21 @@ public class InformationWindow extends AbstractWindow
     {
         super(kernel, game);
 
+        initialize();
+
         // Window informations
         setTitle("Informations");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(200, 100);
         setResizable(false);
+    }
+
+    /**
+     * Création de la fenêtre et de ses composants
+     */
+    protected void initialize()
+    {
     }
 
     @Override
