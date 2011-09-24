@@ -75,6 +75,8 @@ public class Kernel implements Runnable
         long frame = 0;
         long elapsedTime = System.currentTimeMillis();
 
+        mGame.setLaunched(true);
+
         while (true) {
             mFrameLimiter.start();
             frame++;
