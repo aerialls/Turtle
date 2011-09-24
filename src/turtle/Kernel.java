@@ -54,7 +54,13 @@ public class Kernel implements Runnable
     {
         mGame = game;
         mFrameLimiter = new FrameLimiter(25);
+    }
 
+    /**
+     * Lance le jeu
+     */
+    public void start()
+    {
         mThread = new Thread(this, "Kernel");
         mThread.start();
     }
