@@ -9,8 +9,6 @@
 
 package turtle.behavior.turtle;
 
-import turtle.entity.Game;
-import turtle.entity.Turtle;
 import turtle.entity.field.Field;
 
 /**
