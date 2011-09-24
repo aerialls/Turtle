@@ -2,3 +2,6 @@
 .classpath
 .settings
 bin
+build.xml
+manifest.mf
+nbproject
