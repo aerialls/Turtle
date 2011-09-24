@@ -35,7 +35,15 @@ public class Kernel implements Runnable
      */
     protected Game mGame;
 
+    /**
+     * Le limitateur de FPS
+     */
     protected FrameLimiter mFrameLimiter;
+
+    /**
+     * Le thread du kernel
+     */
+    protected Thread mThread;
 
     /**
      * Création du contrôlleur
@@ -47,7 +55,8 @@ public class Kernel implements Runnable
         mGame = game;
         mFrameLimiter = new FrameLimiter(25);
 
-        new Thread(this, "Kernel").start();
+        mThread = new Thread(this, "Kernel");
+        mThread.start();
     }
 
     @Override
