@@ -94,7 +94,7 @@ public class Game extends Observable
         mLaunched = launched;
     }
 
-    public boolean getLaunched()
+    public boolean isLaunched()
     {
         return mLaunched;
     }
