@@ -61,6 +61,10 @@ public class Kernel implements Runnable
      */
     public void start()
     {
+        if (mThread != null) {
+            return;
+        }
+
         mThread = new Thread(this, "Kernel");
         mThread.start();
     }

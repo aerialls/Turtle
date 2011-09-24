@@ -9,6 +9,9 @@
 
 package turtle.gui;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import turtle.Kernel;
@@ -20,8 +23,10 @@ import turtle.entity.Game;
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-public class InformationWindow extends AbstractWindow
+public class InformationWindow extends AbstractWindow implements MouseListener
 {
+    protected JButton mStartButton;
+
     public InformationWindow(Kernel kernel, Game game)
     {
         super(kernel, game);
@@ -41,10 +46,44 @@ public class InformationWindow extends AbstractWindow
      */
     protected void initialize()
     {
+        mStartButton = new JButton("Lancer !");
+
+        mStartButton.addMouseListener(this);
+
+        add(mStartButton);
     }
 
     @Override
     public void updateView(Object arg)
+    {
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e)
+    {
+        if (e.getSource() == mStartButton) {
+            mKernel.start();
+            mStartButton.setEnabled(false);
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e)
+    {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e)
+    {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e)
+    {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e)
     {
     }
 }
