@@ -35,10 +35,7 @@ public class Kernel implements Runnable
      */
     protected Game mGame;
 
-    /**
-     * Le temps entre chaque frame
-     */
-    protected int mDelay;
+    protected FrameLimiter mFrameLimiter;
 
     /**
      * Création du contrôlleur
@@ -48,9 +45,7 @@ public class Kernel implements Runnable
     public Kernel(Game game)
     {
         mGame = game;
-
-        // The frame rate for 25 images per seconde
-        mDelay = 40;
+        mFrameLimiter = new FrameLimiter(40);
 
         new Thread(this, "Kernel").start();
     }
@@ -58,23 +53,22 @@ public class Kernel implements Runnable
     @Override
     public void run()
     {
-        long startTime = System.currentTimeMillis();
-
-        long delay = 0;
         long frame = 0;
+        long elapsedTime = System.currentTimeMillis();
 
         while (true) {
+            mFrameLimiter.start();
             frame++;
 
-            Log.i(String.format("New frame (number=%d, delay=%dms)", frame, delay));
+            elapsedTime = System.currentTimeMillis() - elapsedTime;
 
-            startTime += mDelay;
-            delay = startTime - System.currentTimeMillis();
+            // Render the field
 
-            try {
-                Thread.sleep(Math.max(0, delay));
-            } catch (InterruptedException e) {
-                Log.e("Thread.sleep exception : " + e.getMessage());
+            elapsedTime = System.currentTimeMillis();
+
+            Log.i(String.format("New frame (number=%d, fps=%f)", frame, mFrameLimiter.getFps()));
+
+            if (!mFrameLimiter.sleep()) {
                 break;
             }
         }
