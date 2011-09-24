@@ -78,4 +78,24 @@ public class Game extends Observable
     {
         return mField;
     }
+
+    public Team getTeamA()
+    {
+        return mTeamA;
+    }
+
+    public Team getTeamB()
+    {
+        return mTeamB;
+    }
+
+    public void setLaunched(boolean launched)
+    {
+        mLaunched = launched;
+    }
+
+    public boolean getLaunched()
+    {
+        return mLaunched;
+    }
 }
