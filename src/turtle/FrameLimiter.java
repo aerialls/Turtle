@@ -30,15 +30,15 @@ public class FrameLimiter
     /**
      * Constructeur du limiteur de FPS
      *
-     * @param delay Le nombre (en ms) entre chaque frame (Soit 1000 / le nombre de FPS)
+     * @param fps Le nombre de FPS
      */
-    public FrameLimiter(int delay)
+    public FrameLimiter(int fps)
     {
-        if (delay < 0) {
-            throw new IllegalArgumentException("The delay must be a positive integer.");
+        if (fps < 0) {
+            throw new IllegalArgumentException("The fps must be a positive integer.");
         }
 
-        mDelay = delay;
+        mDelay = 1000 / fps;
         mTimes = new LinkedList<Float>();
     }
 
