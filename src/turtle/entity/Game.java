@@ -15,7 +15,7 @@ import java.util.Observable;
 import turtle.entity.field.Field;
 
 /**
- * Représentation d'un jeu de foot (au niveau du modèle)
+ * ReprÃ©sentation d'un jeu de foot (au niveau du modÃ¨le)
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -23,17 +23,17 @@ import turtle.entity.field.Field;
 public class Game extends Observable
 {
     /**
-     * Première équipe
+     * PremiÃ¨re Ã©quipe
      */
     protected Team mTeamA;
 
     /**
-     * Deuxième équipe
+     * DeuxiÃ¨me Ã©quipe
      */
     protected Team mTeamB;
 
     /**
-     * Si la partie est lancée ou non
+     * Si la partie est lancÃ©e ou non
      */
     protected boolean mLaunched;
 
@@ -53,7 +53,7 @@ public class Game extends Observable
     protected Field mField;
 
     /**
-     * Création du modèle
+     * CrÃ©ation du modÃ¨le
      */
     public Game()
     {

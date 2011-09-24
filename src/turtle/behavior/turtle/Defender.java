@@ -14,7 +14,7 @@ import turtle.entity.Turtle;
 import turtle.entity.field.Field;
 
 /**
- * Comportement d'un défenseur
+ * Comportement d'un dÃ©fenseur
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0

@@ -16,7 +16,7 @@ import turtle.behavior.turtle.TurtleBehaviorInterface;
 import turtle.util.Log;
 
 /**
- * Représentation d'un joueur de foot
+ * ReprÃ©sentation d'un joueur de foot
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -34,7 +34,7 @@ public class Turtle
     protected float mDirection;
 
     /**
-     * L'équipe du joueur
+     * L'Ã©quipe du joueur
      */
     protected Team mTeam;
 
@@ -44,7 +44,7 @@ public class Turtle
     protected TurtleBehaviorInterface mBehavior;
 
     /**
-     * Création d'un joueur
+     * CrÃ©ation d'un joueur
      *
      * @param behavior  Le comportement
      * @param position  La position sur le terrain
@@ -127,9 +127,9 @@ public class Turtle
     }
 
     /**
-     * Associe une équipe au joueur
+     * Associe une Ã©quipe au joueur
      *
-     * @param team L'équipe
+     * @param team L'Ã©quipe
      */
     public void setTeam(Team team)
     {
@@ -137,7 +137,7 @@ public class Turtle
     }
 
     /**
-     * Retourne la vitesse de déplacement du joueur
+     * Retourne la vitesse de dÃ©placement du joueur
      *
      * @return La vitesse
      */

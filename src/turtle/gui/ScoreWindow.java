@@ -20,7 +20,7 @@ import turtle.Kernel;
 import turtle.entity.Game;
 
 /**
- * Fenêtre ou les scores sont affichés
+ * FenÃªtre ou les scores sont affichÃ©s
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -28,12 +28,12 @@ import turtle.entity.Game;
 public class ScoreWindow extends AbstractWindow
 {
     /**
-     * Le label où est affiché le score
+     * Le label oÃ¹ est affichÃ© le score
      */
     protected JLabel mScoreLabel;
 
     /**
-     * Le label où est affiché le temps restant
+     * Le label oÃ¹ est affichÃ© le temps restant
      */
     protected JLabel mTimeLabel;
 
@@ -52,7 +52,7 @@ public class ScoreWindow extends AbstractWindow
     }
 
     /**
-     * Création de la fenêtre et de ses composants
+     * CrÃ©ation de la fenÃªtre et de ses composants
      */
     protected void initialize()
     {

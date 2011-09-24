@@ -17,7 +17,7 @@ import turtle.behavior.turtle.TurtleBehaviorInterface;
 import turtle.entity.field.Field;
 
 /**
- * Permet la simplification de la création des joueurs
+ * Permet la simplification de la crÃ©ation des joueurs
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -47,10 +47,10 @@ public class TurtleFactory
     }
 
     /**
-     * Création d'un nouvel attaquant
+     * CrÃ©ation d'un nouvel attaquant
      *
      * @param field     Le terrain de foot
-     * @param team      L'équipe du joueur
+     * @param team      L'Ã©quipe du joueur
      * @param position  La position sur le terrain de foot
      * @param direction La direction du joueur
      */
@@ -60,10 +60,10 @@ public class TurtleFactory
     }
 
     /**
-     * Création d'un nouveau défenseur
+     * CrÃ©ation d'un nouveau dÃ©fenseur
      *
      * @param field     Le terrain de foot
-     * @param team      L'équipe du joueur
+     * @param team      L'Ã©quipe du joueur
      * @param position  La position sur le terrain de foot
      * @param direction La direction du joueur
      */

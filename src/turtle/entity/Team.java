@@ -16,7 +16,7 @@ import java.util.Set;
 import turtle.behavior.team.TeamBehaviorInterface;
 
 /**
- * Représentation d'une équipe
+ * ReprÃ©sentation d'une Ã©quipe
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -24,7 +24,7 @@ import turtle.behavior.team.TeamBehaviorInterface;
 public class Team
 {
     /**
-     * L'ensemble des joueurs de l'équipe
+     * L'ensemble des joueurs de l'Ã©quipe
      */
     protected Set<Turtle> mTurtles;
 
@@ -34,19 +34,19 @@ public class Team
     protected Color mColor;
 
     /**
-     * Le score actuel de l'équipe
+     * Le score actuel de l'Ã©quipe
      */
     protected int mScore;
 
     /**
-     * Le comportement de l'équipe
+     * Le comportement de l'Ã©quipe
      */
     protected TeamBehaviorInterface mBehavior;
 
     /**
-     * Création d'une équipe
+     * CrÃ©ation d'une Ã©quipe
      *
-     * @param color   La couleur de l'équipe
+     * @param color   La couleur de l'Ã©quipe
      */
     public Team(Color color)
     {
@@ -57,9 +57,9 @@ public class Team
     }
 
     /**
-     * Ajoute un joueur dans l'équipe
+     * Ajoute un joueur dans l'Ã©quipe
      *
-     * @param turtle Le joueur à ajouter
+     * @param turtle Le joueur Ã  ajouter
      */
     public void addTurtle(Turtle turtle)
     {

@@ -13,7 +13,7 @@ import turtle.entity.Game;
 import turtle.gui.WindowManager;
 
 /**
- * Point de départ du programme
+ * Point de dÃ©part du programme
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -27,5 +27,6 @@ public class TurtleGame
         WindowManager manager = new WindowManager(kernel, game);
 
         manager.link();
+        manager.display();
     }
 }

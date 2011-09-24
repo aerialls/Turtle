@@ -13,7 +13,7 @@ import java.awt.Dimension;
 import java.awt.geom.Point2D;
 
 /**
- * Représentation d'un terrain de foot
+ * ReprÃ©sentation d'un terrain de foot
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -31,7 +31,7 @@ public class Field
     protected Goal mGoalA;
 
     /**
-     * Le deuxième but
+     * Le deuxiÃ¨me but
      */
     protected Goal mGoalB;
 
@@ -73,7 +73,7 @@ public class Field
     }
 
     /**
-     * Retourne le but de l'équipe A
+     * Retourne le but de l'Ã©quipe A
      */
     public Goal getGoalA()
     {
@@ -81,7 +81,7 @@ public class Field
     }
 
     /**
-     * Retourne le but de l'équipe B
+     * Retourne le but de l'Ã©quipe B
      */
     public Goal getGoalB()
     {

@@ -18,7 +18,7 @@ import turtle.Kernel;
 import turtle.entity.Game;
 
 /**
- * Fenêtre abstraite
+ * FenÃªtre abstraite
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0

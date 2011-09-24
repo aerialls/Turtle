@@ -18,7 +18,7 @@ import turtle.entity.field.Field;
 import turtle.util.Log;
 
 /**
- * Permet la simplification de la création d'une équipe
+ * Permet la simplification de la crÃ©ation d'une Ã©quipe
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -29,7 +29,7 @@ public class TeamBuilder
     public final static int TEAM_RIGHT = 2;
 
     /**
-     * Le nombre de joueur dans une équipe
+     * Le nombre de joueur dans une Ã©quipe
      */
     protected final int mPlayers = 6;
 
@@ -56,11 +56,11 @@ public class TeamBuilder
     }
 
     /**
-     * Création d'une équipe standard
+     * CrÃ©ation d'une Ã©quipe standard
      *
      * @param field        Le terrain de foot
-     * @param color        La couleur de l'équipe
-     * @param teamPosition La position de l'équipe
+     * @param color        La couleur de l'Ã©quipe
+     * @param teamPosition La position de l'Ã©quipe
      *
      * @return Une nouvelle instance de Team
      *

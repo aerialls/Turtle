@@ -21,7 +21,7 @@ import turtle.entity.Turtle;
 abstract public class AbstractTurtleBehavior implements TurtleBehaviorInterface
 {
     /**
-     * Le joueur concerné par le comportement
+     * Le joueur concernÃ© par le comportement
      */
     protected Turtle mTurtle;
 

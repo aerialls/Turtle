@@ -15,7 +15,7 @@ import turtle.Kernel;
 import turtle.entity.Game;
 
 /**
- * Fenêtre permettant la modification des variables du jeu
+ * FenÃªtre permettant la modification des variables du jeu
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -37,7 +37,7 @@ public class InformationWindow extends AbstractWindow
     }
 
     /**
-     * Création de la fenêtre et de ses composants
+     * CrÃ©ation de la fenÃªtre et de ses composants
      */
     protected void initialize()
     {

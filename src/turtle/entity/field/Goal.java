@@ -13,7 +13,7 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 /**
- * Représentation d'un but
+ * ReprÃ©sentation d'un but
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -26,10 +26,10 @@ public class Goal
     protected Line2D mLine;
 
     /**
-     * Création d'un but d'une équipe
+     * CrÃ©ation d'un but d'une Ã©quipe
      *
      * @param positionA Le premier point pour la position du but
-     * @param positionB Le deuxième point pour la position du but
+     * @param positionB Le deuxiÃ¨me point pour la position du but
      */
     public Goal(Point2D positionA, Point2D positionB)
     {
@@ -37,7 +37,7 @@ public class Goal
     }
 
     /**
-     * Retourne la ligne modélisant le but
+     * Retourne la ligne modÃ©lisant le but
      */
     public Line2D getLine()
     {

@@ -17,7 +17,7 @@ import turtle.Kernel;
 import turtle.entity.Game;
 
 /**
- * Fenêtre principale (ou se déroule le jeu de foot)
+ * FenÃªtre principale (ou se dÃ©roule le jeu de foot)
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -41,7 +41,7 @@ public class GameWindow extends AbstractWindow
     }
 
     /**
-     * Création de la fenêtre et de ses composants
+     * CrÃ©ation de la fenÃªtre et de ses composants
      */
     protected void initialize()
     {

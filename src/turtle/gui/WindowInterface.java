@@ -10,7 +10,7 @@
 package turtle.gui;
 
 /**
- * Interface pour une fenêtre
+ * Interface pour une fenÃªtre
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0

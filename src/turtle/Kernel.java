@@ -13,7 +13,7 @@ import turtle.entity.Game;
 import turtle.util.Log;
 
 /**
- * Contrôleur principal
+ * ContrÃ´leur principal
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
@@ -26,12 +26,12 @@ public class Kernel implements Runnable
     public static final String VERSION = "1.0-PROTOTYPE";
 
     /**
-     * Si le programme est en mode débug ou non
+     * Si le programme est en mode dÃ©bug ou non
      */
     public static final boolean DEBUG = true;
 
     /**
-     * Le modèle
+     * Le modÃ¨le
      */
     protected Game mGame;
 
@@ -46,9 +46,9 @@ public class Kernel implements Runnable
     protected Thread mThread;
 
     /**
-     * Création du contrôlleur
+     * CrÃ©ation du contrÃ´lleur
      *
-     * @param game Le modèle
+     * @param game Le modÃ¨le
      */
     public Kernel(Game game)
     {

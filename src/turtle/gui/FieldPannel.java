@@ -19,7 +19,7 @@ import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
 
 /**
- * Représentation de la vue d'un terrain de foot
+ * ReprÃ©sentation de la vue d'un terrain de foot
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0

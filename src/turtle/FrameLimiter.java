@@ -43,7 +43,7 @@ public class FrameLimiter
     }
 
     /**
-     * A lancer lors du début de boucle
+     * A lancer lors du dÃ©but de boucle
      */
     public void start()
     {
@@ -59,7 +59,7 @@ public class FrameLimiter
     }
 
     /**
-     * Vérifie si le thread doit être mis en pause pour limiter
+     * VÃ©rifie si le thread doit Ãªtre mis en pause pour limiter
      * le nombre de FPS
      *
      * @return false si une erreur

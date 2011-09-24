@@ -15,7 +15,7 @@ import turtle.Kernel;
 import turtle.entity.Game;
 
 /**
- * Permet d'instancier plus facilement l'ensemble des fenêtres
+ * Permet d'instancier plus facilement l'ensemble des fenÃªtres
  * du jeu de foot
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
