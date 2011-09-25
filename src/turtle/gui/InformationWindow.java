@@ -34,6 +34,8 @@ public class InformationWindow extends AbstractWindow implements MouseListener
         super(kernel, game, parent);
 
         initialize();
+
+        setVisible(true);
     }
 
     /**

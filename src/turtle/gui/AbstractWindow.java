@@ -47,11 +47,6 @@ abstract public class AbstractWindow extends JFrame implements WindowInterface, 
         mParent = parent;
     }
 
-    public void display()
-    {
-        setVisible(true);
-    }
-
     @Override
     public void setTitle(String title)
     {

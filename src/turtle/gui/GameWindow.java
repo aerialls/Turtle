@@ -10,6 +10,7 @@
 package turtle.gui;
 
 import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 import turtle.Kernel;
@@ -26,11 +27,23 @@ import turtle.gui.view.FieldView;
  */
 public class GameWindow extends AbstractWindow
 {
+    protected BufferStrategy mBufferStrategy;
+
+    protected Graphics mBuffer;
+
     public GameWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
         super(kernel, game, parent);
 
         initialize();
+
+        setVisible(true);
+
+        setIgnoreRepaint(true);
+        createBufferStrategy(2);
+
+        mBufferStrategy = getBufferStrategy();
+        mBuffer = mBufferStrategy.getDrawGraphics();
     }
 
     /**
@@ -47,21 +60,22 @@ public class GameWindow extends AbstractWindow
         setResizable(false);
     }
 
-    @Override
-    public void paint(Graphics g)
+    public void render()
     {
         Field field = mGame.getField();
 
-        FieldView.paint(field, g);
+        FieldView.paint(field, mBuffer);
 
         if (mGame.isLaunched()) {
-            BallView.paint(field.getBall(), g);
+            BallView.paint(field.getBall(), mBuffer);
         }
+
+        mBufferStrategy.show();
     }
 
     @Override
     public void updateView(Object arg)
     {
-        repaint();
+        render();
     }
 }
