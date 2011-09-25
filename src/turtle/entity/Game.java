@@ -115,6 +115,14 @@ public class Game extends Observable
     }
 
     /**
+     * Retourne le temps restant (en ms)
+     */
+    public long getRemainingTime()
+    {
+        return mMaxTime - mCurrentTime;
+    }
+
+    /**
      * Retourne le temps maximal de la partie (en ms)
      */
     public long getMaxTime()

@@ -63,7 +63,7 @@ public class ScoreWindow extends AbstractWindow
         getContentPane().add(score, BorderLayout.CENTER);
 
         JPanel time = new JPanel();
-        mTimeLabel  = new JLabel("90:00");
+        mTimeLabel  = new JLabel(getRemainingString(mGame.getMaxTime()));
 
         font = mTimeLabel.getFont();
         mTimeLabel.setFont(new Font(font.getFontName(), font.getStyle(), 15));
@@ -94,5 +94,16 @@ public class ScoreWindow extends AbstractWindow
     @Override
     public void updateView(Object arg)
     {
+        mTimeLabel.setText(getRemainingString(mGame.getRemainingTime()));
+    }
+
+    private String getRemainingString(long remainingTime)
+    {
+        remainingTime /= 1000;
+
+        int minutes  = (int) (remainingTime / 60);
+        int secondes = (int) (remainingTime % 60);
+
+        return String.format("%d:%d", minutes, secondes);
     }
 }
