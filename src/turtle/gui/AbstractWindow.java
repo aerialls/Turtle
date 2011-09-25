@@ -25,13 +25,26 @@ import turtle.entity.Game;
  */
 abstract public class AbstractWindow extends JFrame implements WindowInterface, Observer
 {
+    /**
+     * Le modèle
+     */
     protected Game mGame;
+
+    /**
+     * Le contrôleur
+     */
     protected Kernel mKernel;
 
-    public AbstractWindow(Kernel kernel, Game game)
+    /**
+     * La fenêtre parente
+     */
+    protected AbstractWindow mParent;
+
+    public AbstractWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
         mGame = game;
         mKernel = kernel;
+        mParent = parent;
     }
 
     public void display()

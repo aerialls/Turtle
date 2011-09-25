@@ -10,8 +10,10 @@
 package turtle.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Font;
 
+import java.awt.Point;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -37,9 +39,9 @@ public class ScoreWindow extends AbstractWindow
      */
     protected JLabel mTimeLabel;
 
-    public ScoreWindow(Kernel kernel, Game game)
+    public ScoreWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
-        super(kernel, game);
+        super(kernel, game, parent);
 
         initialize();
 
@@ -49,12 +51,22 @@ public class ScoreWindow extends AbstractWindow
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(170, 120);
         setResizable(false);
+
+        if (parent != null) {
+            Point location = parent.getLocation();
+            Dimension size = parent.getSize();
+
+            int x = (int) (location.getX() + (size.getWidth() / 2) - (getWidth() / 2));
+            int y = (int) (location.getY() + size.getHeight() + 20);
+
+            setLocation(x, y);
+        }
     }
 
     /**
      * Création de la fenêtre et de ses composants
      */
-    protected void initialize()
+    private void initialize()
     {
         JPanel score = new JPanel();
         mScoreLabel  = new JLabel("0 - 0");

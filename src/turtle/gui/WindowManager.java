@@ -33,9 +33,11 @@ public class WindowManager
         //TODO: Make a better system, it sucks
         mWindows = new ArrayList<AbstractWindow>();
 
-        mWindows.add(new InformationWindow(kernel, game));
-        mWindows.add(new ScoreWindow(kernel, game));
-        mWindows.add(new GameWindow(kernel, game));
+        AbstractWindow main = new GameWindow(kernel, game, null);
+
+        mWindows.add(main);
+        mWindows.add(new ScoreWindow(kernel, game, main));
+        mWindows.add(new InformationWindow(kernel, game, main));
     }
 
     public void link()

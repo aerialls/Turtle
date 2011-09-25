@@ -9,6 +9,8 @@
 
 package turtle.gui;
 
+import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
@@ -27,9 +29,9 @@ public class InformationWindow extends AbstractWindow implements MouseListener
 {
     protected JButton mStartButton;
 
-    public InformationWindow(Kernel kernel, Game game)
+    public InformationWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
-        super(kernel, game);
+        super(kernel, game, parent);
 
         initialize();
 
@@ -39,12 +41,22 @@ public class InformationWindow extends AbstractWindow implements MouseListener
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(200, 100);
         setResizable(false);
+
+        if (parent != null) {
+            Point location = parent.getLocation();
+            Dimension size = parent.getSize();
+
+            int x = (int) (location.getX() + size.getWidth() + 20);
+            int y = (int) (location.getY() + (size.getHeight() / 2) - (getHeight() / 2));
+
+            setLocation(x, y);
+        }
     }
 
     /**
      * Création de la fenêtre et de ses composants
      */
-    protected void initialize()
+    private void initialize()
     {
         mStartButton = new JButton("Lancer !");
 

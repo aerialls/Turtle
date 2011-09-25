@@ -13,8 +13,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.geom.Line2D;
 
-import javax.swing.JPanel;
-
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
 
@@ -24,25 +22,22 @@ import turtle.entity.field.Goal;
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-public class FieldPannel extends JPanel
+public class FieldPanel
 {
     protected Field mField;
 
-    public FieldPannel(Field field)
+    public FieldPanel(Field field)
     {
         mField = field;
-
-        setPreferredSize(field.getDimension());
     }
 
-    @Override
-    public void paintComponent(Graphics g)
+    public void paint(Graphics g)
     {
         // Green
         g.setColor(new Color(31, 160, 31));
 
         // Background
-        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        g.fillRect(0, 0, (int) mField.getDimension().getWidth(), (int) mField.getDimension().getHeight());
 
         // White
         g.setColor(Color.WHITE);

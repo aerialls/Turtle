@@ -9,8 +9,7 @@
 
 package turtle.gui;
 
-import java.awt.BorderLayout;
-
+import java.awt.Graphics;
 import javax.swing.JFrame;
 
 import turtle.Kernel;
@@ -24,11 +23,11 @@ import turtle.entity.Game;
  */
 public class GameWindow extends AbstractWindow
 {
-    protected FieldPannel mFieldPannel;
+    protected FieldPanel mFieldPanel;
 
-    public GameWindow(Kernel kernel, Game game)
+    public GameWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
-        super(kernel, game);
+        super(kernel, game, parent);
 
         initialize();
 
@@ -45,12 +44,15 @@ public class GameWindow extends AbstractWindow
      */
     protected void initialize()
     {
-        setLayout(new BorderLayout());
+        mFieldPanel = new FieldPanel(mGame.getField());
 
-        mFieldPannel = new FieldPannel(mGame.getField());
+        setSize(mGame.getField().getDimension());
+    }
 
-        add(mFieldPannel, BorderLayout.CENTER);
-        pack();
+    @Override
+    public void paint(Graphics g)
+    {
+        mFieldPanel.paint(g);
     }
 
     @Override
