@@ -9,8 +9,6 @@
 
 package turtle.gui.view;
 
-import java.awt.Graphics;
-
 /**
  * Représentation d'une vue
  *
@@ -19,5 +17,4 @@ import java.awt.Graphics;
  */
 public interface ViewInterface
 {
-    public void paint(Graphics g);
 }

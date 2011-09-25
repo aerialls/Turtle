@@ -9,8 +9,6 @@
 
 package turtle.gui;
 
-import turtle.gui.view.ViewInterface;
-
 import java.awt.Graphics;
 import javax.swing.JFrame;
 
@@ -26,8 +24,6 @@ import turtle.gui.view.FieldView;
  */
 public class GameWindow extends AbstractWindow
 {
-    protected ViewInterface mFieldView;
-
     public GameWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
         super(kernel, game, parent);
@@ -40,9 +36,6 @@ public class GameWindow extends AbstractWindow
      */
     private void initialize()
     {
-        mFieldView = new FieldView(mGame.getField());
-
-        // Window informations
         setTitle("Game");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,7 +48,7 @@ public class GameWindow extends AbstractWindow
     @Override
     public void paint(Graphics g)
     {
-        mFieldView.paint(g);
+        FieldView.paint(mGame.getField(), g);
     }
 
     @Override

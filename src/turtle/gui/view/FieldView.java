@@ -24,28 +24,20 @@ import turtle.entity.field.Goal;
  */
 public class FieldView implements ViewInterface
 {
-    protected Field mField;
-
-    public FieldView(Field field)
-    {
-        mField = field;
-    }
-
-    @Override
-    public void paint(Graphics g)
+    public static void paint(Field field, Graphics g)
     {
         // Green
         g.setColor(new Color(31, 160, 31));
 
         // Background
-        g.fillRect(0, 0, (int) mField.getDimension().getWidth(), (int) mField.getDimension().getHeight());
+        g.fillRect(0, 0, (int) field.getDimension().getWidth(), (int) field.getDimension().getHeight());
 
         // White
         g.setColor(Color.WHITE);
 
         // Goals
-        paintGoal(g, mField.getGoalA());
-        paintGoal(g, mField.getGoalB());
+        paintGoal(g, field.getGoalA());
+        paintGoal(g, field.getGoalB());
     }
 
     /**
@@ -54,7 +46,7 @@ public class FieldView implements ViewInterface
      * @param g    L'object Graphics
      * @param goal Le but a dessiner
      */
-    private void paintGoal(Graphics g, Goal goal)
+    private static void paintGoal(Graphics g, Goal goal)
     {
         Line2D line = goal.getLine();
 
