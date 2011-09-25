@@ -10,8 +10,10 @@
 package turtle.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Font;
 
+import java.awt.Point;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -37,24 +39,17 @@ public class ScoreWindow extends AbstractWindow
      */
     protected JLabel mTimeLabel;
 
-    public ScoreWindow(Kernel kernel, Game game)
+    public ScoreWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
-        super(kernel, game);
+        super(kernel, game, parent);
 
         initialize();
-
-        // Window informations
-        setTitle("Score");
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(170, 120);
-        setResizable(false);
     }
 
     /**
      * Création de la fenêtre et de ses composants
      */
-    protected void initialize()
+    private void initialize()
     {
         JPanel score = new JPanel();
         mScoreLabel  = new JLabel("0 - 0");
@@ -73,6 +68,25 @@ public class ScoreWindow extends AbstractWindow
 
         time.add(mTimeLabel);
         getContentPane().add(time, BorderLayout.SOUTH);
+
+        // Window informations
+        setTitle("Score");
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(170, 120);
+        setResizable(false);
+
+        if (mParent != null) {
+            Point location = mParent.getLocation();
+            Dimension size = mParent.getSize();
+
+            int x = (int) (location.getX() + (size.getWidth() / 2) - (getWidth() / 2));
+            int y = (int) (location.getY() + size.getHeight() + 20);
+
+            setLocation(x, y);
+        } else {
+            setLocationRelativeTo(null);
+        }
     }
 
     @Override

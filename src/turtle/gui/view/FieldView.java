@@ -7,13 +7,11 @@
  * file that was distributed with this source code.
  */
 
-package turtle.gui;
+package turtle.gui.view;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.geom.Line2D;
-
-import javax.swing.JPanel;
 
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
@@ -24,32 +22,22 @@ import turtle.entity.field.Goal;
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-public class FieldPannel extends JPanel
+public class FieldView implements ViewInterface
 {
-    protected Field mField;
-
-    public FieldPannel(Field field)
-    {
-        mField = field;
-
-        setPreferredSize(field.getDimension());
-    }
-
-    @Override
-    public void paintComponent(Graphics g)
+    public static void paint(Field field, Graphics g)
     {
         // Green
         g.setColor(new Color(31, 160, 31));
 
         // Background
-        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        g.fillRect(0, 0, (int) field.getDimension().getWidth(), (int) field.getDimension().getHeight());
 
         // White
         g.setColor(Color.WHITE);
 
         // Goals
-        paintGoal(g, mField.getGoalA());
-        paintGoal(g, mField.getGoalB());
+        paintGoal(g, field.getGoalA());
+        paintGoal(g, field.getGoalB());
     }
 
     /**
@@ -58,7 +46,7 @@ public class FieldPannel extends JPanel
      * @param g    L'object Graphics
      * @param goal Le but a dessiner
      */
-    private void paintGoal(Graphics g, Goal goal)
+    private static void paintGoal(Graphics g, Goal goal)
     {
         Line2D line = goal.getLine();
 

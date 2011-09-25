@@ -9,12 +9,14 @@
 
 package turtle.gui;
 
-import java.awt.BorderLayout;
-
+import java.awt.Graphics;
 import javax.swing.JFrame;
 
 import turtle.Kernel;
 import turtle.entity.Game;
+import turtle.entity.field.Field;
+import turtle.gui.view.BallView;
+import turtle.gui.view.FieldView;
 
 /**
  * Fenêtre principale (ou se déroule le jeu de foot)
@@ -24,33 +26,34 @@ import turtle.entity.Game;
  */
 public class GameWindow extends AbstractWindow
 {
-    protected FieldPannel mFieldPannel;
-
-    public GameWindow(Kernel kernel, Game game)
+    public GameWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
-        super(kernel, game);
+        super(kernel, game, parent);
 
         initialize();
-
-        // Window informations
-        setTitle("Game");
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(false);
     }
 
     /**
      * Création de la fenêtre et de ses composants
      */
-    protected void initialize()
+    private void initialize()
     {
-        setLayout(new BorderLayout());
+        setTitle("Game");
 
-        mFieldPannel = new FieldPannel(mGame.getField());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        add(mFieldPannel, BorderLayout.CENTER);
-        pack();
+        setSize(mGame.getField().getDimension());
+        setLocationRelativeTo(null);
+        setResizable(false);
+    }
+
+    @Override
+    public void paint(Graphics g)
+    {
+        Field field = mGame.getField();
+
+        FieldView.paint(field, g);
+        BallView.paint(field.getBall(), g);
     }
 
     @Override
