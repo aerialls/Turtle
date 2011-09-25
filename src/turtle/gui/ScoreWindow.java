@@ -44,23 +44,6 @@ public class ScoreWindow extends AbstractWindow
         super(kernel, game, parent);
 
         initialize();
-
-        // Window informations
-        setTitle("Score");
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(170, 120);
-        setResizable(false);
-
-        if (parent != null) {
-            Point location = parent.getLocation();
-            Dimension size = parent.getSize();
-
-            int x = (int) (location.getX() + (size.getWidth() / 2) - (getWidth() / 2));
-            int y = (int) (location.getY() + size.getHeight() + 20);
-
-            setLocation(x, y);
-        }
     }
 
     /**
@@ -85,6 +68,25 @@ public class ScoreWindow extends AbstractWindow
 
         time.add(mTimeLabel);
         getContentPane().add(time, BorderLayout.SOUTH);
+
+        // Window informations
+        setTitle("Score");
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(170, 120);
+        setResizable(false);
+
+        if (mParent != null) {
+            Point location = mParent.getLocation();
+            Dimension size = mParent.getSize();
+
+            int x = (int) (location.getX() + (size.getWidth() / 2) - (getWidth() / 2));
+            int y = (int) (location.getY() + size.getHeight() + 20);
+
+            setLocation(x, y);
+        } else {
+            setLocationRelativeTo(null);
+        }
     }
 
     @Override

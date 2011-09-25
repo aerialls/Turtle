@@ -33,13 +33,6 @@ public class GameWindow extends AbstractWindow
         super(kernel, game, parent);
 
         initialize();
-
-        // Window informations
-        setTitle("Game");
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(false);
     }
 
     /**
@@ -49,7 +42,14 @@ public class GameWindow extends AbstractWindow
     {
         mFieldView = new FieldView(mGame.getField());
 
+        // Window informations
+        setTitle("Game");
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         setSize(mGame.getField().getDimension());
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     @Override

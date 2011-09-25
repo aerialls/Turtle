@@ -34,23 +34,6 @@ public class InformationWindow extends AbstractWindow implements MouseListener
         super(kernel, game, parent);
 
         initialize();
-
-        // Window informations
-        setTitle("Informations");
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(200, 100);
-        setResizable(false);
-
-        if (parent != null) {
-            Point location = parent.getLocation();
-            Dimension size = parent.getSize();
-
-            int x = (int) (location.getX() + size.getWidth() + 20);
-            int y = (int) (location.getY() + (size.getHeight() / 2) - (getHeight() / 2));
-
-            setLocation(x, y);
-        }
     }
 
     /**
@@ -59,10 +42,28 @@ public class InformationWindow extends AbstractWindow implements MouseListener
     private void initialize()
     {
         mStartButton = new JButton("Lancer !");
-
         mStartButton.addMouseListener(this);
 
         add(mStartButton);
+
+        setTitle("Informations");
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(200, 100);
+        setResizable(false);
+
+        // Change the location of the window
+        if (mParent != null) {
+            Point location = mParent.getLocation();
+            Dimension size = mParent.getSize();
+
+            int x = (int) (location.getX() + size.getWidth() + 20);
+            int y = (int) (location.getY() + (size.getHeight() / 2) - (getHeight() / 2));
+
+            setLocation(x, y);
+        } else {
+            setLocationRelativeTo(null);
+        }
     }
 
     @Override
