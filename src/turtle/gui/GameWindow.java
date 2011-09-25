@@ -67,10 +67,10 @@ public class GameWindow extends AbstractWindow
         if (mBuffer == null) {
             mImage = createImage((int) field.getDimension().getWidth(), (int) field.getDimension().getHeight());
             mBuffer = mImage.getGraphics();
-        }
 
-        // Anti aliasing
-        ((Graphics2D) mBuffer).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            // Anti aliasing
+            ((Graphics2D) mBuffer).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        }
 
         FieldView.paint(field, mBuffer);
 
