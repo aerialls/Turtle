@@ -53,7 +53,10 @@ public class GameWindow extends AbstractWindow
         Field field = mGame.getField();
 
         FieldView.paint(field, g);
-        BallView.paint(field.getBall(), g);
+
+        if (mGame.isLaunched()) {
+            BallView.paint(field.getBall(), g);
+        }
     }
 
     @Override

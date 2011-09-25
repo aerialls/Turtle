@@ -48,7 +48,7 @@ public class Field
         mDimension = new Dimension(width, height);
 
         // The ball
-        mBall = new Ball(new Point2D.Float(0.0f, 0.0f));
+        mBall = new Ball(new Point2D.Float((float) mDimension.getWidth() / 2, (float) mDimension.getHeight() / 2));
 
         // Goal A
         float goal = (float) (0.35 * height);
