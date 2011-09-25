@@ -104,6 +104,6 @@ public class ScoreWindow extends AbstractWindow
         int minutes  = (int) (remainingTime / 60);
         int secondes = (int) (remainingTime % 60);
 
-        return String.format("%d:%d", minutes, secondes);
+        return String.format("%02d:%02d", minutes, secondes);
     }
 }
