@@ -9,11 +9,14 @@
 
 package turtle.gui;
 
+import turtle.gui.view.ViewInterface;
+
 import java.awt.Graphics;
 import javax.swing.JFrame;
 
 import turtle.Kernel;
 import turtle.entity.Game;
+import turtle.gui.view.FieldView;
 
 /**
  * Fenêtre principale (ou se déroule le jeu de foot)
@@ -23,7 +26,7 @@ import turtle.entity.Game;
  */
 public class GameWindow extends AbstractWindow
 {
-    protected FieldPanel mFieldPanel;
+    protected ViewInterface mFieldView;
 
     public GameWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
@@ -42,9 +45,9 @@ public class GameWindow extends AbstractWindow
     /**
      * Création de la fenêtre et de ses composants
      */
-    protected void initialize()
+    private void initialize()
     {
-        mFieldPanel = new FieldPanel(mGame.getField());
+        mFieldView = new FieldView(mGame.getField());
 
         setSize(mGame.getField().getDimension());
     }
@@ -52,7 +55,7 @@ public class GameWindow extends AbstractWindow
     @Override
     public void paint(Graphics g)
     {
-        mFieldPanel.paint(g);
+        mFieldView.paint(g);
     }
 
     @Override

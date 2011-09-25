@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-package turtle.gui;
+package turtle.gui.view;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -22,15 +22,16 @@ import turtle.entity.field.Goal;
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-public class FieldPanel
+public class FieldView implements ViewInterface
 {
     protected Field mField;
 
-    public FieldPanel(Field field)
+    public FieldView(Field field)
     {
         mField = field;
     }
 
+    @Override
     public void paint(Graphics g)
     {
         // Green
