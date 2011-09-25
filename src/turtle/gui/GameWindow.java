@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 
 import turtle.Kernel;
 import turtle.entity.Game;
+import turtle.entity.field.Field;
+import turtle.gui.view.BallView;
 import turtle.gui.view.FieldView;
 
 /**
@@ -48,7 +50,10 @@ public class GameWindow extends AbstractWindow
     @Override
     public void paint(Graphics g)
     {
-        FieldView.paint(mGame.getField(), g);
+        Field field = mGame.getField();
+
+        FieldView.paint(field, g);
+        BallView.paint(field.getBall(), g);
     }
 
     @Override
