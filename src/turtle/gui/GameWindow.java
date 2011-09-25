@@ -62,5 +62,6 @@ public class GameWindow extends AbstractWindow
     @Override
     public void updateView(Object arg)
     {
+        repaint();
     }
 }

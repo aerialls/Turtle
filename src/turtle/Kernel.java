@@ -83,7 +83,11 @@ public class Kernel implements Runnable
 
             elapsedTime = System.currentTimeMillis() - elapsedTime;
 
-            // Render the field
+            mGame.update(elapsedTime);
+
+            // Check for goal
+
+            mGame.notifyObservers();
 
             elapsedTime = System.currentTimeMillis();
 

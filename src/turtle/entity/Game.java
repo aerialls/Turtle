@@ -38,14 +38,14 @@ public class Game extends Observable
     protected boolean mLaunched;
 
     /**
-     * Le temps depuis le commencement de la partie
+     * Le temps depuis le commencement de la partie en ms
      */
-    protected float mCurrentTime;
+    protected long mCurrentTime;
 
     /**
-     * Le temps maximal d'une partie en secondes
+     * Le temps maximal d'une partie en ms
      */
-    protected float mMaxTime;
+    protected long mMaxTime;
 
     /**
      * Le terrain
@@ -58,9 +58,9 @@ public class Game extends Observable
     public Game()
     {
         mLaunched = false;
-        mCurrentTime = 0.0f;
+        mCurrentTime = 0;
         // Hardcoded for the moment
-        mMaxTime = 120;
+        mMaxTime = 540000;
 
         mField = new Field(700, 500);
 
@@ -72,6 +72,17 @@ public class Game extends Observable
     }
 
     /**
+     * Fait avancer le jeu
+     */
+    public void update(long elapsedTime)
+    {
+        mCurrentTime += elapsedTime;
+        // Do stuff later
+
+        setChanged();
+    }
+
+    /**
      * Retourne le terrain de foot
      */
     public Field getField()
@@ -79,14 +90,36 @@ public class Game extends Observable
         return mField;
     }
 
+    /**
+     * Retourne l'équipe A
+     */
     public Team getTeamA()
     {
         return mTeamA;
     }
 
+    /**
+     * Retourne l'équipe B
+     */
     public Team getTeamB()
     {
         return mTeamB;
+    }
+
+    /**
+     * Retourne le temps depuis le commencement de la partie (en ms)
+     */
+    public long getCurrentTime()
+    {
+        return mCurrentTime;
+    }
+
+    /**
+     * Retourne le temps maximal de la partie (en ms)
+     */
+    public long getMaxTime()
+    {
+        return mMaxTime;
     }
 
     public void setLaunched(boolean launched)
