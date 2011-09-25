@@ -24,6 +24,6 @@ public class BallView implements ViewInterface
         // Grey
         g.setColor(new Color(219, 219, 219));
 
-        g.fillOval((int) position.getX(), (int) position.getY(), 15, 15);
+        g.fillOval((int) position.getX(), (int) position.getY(), 10, 10);
     }
 }
