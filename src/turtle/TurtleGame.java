@@ -27,6 +27,5 @@ public class TurtleGame
         WindowManager manager = new WindowManager(kernel, game);
 
         manager.link();
-        manager.display();
     }
 }

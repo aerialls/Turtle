@@ -46,11 +46,4 @@ public class WindowManager
             mGame.addObserver(window);
         }
     }
-
-    public void display()
-    {
-        for (AbstractWindow window : mWindows) {
-            window.display();
-        }
-    }
 }

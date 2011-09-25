@@ -44,6 +44,8 @@ public class ScoreWindow extends AbstractWindow
         super(kernel, game, parent);
 
         initialize();
+
+        setVisible(true);
     }
 
     /**
