@@ -10,7 +10,9 @@
 package turtle.gui;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
@@ -66,6 +68,9 @@ public class GameWindow extends AbstractWindow
             mImage = createImage((int) field.getDimension().getWidth(), (int) field.getDimension().getHeight());
             mBuffer = mImage.getGraphics();
         }
+
+        // Anti aliasing
+        ((Graphics2D) mBuffer).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         FieldView.paint(field, mBuffer);
 
