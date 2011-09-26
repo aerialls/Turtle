@@ -32,8 +32,14 @@ import turtle.gui.view.TurtleView;
  */
 public class GameWindow extends AbstractWindow
 {
+    /**
+     * Le buffer pour écrire sur l'image
+     */
     protected Graphics2D mBuffer;
 
+    /**
+     * L'image pour le double bufferinng software
+     */
     protected Image mImage;
 
     public GameWindow(Kernel kernel, Game game, AbstractWindow parent)

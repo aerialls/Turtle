@@ -25,7 +25,14 @@ import turtle.util.Log;
  */
 public class TeamBuilder
 {
+    /**
+     * Création d'une équipe à gauche du terrain
+     */
     public final static int TEAM_LEFT = 1;
+
+    /**
+     * Création d'une équipe à droite du terrain
+     */
     public final static int TEAM_RIGHT = 2;
 
     /**
