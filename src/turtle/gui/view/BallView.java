@@ -5,7 +5,7 @@
 package turtle.gui.view;
 
 import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import turtle.entity.field.Ball;
 
@@ -17,7 +17,7 @@ import turtle.entity.field.Ball;
  */
 public class BallView implements ViewInterface
 {
-    public static void paint(Ball ball, Graphics g)
+    public static void paint(Ball ball, Graphics2D g)
     {
         Point2D position = ball.getPosition();
 

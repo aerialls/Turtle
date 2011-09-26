@@ -29,7 +29,7 @@ import turtle.gui.view.FieldView;
  */
 public class GameWindow extends AbstractWindow
 {
-    protected Graphics mBuffer;
+    protected Graphics2D mBuffer;
 
     protected Image mImage;
 
@@ -65,10 +65,10 @@ public class GameWindow extends AbstractWindow
         // Double buffering software
         if (mBuffer == null) {
             mImage = createImage((int) field.getDimension().getWidth(), (int) field.getDimension().getHeight());
-            mBuffer = mImage.getGraphics();
+            mBuffer = (Graphics2D) mImage.getGraphics();
 
             // Anti aliasing
-            ((Graphics2D) mBuffer).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            mBuffer.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         }
 
         FieldView.paint(field, mBuffer);
