@@ -10,8 +10,10 @@
 package turtle.entity;
 
 import java.awt.Color;
+import java.util.HashSet;
 import java.util.Observable;
 
+import java.util.Set;
 import turtle.entity.field.Field;
 
 /**
@@ -80,6 +82,19 @@ public class Game extends Observable
         // Do stuff later
 
         setChanged();
+    }
+
+    /**
+     * Retourne l'ensemble des joueurs du jeu
+     */
+    public Set<Turtle> getTurtles()
+    {
+        Set<Turtle> turtles = new HashSet<Turtle>();
+
+        turtles.addAll(mTeamA.getTurtles());
+        turtles.addAll(mTeamB.getTurtles());
+
+        return turtles;
     }
 
     /**
