@@ -9,6 +9,7 @@
 
 package turtle.entity;
 
+import java.awt.Color;
 import java.awt.geom.Point2D;
 
 import turtle.controller.Kernel;
@@ -144,5 +145,13 @@ public class Turtle
     public float getSpeed()
     {
         return mBehavior.getSpeed();
+    }
+
+    /**
+     * Retourne la couleur du joueur
+     */
+    public Color getColor()
+    {
+        return mTeam.getColor();
     }
 }

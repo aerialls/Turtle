@@ -9,6 +9,7 @@
 
 package turtle.gui.view;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
@@ -29,8 +30,11 @@ public class TurtleView implements ViewInterface
     {
         Point2D position = turtle.getPosition();
 
+        g.setColor(turtle.getColor());
+
         Shape circle = new Ellipse2D.Float((float) (position.getX() - mTurtleDiameter / 2), (float) (position.getY() - mTurtleDiameter / 2), mTurtleDiameter, mTurtleDiameter);
 
         g.draw(circle);
+        g.drawLine((int) position.getX(), (int) (position.getY() - mTurtleDiameter / 2), (int) position.getX(), (int) (position.getY() + mTurtleDiameter / 2));
     }
 }
