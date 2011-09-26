@@ -13,7 +13,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
 
-import turtle.Kernel;
+import turtle.controller.Kernel;
 import turtle.entity.field.Field;
 import turtle.util.Log;
 

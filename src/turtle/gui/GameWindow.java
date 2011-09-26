@@ -15,7 +15,7 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import javax.swing.JFrame;
 
-import turtle.Kernel;
+import turtle.controller.Kernel;
 import turtle.entity.Game;
 import turtle.entity.field.Field;
 import turtle.gui.view.BallView;

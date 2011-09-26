@@ -11,7 +11,7 @@ package turtle.gui;
 
 import java.util.ArrayList;
 
-import turtle.Kernel;
+import turtle.controller.Kernel;
 import turtle.entity.Game;
 
 /**

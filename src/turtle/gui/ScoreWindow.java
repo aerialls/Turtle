@@ -18,7 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import turtle.Kernel;
+import turtle.controller.Kernel;
 import turtle.entity.Game;
 
 /**

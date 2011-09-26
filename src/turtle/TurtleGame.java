@@ -9,6 +9,7 @@
 
 package turtle;
 
+import turtle.controller.Kernel;
 import turtle.entity.Game;
 import turtle.gui.WindowManager;
 

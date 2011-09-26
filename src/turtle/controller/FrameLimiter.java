@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-package turtle;
+package turtle.controller;
 
 import java.util.LinkedList;
 

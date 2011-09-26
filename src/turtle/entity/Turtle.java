@@ -11,7 +11,7 @@ package turtle.entity;
 
 import java.awt.geom.Point2D;
 
-import turtle.Kernel;
+import turtle.controller.Kernel;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
 import turtle.util.Log;
 

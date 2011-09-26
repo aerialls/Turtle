@@ -14,7 +14,7 @@ import java.util.Observer;
 
 import javax.swing.JFrame;
 
-import turtle.Kernel;
+import turtle.controller.Kernel;
 import turtle.entity.Game;
 
 /**
