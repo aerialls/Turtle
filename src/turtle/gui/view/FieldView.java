@@ -35,6 +35,9 @@ public class FieldView implements ViewInterface
         // White
         g.setColor(Color.WHITE);
 
+        double delta = field.getGoalA().getLine().getX1();
+        g.drawRect((int) delta, (int) delta, (int) (field.getDimension().getWidth() - 2 * delta), (int) (field.getDimension().getHeight() - 2 * delta));
+
         // Goals
         paintGoal(g, field.getGoalA());
         paintGoal(g, field.getGoalB());

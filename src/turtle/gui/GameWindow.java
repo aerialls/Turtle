@@ -54,6 +54,7 @@ public class GameWindow extends AbstractWindow
         setSize(mGame.getField().getDimension());
         setLocationRelativeTo(null);
         setResizable(false);
+        setUndecorated(true);
     }
 
     @Override
