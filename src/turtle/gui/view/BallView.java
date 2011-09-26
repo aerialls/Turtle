@@ -6,6 +6,8 @@ package turtle.gui.view;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import turtle.entity.field.Ball;
 
@@ -17,13 +19,15 @@ import turtle.entity.field.Ball;
  */
 public class BallView implements ViewInterface
 {
+    protected static float mBallDiameter = 15.0f;
+
     public static void paint(Ball ball, Graphics2D g)
     {
         Point2D position = ball.getPosition();
+        Shape circle = new Ellipse2D.Float((float) (position.getX() - mBallDiameter / 2), (float) (position.getY() - mBallDiameter / 2), mBallDiameter, mBallDiameter);
 
         // Grey
         g.setColor(new Color(219, 219, 219));
-
-        g.fillOval((int) position.getX(), (int) position.getY(), 10, 10);
+        g.fill(circle);
     }
 }
