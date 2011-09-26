@@ -12,6 +12,7 @@ package turtle.gui.view;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import java.awt.geom.Line2D;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
 
@@ -35,26 +36,24 @@ public class FieldView implements ViewInterface
         g.setColor(Color.WHITE);
 
         double delta  = field.getGoalA().getLine().getX1();
+
         double width  = field.getDimension().getWidth();
         double height = field.getDimension().getHeight();
 
-        g.drawRect((int) delta, (int) delta, (int) (width - 2 * delta), (int) (height - 2 * delta));
+        double innerWidth  = width - 2 * delta;
+        double innerHeight = height - 2 * delta;
+
+        g.drawRect((int) delta, (int) delta, (int) innerWidth, (int) innerHeight);
         g.drawLine((int) (width / 2), (int) delta, (int) (width / 2), (int) (height - delta));
 
-        // Goals
-        paintGoal(g, field.getGoalA());
-        paintGoal(g, field.getGoalB());
-    }
+        // Goal A
+        Line2D line = field.getGoalA().getLine();
 
-    /**
-     * Dessine un but sur le terrain
-     *
-     * @param g    L'object Graphics
-     * @param goal Le but a dessiner
-     */
-    private static void paintGoal(Graphics2D g, Goal goal)
-    {
-        //g.drawRect((int) (0.5 * delta), (int) line.getY1(), (int) (0.5 * delta), (int) (line.getY2() - line.getY1()));
-        //g.draw(goal.getLine());
+        g.drawRect((int) (0.4 * delta), (int) line.getY1(), (int) (0.6 * delta), (int) (line.getY2() - line.getY1()));
+
+        // Goal B
+        line = field.getGoalB().getLine();
+
+        g.drawRect((int) (delta + innerWidth), (int) line.getY1(), (int) (0.6 * delta), (int) (line.getY2() - line.getY1()));
     }
 }
