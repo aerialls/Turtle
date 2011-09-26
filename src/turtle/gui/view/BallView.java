@@ -26,8 +26,7 @@ public class BallView implements ViewInterface
         Point2D position = ball.getPosition();
         Shape circle = new Ellipse2D.Float((float) (position.getX() - mBallDiameter / 2), (float) (position.getY() - mBallDiameter / 2), mBallDiameter, mBallDiameter);
 
-        // Grey
-        g.setColor(new Color(219, 219, 219));
+        g.setColor(Color.WHITE);
         g.fill(circle);
     }
 }
