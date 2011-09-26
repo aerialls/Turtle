@@ -19,7 +19,7 @@ import turtle.entity.field.Ball;
  */
 public class BallView implements ViewInterface
 {
-    protected static float mBallDiameter = 15.0f;
+    protected static float mBallDiameter = 10.0f;
 
     public static void paint(Ball ball, Graphics2D g)
     {
