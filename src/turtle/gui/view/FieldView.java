@@ -12,6 +12,8 @@ package turtle.gui.view;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
@@ -45,6 +47,12 @@ public class FieldView implements ViewInterface
 
         g.drawRect((int) delta, (int) delta, (int) innerWidth, (int) innerHeight);
         g.drawLine((int) (width / 2), (int) delta, (int) (width / 2), (int) (height - delta));
+
+        // Circle in the center
+        double circleDiameter = 0.3 * width;
+        Shape circle = new Ellipse2D.Float((float) (width / 2 - circleDiameter / 2), (float) (height / 2 - circleDiameter / 2), (float) circleDiameter, (float) circleDiameter);
+
+        g.draw(circle);
 
         // Goal A
         Line2D line = field.getGoalA().getLine();
