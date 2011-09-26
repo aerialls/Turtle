@@ -71,6 +71,7 @@ public class GameWindow extends AbstractWindow
             mBuffer.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         }
 
+        //TODO We need to store the draw
         FieldView.paint(field, mBuffer);
 
         if (mGame.isLaunched()) {
