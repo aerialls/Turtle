@@ -51,7 +51,7 @@ public class Field
         mBall = new Ball(new Point2D.Float((float) mDimension.getWidth() / 2, (float) mDimension.getHeight() / 2));
 
         // Goal A
-        float goal = (float) (0.35 * height);
+        float goal = (float) (0.25 * height);
 
         float x = (float) (0.05 * width);
         float y = (height - goal) / 2;
