@@ -10,6 +10,7 @@
 package turtle.entity;
 
 import java.awt.Color;
+import java.awt.geom.Point2D;
 import java.util.HashSet;
 import java.util.Observable;
 
@@ -80,6 +81,13 @@ public class Game extends Observable
     {
         mCurrentTime += elapsedTime;
         // Do stuff later
+
+        float v = 0.01f;
+        float d = v * elapsedTime;
+
+        // Just a sample for the first prototype
+        Point2D p = mField.getBall().getPosition();
+        p.setLocation(p.getX() - d, p.getY());
 
         setChanged();
     }
