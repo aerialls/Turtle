@@ -16,7 +16,6 @@ import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import turtle.entity.field.Field;
-import turtle.entity.field.Goal;
 
 /**
  * Représentation de la vue d'un terrain de foot
