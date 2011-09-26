@@ -13,13 +13,16 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.util.Iterator;
 import javax.swing.JFrame;
 
 import turtle.controller.Kernel;
 import turtle.entity.Game;
+import turtle.entity.Turtle;
 import turtle.entity.field.Field;
 import turtle.gui.view.BallView;
 import turtle.gui.view.FieldView;
+import turtle.gui.view.TurtleView;
 
 /**
  * Fenêtre principale (ou se déroule le jeu de foot)
@@ -76,6 +79,12 @@ public class GameWindow extends AbstractWindow
 
         if (mGame.isLaunched()) {
             BallView.paint(field.getBall(), mBuffer);
+
+            // Players
+            Iterator<Turtle> it = mGame.getTurtles().iterator();
+            while (it.hasNext()) {
+                TurtleView.paint(it.next(), mBuffer);
+            }
         }
 
         g.drawImage(mImage, 0, 0, this);
