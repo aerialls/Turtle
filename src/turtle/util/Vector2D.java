@@ -15,7 +15,7 @@ package turtle.util;
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-public class Vector2D
+public class Vector2D implements Cloneable
 {
     protected float mX;
     protected float mY;
