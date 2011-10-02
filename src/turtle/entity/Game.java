@@ -64,7 +64,7 @@ public class Game extends Observable
         mLaunched = false;
         mCurrentTime = 0;
         // Hardcoded for the moment
-        mMaxTime = 5400000;
+        mMaxTime = 60000;
 
         mField = new Field(700, 500);
 

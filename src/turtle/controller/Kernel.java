@@ -83,6 +83,12 @@ public class Kernel implements Runnable
 
             elapsedTime = System.currentTimeMillis() - elapsedTime;
 
+            if (mGame.getRemainingTime() <= 0) {
+                mThread.interrupt();
+                Log.i("The game is over!");
+                continue;
+            }
+
             mGame.update(elapsedTime);
 
             // Check for goal
