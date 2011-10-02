@@ -50,6 +50,6 @@ abstract public class AbstractTurtleBehavior implements TurtleBehaviorInterface
     @Override
     public String getName()
     {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
 }

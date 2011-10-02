@@ -35,6 +35,6 @@ public abstract class AbstractTeamBehavior implements TeamBehaviorInterface
     @Override
     public String getName()
     {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName();
     }
 }

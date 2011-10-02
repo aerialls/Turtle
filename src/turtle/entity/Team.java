@@ -10,6 +10,7 @@
 package turtle.entity;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -52,7 +53,7 @@ public class Team
     /**
      * L'ensemble des comportements pour une équipe
      */
-    protected Set<TeamBehaviorInterface> mAvailableBehaviors;
+    protected ArrayList<TeamBehaviorInterface> mAvailableBehaviors;
 
     /**
      * Création d'une équipe
@@ -125,6 +126,10 @@ public class Team
      */
     public void setBehavior(TeamBehaviorInterface behavior)
     {
+        if (behavior == null) {
+            return;
+        }
+
         if (!mAvailableBehaviors.contains(behavior)) {
             throw new IllegalArgumentException("The behavior must be in the list of available behaviors. (see Team::getAvailableBehaviors())");
         }
@@ -133,9 +138,17 @@ public class Team
     }
 
     /**
+     * Retourne le comportement de l'équipe
+     */
+    public TeamBehaviorInterface getBehavior()
+    {
+        return mBehavior;
+    }
+
+    /**
      * Retourne l'ensemble des comportements disponible
      */
-    public Set<TeamBehaviorInterface> getAvailableBehaviors()
+    public ArrayList<TeamBehaviorInterface> getAvailableBehaviors()
     {
         return mAvailableBehaviors;
     }
@@ -146,7 +159,7 @@ public class Team
      */
     private void createAvailableBehaviors()
     {
-        mAvailableBehaviors = new HashSet<TeamBehaviorInterface>();
+        mAvailableBehaviors = new ArrayList<TeamBehaviorInterface>();
 
         mAvailableBehaviors.add(new Aggressive(this));
     }

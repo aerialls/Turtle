@@ -10,12 +10,16 @@
 package turtle.gui.panel;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.entity.Team;
+import turtle.util.Log;
 
 /**
  * Représentation du panel permettant le changement du
@@ -24,7 +28,7 @@ import turtle.entity.Team;
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-public class TeamBehaviorPanel extends JPanel
+public class TeamBehaviorPanel extends JPanel implements ActionListener
 {
     protected Team mTeam;
 
@@ -45,11 +49,25 @@ public class TeamBehaviorPanel extends JPanel
         JLabel label = new JLabel("Comportement de l'équipe " + mTeam.getName());
         label.setBorder(paddingBorder);
 
-        JComboBox comboBox = new JComboBox();
+        JComboBox comboBox = new JComboBox(mTeam.getAvailableBehaviors().toArray());
+
+        comboBox.addActionListener(this);
+        comboBox.setSelectedIndex(-1);
 
         setLayout(new BorderLayout());
 
         add(label, BorderLayout.NORTH);
         add(comboBox, BorderLayout.SOUTH);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        JComboBox cb = (JComboBox) e.getSource();
+        TeamBehaviorInterface behavior = (TeamBehaviorInterface) cb.getSelectedItem();
+
+        Log.i(String.format("Behavior change for Team A (old=%s, new=%s)", mTeam.getBehavior(), behavior));
+
+        mTeam.setBehavior(behavior);
     }
 }
