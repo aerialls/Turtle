@@ -79,7 +79,7 @@ public class TeamBuilder
         Dimension fieldDimension = field.getDimension();
 
         if (Kernel.DEBUG) {
-            Log.i(String.format("Team creation (color:%s, teamPosition:%s)", color, teamPosition));
+            Log.i(String.format("Team creation (name=%s, color=%s, teamPosition=%s)", name, color, teamPosition));
         }
 
         Team team = new Team(color, name);

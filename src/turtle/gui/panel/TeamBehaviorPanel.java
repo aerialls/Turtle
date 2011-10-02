@@ -64,10 +64,14 @@ public class TeamBehaviorPanel extends JPanel implements ActionListener
     public void actionPerformed(ActionEvent e)
     {
         JComboBox cb = (JComboBox) e.getSource();
+
         TeamBehaviorInterface behavior = (TeamBehaviorInterface) cb.getSelectedItem();
+        TeamBehaviorInterface oldBehavior = mTeam.getBehavior();
 
-        Log.i(String.format("Behavior change for Team A (old=%s, new=%s)", mTeam.getBehavior(), behavior));
+        if (behavior != oldBehavior) {
+            Log.i(String.format("Behavior change for Team %s (old=%s, new=%s)", mTeam.getName(), mTeam.getBehavior(), behavior));
 
-        mTeam.setBehavior(behavior);
+            mTeam.setBehavior(behavior);
+        }
     }
 }
