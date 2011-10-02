@@ -46,6 +46,11 @@ public class Kernel implements Runnable
     protected Thread mThread;
 
     /**
+     * Le nombre de frame
+     */
+    protected long mFrame;
+
+    /**
      * Création du contrôlleur
      *
      * @param game Le modèle
@@ -54,6 +59,7 @@ public class Kernel implements Runnable
     {
         mGame = game;
         mFrameLimiter = new FrameLimiter(25);
+        mFrame = 0;
     }
 
     /**
@@ -74,12 +80,11 @@ public class Kernel implements Runnable
     @Override
     public void run()
     {
-        long frame = 0;
         long elapsedTime = System.currentTimeMillis();
 
         while (!mThread.isInterrupted()) {
             mFrameLimiter.start();
-            frame++;
+            mFrame++;
 
             elapsedTime = System.currentTimeMillis() - elapsedTime;
 
@@ -97,7 +102,7 @@ public class Kernel implements Runnable
 
             elapsedTime = System.currentTimeMillis();
 
-            Log.i(String.format("New frame (number=%d, fps=%f)", frame, mFrameLimiter.getFps()));
+            Log.i(String.format("New frame (number=%d, fps=%f)", mFrame, mFrameLimiter.getFps()));
 
             if (!mFrameLimiter.sleep()) {
                 break;
@@ -105,5 +110,6 @@ public class Kernel implements Runnable
         }
 
         mGame.setLaunched(false);
+        mThread = null;
     }
 }
