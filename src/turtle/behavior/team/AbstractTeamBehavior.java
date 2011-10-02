@@ -7,38 +7,23 @@
  * file that was distributed with this source code.
  */
 
-package turtle.behavior.turtle;
+package turtle.behavior.team;
 
-import turtle.entity.field.Field;
-import turtle.entity.Turtle;
+import turtle.entity.Team;
 
 /**
- * Comportement d'un joueur abstrait
+ * Comportement abstrait pour une équipe
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-abstract public class AbstractTurtleBehavior implements TurtleBehaviorInterface
+public abstract class AbstractTeamBehavior implements TeamBehaviorInterface
 {
-    /**
-     * Le joueur concerné par le comportement
-     */
-    protected Turtle mTurtle;
+    protected Team mTeam;
 
-    /**
-     * Le jeu
-     */
-    protected Field mField;
-
-    public AbstractTurtleBehavior(Field field)
+    public AbstractTeamBehavior(Team team)
     {
-        mField = field;
-    }
-
-    @Override
-    public void setTurtle(Turtle turtle)
-    {
-        mTurtle = turtle;
+        mTeam = team;
     }
 
     @Override

@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.util.HashSet;
 import java.util.Set;
 
+import turtle.behavior.team.Aggressive;
 import turtle.behavior.team.TeamBehaviorInterface;
 
 /**
@@ -49,6 +50,11 @@ public class Team
     protected TeamBehaviorInterface mBehavior;
 
     /**
+     * L'ensemble des comportements pour une équipe
+     */
+    protected Set<TeamBehaviorInterface> mAvailableBehaviors;
+
+    /**
      * Création d'une équipe
      *
      * @param color   La couleur de l'équipe
@@ -57,6 +63,8 @@ public class Team
     public Team(Color color, String name)
     {
         mTurtles = new HashSet<Turtle>();
+
+        createAvailableBehaviors();
 
         mColor = color;
         mName = name;
@@ -95,5 +103,43 @@ public class Team
     public String getName()
     {
         return mName;
+    }
+
+    /**
+     * Change le comportement de l'équipe
+     *
+     * @param behavior Le nouveau comportement pour l'équipe
+     *
+     * @throw IllegalArgumentException Si le comportement n'est pas listé
+     * dans la liste des comportements disponible
+     *
+     * @see Team#getAvailableBehaviors()
+     */
+    public void setBehavior(TeamBehaviorInterface behavior)
+    {
+        if (!mAvailableBehaviors.contains(behavior)) {
+            throw new IllegalArgumentException("The behavior must be in the list of available behaviors. (see Team::getAvailableBehaviors())");
+        }
+
+        mBehavior = behavior;
+    }
+
+    /**
+     * Retourne l'ensemble des comportements disponible
+     */
+    public Set<TeamBehaviorInterface> getAvailableBehaviors()
+    {
+        return mAvailableBehaviors;
+    }
+
+    /**
+     * Création de l'ensemble des comportements
+     * disponible pour l'équipe
+     */
+    private void createAvailableBehaviors()
+    {
+        mAvailableBehaviors = new HashSet<TeamBehaviorInterface>();
+
+        mAvailableBehaviors.add(new Aggressive(this));
     }
 }

@@ -7,21 +7,20 @@
  * file that was distributed with this source code.
  */
 
-package turtle.behavior.turtle;
+package turtle.behavior.team;
 
-import turtle.entity.Turtle;
+import turtle.entity.Team;
 
 /**
- * Interface pour l'ensemble des comportements d'un joueur
+ * Comportement agressif d'une équipe
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-public interface TurtleBehaviorInterface
+public class Aggressive extends AbstractTeamBehavior
 {
-    public void setTurtle(Turtle turtle);
-
-    public float getSpeed();
-
-    public String getName();
+    public Aggressive(Team team)
+    {
+        super(team);
+    }
 }

@@ -17,4 +17,5 @@ package turtle.behavior.team;
  */
 public interface TeamBehaviorInterface
 {
+    public String getName();
 }
