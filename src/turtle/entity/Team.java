@@ -73,6 +73,13 @@ public class Team
     }
 
     /**
+     * Fait avancer le jeu
+     */
+    public void update(long elapsedTime)
+    {
+    }
+
+    /**
      * Ajoute un joueur dans l'équipe
      *
      * @param turtle Le joueur à ajouter

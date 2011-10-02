@@ -82,7 +82,13 @@ public class Game extends Observable
     public void update(long elapsedTime)
     {
         mCurrentTime += elapsedTime;
-        // Do stuff later
+
+        // Teams
+        mTeamA.update(elapsedTime);
+        mTeamB.update(elapsedTime);
+
+        // Field
+        mField.update(elapsedTime);
 
         float v = 0.01f;
         float d = v * elapsedTime;

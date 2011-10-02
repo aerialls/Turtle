@@ -65,6 +65,17 @@ public class Field
     }
 
     /**
+     * Fait avancer le jeu
+     */
+    public void update(long elapsedTime)
+    {
+        if (!checkBallPosition()) {
+            // The ball is off limit
+            resetBallPosition();
+        }
+    }
+
+    /**
      * Retourne les dimensions du terrain
      */
     public Dimension getDimension()
@@ -113,6 +124,6 @@ public class Field
     {
         Point2D position = mBall.getPosition();
 
-        return position.getX() < 0 || position.getY() < 0 || position.getX() > mDimension.getWidth() || position.getY() > mDimension.getHeight();
+        return position.getX() > 0 && position.getY() > 0 && position.getX() < mDimension.getWidth() && position.getY() < mDimension.getHeight();
     }
 }
