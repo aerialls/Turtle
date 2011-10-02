@@ -126,11 +126,7 @@ public class Team
      */
     public void setBehavior(TeamBehaviorInterface behavior)
     {
-        if (behavior == null) {
-            return;
-        }
-
-        if (!mAvailableBehaviors.contains(behavior)) {
+        if (behavior != null && !mAvailableBehaviors.contains(behavior)) {
             throw new IllegalArgumentException("The behavior must be in the list of available behaviors. (see Team::getAvailableBehaviors())");
         }
 
