@@ -9,6 +9,8 @@
 
 package turtle.gui;
 
+import java.awt.BorderLayout;
+import turtle.gui.panel.BehaviorPanel;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -27,7 +29,8 @@ import turtle.entity.Game;
  */
 public class InformationWindow extends AbstractWindow implements MouseListener
 {
-    protected JButton mStartButton;
+    protected JButton mStateButton;
+    protected BehaviorPanel mBehaviorPanel;
 
     public InformationWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
@@ -43,15 +46,20 @@ public class InformationWindow extends AbstractWindow implements MouseListener
      */
     private void initialize()
     {
-        mStartButton = new JButton("Lancer !");
-        mStartButton.addMouseListener(this);
+        setLayout(new BorderLayout());
 
-        add(mStartButton);
+        mStateButton = new JButton("Démarrer");
+        mStateButton.addMouseListener(this);
+
+        mBehaviorPanel = new BehaviorPanel(mGame);
+
+        add(mStateButton, BorderLayout.WEST);
+        add(mBehaviorPanel, BorderLayout.EAST);
 
         setTitle("Informations");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(200, 100);
+        setSize(290, 165);
         setResizable(false);
 
         // Change the location of the window
@@ -76,9 +84,9 @@ public class InformationWindow extends AbstractWindow implements MouseListener
     @Override
     public void mouseClicked(MouseEvent e)
     {
-        if (e.getSource() == mStartButton) {
+        if (e.getSource() == mStateButton) {
             mKernel.start();
-            mStartButton.setEnabled(false);
+            mStateButton.setEnabled(false);
         }
     }
 
