@@ -15,6 +15,7 @@ import java.util.HashSet;
 import java.util.Observable;
 
 import java.util.Set;
+import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
 
 /**
@@ -127,6 +128,14 @@ public class Game extends Observable
     public Team getTeamB()
     {
         return mTeamB;
+    }
+
+    /**
+     * Retourne la balle du terrain
+     */
+    public Ball getBall()
+    {
+        return mField.getBall();
     }
 
     /**

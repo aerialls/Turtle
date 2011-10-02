@@ -95,4 +95,24 @@ public class Field
     {
         return mBall;
     }
+
+    /**
+     * Remet la balle au centre du terrain
+     */
+    public void resetBallPosition()
+    {
+        mBall.setPosition(new Point2D.Float((float) mDimension.getWidth() / 2, (float) mDimension.getHeight() / 2));
+    }
+
+    /**
+     * Regarde si la balle est bien sur le terrain
+     *
+     * @return vrai si la balle est sur le terrain, faux autrement
+     */
+    public boolean checkBallPosition()
+    {
+        Point2D position = mBall.getPosition();
+
+        return position.getX() < 0 || position.getY() < 0 || position.getX() > mDimension.getWidth() || position.getY() > mDimension.getHeight();
+    }
 }
