@@ -174,8 +174,19 @@ public class Game extends Observable
         mLaunched = launched;
     }
 
+    /**
+     * Retourne vrai si le jeu est en cours
+     */
     public boolean isLaunched()
     {
         return mLaunched;
+    }
+
+    /**
+     * Retourne vrai si le jeu est terminé
+     */
+    public boolean isEnded()
+    {
+        return getRemainingTime() <= 0;
     }
 }

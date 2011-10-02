@@ -83,12 +83,15 @@ public class InformationWindow extends AbstractWindow implements MouseListener
     @Override
     public void updateView(Object arg)
     {
+        if (mGame.isEnded()) {
+            mStateButton.setEnabled(false);
+        }
     }
 
     @Override
     public void mouseClicked(MouseEvent e)
     {
-        if (e.getSource() == mStateButton) {
+        if (e.getSource() == mStateButton && mStateButton.isEnabled()) {
             if (mGame.isLaunched()) {
                 mKernel.paused();
                 mStateButton.setText(mButtonStart);
