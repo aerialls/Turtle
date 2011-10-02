@@ -77,7 +77,7 @@ public class Kernel implements Runnable
         long frame = 0;
         long elapsedTime = System.currentTimeMillis();
 
-        while (mThread.isInterrupted()) {
+        while (!mThread.isInterrupted()) {
             mFrameLimiter.start();
             frame++;
 
