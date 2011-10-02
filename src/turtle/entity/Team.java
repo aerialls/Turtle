@@ -83,6 +83,16 @@ public class Team
     }
 
     /**
+     * Augmente le score de l'équipe
+     *
+     * @param inc  Le nombre de but
+     */
+    public void incrementScore(int inc)
+    {
+        mScore += inc;
+    }
+
+    /**
      * Retourne l'ensemble des joueurs
      */
     public Set<Turtle> getTurtles()
