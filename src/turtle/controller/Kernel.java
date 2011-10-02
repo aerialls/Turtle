@@ -65,6 +65,8 @@ public class Kernel implements Runnable
             return;
         }
 
+        mGame.setLaunched(true);
+
         mThread = new Thread(this, "Kernel");
         mThread.start();
     }
@@ -75,9 +77,7 @@ public class Kernel implements Runnable
         long frame = 0;
         long elapsedTime = System.currentTimeMillis();
 
-        mGame.setLaunched(true);
-
-        while (true) {
+        while (mThread.isAlive()) {
             mFrameLimiter.start();
             frame++;
 
@@ -97,5 +97,7 @@ public class Kernel implements Runnable
                 break;
             }
         }
+
+        mGame.setLaunched(false);
     }
 }
