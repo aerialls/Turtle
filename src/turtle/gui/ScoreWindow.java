@@ -10,6 +10,7 @@
 package turtle.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
@@ -30,9 +31,14 @@ import turtle.entity.Game;
 public class ScoreWindow extends AbstractWindow
 {
     /**
-     * Le label où est affiché le score
+     * Le label où est affiché le score de l'équipe A
      */
-    protected JLabel mScoreLabel;
+    protected JLabel mScoreTeamALabel;
+
+    /**
+     * Le label où est affiché le score de l'équipe B
+     */
+    protected JLabel mScoreTeamBLabel;
 
     /**
      * Le label où est affiché le temps restant
@@ -54,22 +60,24 @@ public class ScoreWindow extends AbstractWindow
     private void initialize()
     {
         JPanel score = new JPanel();
-        mScoreLabel  = new JLabel("0 - 0");
+        JLabel dash = createJLabel(" - ", 40, null);
 
-        Font font = mScoreLabel.getFont();
-        mScoreLabel.setFont(new Font(font.getFontName(), font.getStyle(), 40));
+        // Score
+        mScoreTeamALabel  = createJLabel("0", 40, mGame.getTeamA().getColor());
+        mScoreTeamBLabel  = createJLabel("0", 40, mGame.getTeamB().getColor());
 
-        score.add(mScoreLabel);
-        getContentPane().add(score, BorderLayout.CENTER);
+        score.add(mScoreTeamALabel);
+        score.add(dash);
+        score.add(mScoreTeamBLabel);
 
+        // Time
         JPanel time = new JPanel();
-        mTimeLabel  = new JLabel(getRemainingString(mGame.getMaxTime()));
-
-        font = mTimeLabel.getFont();
-        mTimeLabel.setFont(new Font(font.getFontName(), font.getStyle(), 15));
+        mTimeLabel  = createJLabel(getRemainingString(mGame.getMaxTime()), 15, null);
 
         time.add(mTimeLabel);
-        getContentPane().add(time, BorderLayout.SOUTH);
+
+        add(score, BorderLayout.NORTH);
+        add(time, BorderLayout.SOUTH);
 
         // Window informations
         setTitle("Score");
@@ -94,6 +102,11 @@ public class ScoreWindow extends AbstractWindow
     @Override
     public void updateView(Object arg)
     {
+        // Score
+        mScoreTeamALabel.setText(String.valueOf(mGame.getTeamA().getScore()));
+        mScoreTeamBLabel.setText(String.valueOf(mGame.getTeamB().getScore()));
+
+        // Remaining time
         mTimeLabel.setText(getRemainingString(mGame.getRemainingTime()));
     }
 
@@ -105,5 +118,19 @@ public class ScoreWindow extends AbstractWindow
         int secondes = (int) (remainingTime % 60);
 
         return String.format("%02d:%02d", minutes, secondes);
+    }
+
+    private JLabel createJLabel(String text, int size, Color color)
+    {
+        JLabel label = new JLabel(text);
+        Font font = label.getFont();
+
+        label.setFont(new Font(font.getFontName(), font.getStyle(), size));
+
+        if (color != null) {
+            label.setForeground(color);
+        }
+
+        return label;
     }
 }

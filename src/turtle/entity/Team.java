@@ -106,6 +106,14 @@ public class Team
     }
 
     /**
+     * Retourne le score de l'équipe
+     */
+    public int getScore()
+    {
+        return mScore;
+    }
+
+    /**
      * Change le comportement de l'équipe
      *
      * @param behavior Le nouveau comportement pour l'équipe
