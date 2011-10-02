@@ -74,7 +74,7 @@ public class TeamBuilder
      * @see TeamBuilder#TEAM_LEFT
      * @see TeamBuilder#TEAM_RIGHT
      */
-    public Team create(Field field, Color color, int teamPosition)
+    public Team create(Field field, Color color, String name, int teamPosition)
     {
         Dimension fieldDimension = field.getDimension();
 
@@ -82,7 +82,7 @@ public class TeamBuilder
             Log.i(String.format("Team creation (color:%s, teamPosition:%s)", color, teamPosition));
         }
 
-        Team team = new Team(color);
+        Team team = new Team(color, name);
 
         float height = (float) (fieldDimension.getHeight() / 2);
         float width  = (float) (fieldDimension.getWidth() / 4);

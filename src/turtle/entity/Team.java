@@ -34,6 +34,11 @@ public class Team
     protected Color mColor;
 
     /**
+     * Le nom de l'équipe
+     */
+    protected String mName;
+
+    /**
      * Le score actuel de l'équipe
      */
     protected int mScore;
@@ -47,12 +52,14 @@ public class Team
      * Création d'une équipe
      *
      * @param color   La couleur de l'équipe
+     * @param name    Le nom de l'équipe
      */
-    public Team(Color color)
+    public Team(Color color, String name)
     {
         mTurtles = new HashSet<Turtle>();
 
         mColor = color;
+        mName = name;
         mScore = 0;
     }
 
@@ -66,13 +73,27 @@ public class Team
         mTurtles.add(turtle);
     }
 
+    /**
+     * Retourne l'ensemble des joueurs
+     */
     public Set<Turtle> getTurtles()
     {
         return mTurtles;
     }
 
+    /**
+     * Retourne la couleur de l'équipe
+     */
     public Color getColor()
     {
         return mColor;
+    }
+
+    /**
+     * Retourne le nom de l'équipe
+     */
+    public String getName()
+    {
+        return mName;
     }
 }

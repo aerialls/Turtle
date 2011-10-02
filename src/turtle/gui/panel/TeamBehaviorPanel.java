@@ -42,7 +42,7 @@ public class TeamBehaviorPanel extends JPanel
     {
         Border paddingBorder = BorderFactory.createEmptyBorder(0,10,10,0);
 
-        JLabel label = new JLabel("Comportement de l'équipe X");
+        JLabel label = new JLabel("Comportement de l'équipe " + mTeam.getName());
         label.setBorder(paddingBorder);
 
         JComboBox comboBox = new JComboBox();
