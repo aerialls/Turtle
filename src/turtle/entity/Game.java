@@ -62,6 +62,7 @@ public class Game extends Observable
     public Game()
     {
         mLaunched = false;
+
         mCurrentTime = 0;
         // Hardcoded for the moment
         mMaxTime = 60000;

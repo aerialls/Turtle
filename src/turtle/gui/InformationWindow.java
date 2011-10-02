@@ -29,6 +29,9 @@ import turtle.entity.Game;
  */
 public class InformationWindow extends AbstractWindow implements MouseListener
 {
+    protected final String mButtonStart = "Démarrer";
+    protected final String mButtonPause = "Pause";
+
     protected JButton mStateButton;
     protected BehaviorPanel mBehaviorPanel;
 
@@ -48,7 +51,7 @@ public class InformationWindow extends AbstractWindow implements MouseListener
     {
         setLayout(new BorderLayout());
 
-        mStateButton = new JButton("Démarrer");
+        mStateButton = new JButton(mButtonStart);
         mStateButton.addMouseListener(this);
 
         mBehaviorPanel = new BehaviorPanel(mGame);
@@ -85,8 +88,13 @@ public class InformationWindow extends AbstractWindow implements MouseListener
     public void mouseClicked(MouseEvent e)
     {
         if (e.getSource() == mStateButton) {
-            mKernel.start();
-            mStateButton.setEnabled(false);
+            if (mGame.isLaunched()) {
+                mKernel.paused();
+                mStateButton.setText(mButtonStart);
+            } else {
+                mKernel.start();
+                mStateButton.setText(mButtonPause);
+            }
         }
     }
 

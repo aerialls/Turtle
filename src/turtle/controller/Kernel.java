@@ -77,6 +77,15 @@ public class Kernel implements Runnable
         mThread.start();
     }
 
+    public void paused()
+    {
+        if (mThread == null) {
+            return;
+        }
+
+        mThread.interrupt();
+    }
+
     @Override
     public void run()
     {
