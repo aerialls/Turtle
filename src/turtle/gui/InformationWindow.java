@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 
 import turtle.controller.Kernel;
 import turtle.entity.Game;
+import turtle.util.Log;
 
 /**
  * Fenêtre permettant la modification des variables du jeu
@@ -91,9 +92,11 @@ public class InformationWindow extends AbstractWindow implements MouseListener
             if (mGame.isLaunched()) {
                 mKernel.paused();
                 mStateButton.setText(mButtonStart);
+                Log.i("The game is now paused");
             } else {
                 mKernel.start();
                 mStateButton.setText(mButtonPause);
+                Log.i("The game is now launched");
             }
         }
     }
