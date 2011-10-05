@@ -86,6 +86,8 @@ public class Game extends Observable
         // Field
         mField.update(elapsedTime);
 
+        checkGoals();
+
         // Teams
         mTeamA.update(elapsedTime);
         mTeamB.update(elapsedTime);
@@ -111,6 +113,13 @@ public class Game extends Observable
         turtles.addAll(mTeamB.getTurtles());
 
         return turtles;
+    }
+
+    /**
+     * Regarde si le ballon est dans un but
+     */
+    private void checkGoals()
+    {
     }
 
     /**
