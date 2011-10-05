@@ -43,4 +43,17 @@ public class Goal
     {
         return mLine;
     }
+
+    /**
+     * Regarde si le ballon est dans le but
+     *
+     * @param ball Le ballon à tester
+     *
+     * @return Vrai si la ligne de but contient la position
+     * du ballon
+     */
+    public boolean contains(Ball ball)
+    {
+        return mLine.contains(ball.getPosition());
+    }
 }
