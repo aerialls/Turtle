@@ -13,7 +13,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
 
-import turtle.controller.Kernel;
 import turtle.entity.field.Field;
 import turtle.util.Log;
 
@@ -78,9 +77,7 @@ public class TeamBuilder
     {
         Dimension fieldDimension = field.getDimension();
 
-        if (Kernel.DEBUG) {
-            Log.i(String.format("Team creation (name=%s, color=%s, teamPosition=%s)", name, color, teamPosition));
-        }
+        Log.i(String.format("Team creation (name=%s, color=%s, teamPosition=%s)", name, color, teamPosition));
 
         Team team = new Team(color, name);
 
