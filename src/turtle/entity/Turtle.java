@@ -14,6 +14,7 @@ import java.awt.geom.Point2D;
 
 import turtle.controller.Kernel;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
+import turtle.entity.field.Goal;
 import turtle.util.Log;
 
 /**
@@ -47,11 +48,13 @@ public class Turtle
     /**
      * Création d'un joueur
      *
+     * @param goal      Le but sur le terrain
+     * @param team      L'équipe du joueur
      * @param behavior  Le comportement
      * @param position  La position sur le terrain
      * @param direction La direction sur le terrain
      */
-    public Turtle(Team team, TurtleBehaviorInterface behavior, Point2D position, float direction)
+    public Turtle(Goal goal, Team team, TurtleBehaviorInterface behavior, Point2D position, float direction)
     {
         if (behavior == null) {
             throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");

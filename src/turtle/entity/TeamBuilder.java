@@ -14,6 +14,7 @@ import java.awt.Dimension;
 import java.awt.geom.Point2D;
 
 import turtle.entity.field.Field;
+import turtle.entity.field.Goal;
 import turtle.util.Log;
 
 /**
@@ -80,16 +81,21 @@ public class TeamBuilder
         Log.i(String.format("Team creation (name=%s, color=%s, teamPosition=%s)", name, color, teamPosition));
 
         Team team = new Team(color, name);
+        Goal goal;
 
         float height = (float) (fieldDimension.getHeight() / 2);
         float width  = (float) (fieldDimension.getWidth() / 4);
 
         if (teamPosition == TEAM_RIGHT) {
             width = (float) (fieldDimension.getWidth() - width);
+            goal = field.getGoalB();
+        } else {
+            goal = field.getGoalA();
         }
 
-        //TODO Change the direction
-        TurtleFactory.getInstance().createAttacker(field, team, new Point2D.Float(width, height), 0.0f);
+        TurtleFactory factory = TurtleFactory.getInstance();
+
+        factory.createAttacker(field, goal, team, new Point2D.Float(width, height), 0.0f);
 
         return team;
     }
