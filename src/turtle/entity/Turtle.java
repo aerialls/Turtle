@@ -41,6 +41,11 @@ public class Turtle
     protected Team mTeam;
 
     /**
+     * Le but du joueur
+     */
+    protected Goal mGoal;
+
+    /**
      * Le comportement du joueur
      */
     protected TurtleBehaviorInterface mBehavior;
@@ -68,6 +73,7 @@ public class Turtle
         team.addTurtle(this);
 
         mTeam = team;
+        mGoal = goal;
         mBehavior = behavior;
         mPosition = position;
         mDirection = direction;
@@ -156,5 +162,13 @@ public class Turtle
     public Color getColor()
     {
         return mTeam.getColor();
+    }
+
+    /**
+     * Retourne le but du joueur
+     */
+    public Goal getGoal()
+    {
+        return mGoal;
     }
 }
