@@ -35,6 +35,27 @@ public class Ball
     }
 
     /**
+     * Construction du ballon
+     *
+     * @param x La position sur l'axe des x
+     * @param y La position sur l'axe des y
+     */
+    public Ball(double x, double y)
+    {
+        this(new Point2D.Double(x, y));
+    }
+
+    /**
+     * Construction du ballon
+     *
+     * Le ballon sera positionné à la position (0,0)
+     */
+    public Ball()
+    {
+        this(0, 0);
+    }
+
+    /**
      * Change la position du ballon
      *
      * @param position La nouvelle position du ballon
