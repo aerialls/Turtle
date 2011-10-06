@@ -14,7 +14,6 @@ import java.awt.geom.Point2D;
 import turtle.behavior.turtle.Attacker;
 import turtle.behavior.turtle.Defender;
 import turtle.entity.field.Field;
-import turtle.entity.field.Goal;
 
 /**
  * Permet la simplification de la création des joueurs

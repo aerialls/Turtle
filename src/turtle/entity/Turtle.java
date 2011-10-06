@@ -14,7 +14,6 @@ import java.awt.geom.Point2D;
 
 import turtle.controller.Kernel;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
-import turtle.entity.field.Goal;
 import turtle.util.Log;
 
 /**
