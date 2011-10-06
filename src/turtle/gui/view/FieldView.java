@@ -15,6 +15,7 @@ import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
 import turtle.entity.field.Field;
 
 /**
@@ -36,7 +37,7 @@ public class FieldView implements ViewInterface
         // White
         g.setColor(Color.WHITE);
 
-        double delta  = field.getGoalA().getLine().getX1();
+        double delta  = field.getGoalA().getRectangle().getMaxX();
 
         double width  = field.getDimension().getWidth();
         double height = field.getDimension().getHeight();
@@ -53,14 +54,7 @@ public class FieldView implements ViewInterface
 
         g.draw(circle);
 
-        // Goal A
-        Line2D line = field.getGoalA().getLine();
-
-        g.drawRect((int) (0.4 * delta), (int) line.getY1(), (int) (0.6 * delta), (int) (line.getY2() - line.getY1()));
-
-        // Goal B
-        line = field.getGoalB().getLine();
-
-        g.drawRect((int) (delta + innerWidth), (int) line.getY1(), (int) (0.6 * delta), (int) (line.getY2() - line.getY1()));
+        g.draw(field.getGoalA().getRectangle());
+        g.draw(field.getGoalB().getRectangle());
     }
 }

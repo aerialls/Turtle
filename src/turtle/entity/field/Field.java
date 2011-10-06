@@ -51,17 +51,18 @@ public class Field
         mBall = new Ball(new Point2D.Double((double) mDimension.getWidth() / 2, (double) mDimension.getHeight() / 2));
 
         // Goal A
-        double goal = 0.25 * height;
+        double widthGoal  = 0.03 * width;
+        double heightGoal = 0.25 * height;
 
-        double x = 0.05 * width;
-        double y = (height - goal) / 2;
+        double x = 0.02 * width;
+        double y = (double) (height - heightGoal) / 2;
 
-        mGoalA = new Goal(new Point2D.Double(x, y), new Point2D.Double(x, y + goal));
+        mGoalA = new Goal(new Point2D.Double(x, y), widthGoal, heightGoal);
 
         // Goal B
-        x = width - x;
+        x = width - (widthGoal + x);
 
-        mGoalB = new Goal(new Point2D.Double(x, y), new Point2D.Double(x, y + goal));
+        mGoalB = new Goal(new Point2D.Double(x, y), widthGoal, heightGoal);
     }
 
     /**

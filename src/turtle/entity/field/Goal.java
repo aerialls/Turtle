@@ -9,8 +9,8 @@
 
 package turtle.entity.field;
 
-import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
 
 /**
  * Représentation d'un but
@@ -23,25 +23,26 @@ public class Goal
     /**
      * La position du but
      */
-    protected Line2D mLine;
+    protected Rectangle2D mRectangle;
 
     /**
      * Création d'un but d'une équipe
      *
-     * @param positionA Le premier point pour la position du but
-     * @param positionB Le deuxième point pour la position du but
+     * @param position La position du but
+     * @param width    La largeur du but
+     * @param height   La hauteur du but
      */
-    public Goal(Point2D positionA, Point2D positionB)
+    public Goal(Point2D position, double width, double height)
     {
-        mLine = new Line2D.Double(positionA, positionB);
+        mRectangle = new Rectangle2D.Double(position.getX(), position.getY(), width, height);
     }
 
     /**
-     * Retourne la ligne modélisant le but
+     * Retourne le rectangle modélisant le but
      */
-    public Line2D getLine()
+    public Rectangle2D getRectangle()
     {
-        return mLine;
+        return mRectangle;
     }
 
     /**
@@ -49,11 +50,11 @@ public class Goal
      *
      * @param ball Le ballon à tester
      *
-     * @return Vrai si la ligne de but contient la position
+     * @return Vrai si le rectangle de but contient la position
      * du ballon
      */
     public boolean contains(Ball ball)
     {
-        return mLine.contains(ball.getPosition());
+        return mRectangle.contains(ball.getPosition());
     }
 }
