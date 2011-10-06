@@ -49,7 +49,7 @@ public class FieldView implements ViewInterface
 
         // Circle in the center
         double circleDiameter = 0.3 * width;
-        Shape circle = new Ellipse2D.Float((float) (width / 2 - circleDiameter / 2), (float) (height / 2 - circleDiameter / 2), (float) circleDiameter, (float) circleDiameter);
+        Shape circle = new Ellipse2D.Double((double) (width / 2 - circleDiameter / 2), (double) (height / 2 - circleDiameter / 2), (double) circleDiameter, (double) circleDiameter);
 
         g.draw(circle);
 

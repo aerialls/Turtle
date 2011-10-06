@@ -48,20 +48,20 @@ public class Field
         mDimension = new Dimension(width, height);
 
         // The ball
-        mBall = new Ball(new Point2D.Float((float) mDimension.getWidth() / 2, (float) mDimension.getHeight() / 2));
+        mBall = new Ball(new Point2D.Double((double) mDimension.getWidth() / 2, (double) mDimension.getHeight() / 2));
 
         // Goal A
-        float goal = (float) (0.25 * height);
+        double goal = 0.25 * height;
 
-        float x = (float) (0.05 * width);
-        float y = (height - goal) / 2;
+        double x = 0.05 * width;
+        double y = (height - goal) / 2;
 
-        mGoalA = new Goal(new Point2D.Float(x, y), new Point2D.Float(x, y + goal));
+        mGoalA = new Goal(new Point2D.Double(x, y), new Point2D.Double(x, y + goal));
 
         // Goal B
         x = width - x;
 
-        mGoalB = new Goal(new Point2D.Float(x, y), new Point2D.Float(x, y + goal));
+        mGoalB = new Goal(new Point2D.Double(x, y), new Point2D.Double(x, y + goal));
     }
 
     /**
@@ -112,7 +112,7 @@ public class Field
      */
     public void resetBallPosition()
     {
-        mBall.setPosition(new Point2D.Float((float) mDimension.getWidth() / 2, (float) mDimension.getHeight() / 2));
+        mBall.setPosition(new Point2D.Double((double) mDimension.getWidth() / 2, (double) mDimension.getHeight() / 2));
     }
 
     /**

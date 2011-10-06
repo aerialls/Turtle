@@ -33,7 +33,7 @@ public class Turtle
     /**
      * La direction du joueur sur le terrain
      */
-    protected float mDirection;
+    protected double mDirection;
 
     /**
      * L'équipe du joueur
@@ -59,7 +59,7 @@ public class Turtle
      * @param position  La position sur le terrain
      * @param direction La direction sur le terrain
      */
-    public Turtle(Goal goal, Team team, TurtleBehaviorInterface behavior, Point2D position, float direction)
+    public Turtle(Goal goal, Team team, TurtleBehaviorInterface behavior, Point2D position, double direction)
     {
         if (behavior == null) {
             throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");
@@ -100,7 +100,7 @@ public class Turtle
     /**
      * Retourne la direction du joueur sur le terrain
      */
-    public float getDirection()
+    public double getDirection()
     {
         return mDirection;
     }
@@ -110,7 +110,7 @@ public class Turtle
      *
      * @param direction La direction du joueur
      */
-    public void setDirection(float direction)
+    public void setDirection(double direction)
     {
         mDirection = direction;
     }
@@ -121,9 +121,9 @@ public class Turtle
      * @param x Le distance sur l'axe des X
      * @param y La distance sur l'axe des Y
      */
-    public void setPosition(float x, float y)
+    public void setPosition(double x, double y)
     {
-        mPosition = new Point2D.Float(x, y);
+        mPosition = new Point2D.Double(x, y);
     }
 
     /**

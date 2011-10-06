@@ -17,10 +17,10 @@ package turtle.util;
  */
 public class Vector2D implements Cloneable
 {
-    protected float mX;
-    protected float mY;
+    protected double mX;
+    protected double mY;
 
-    public Vector2D(float x, int y)
+    public Vector2D(double x, double y)
     {
         mX = x;
         mY = y;
@@ -37,10 +37,10 @@ public class Vector2D implements Cloneable
      *
      * @param angle L'angle de rotation (en gradient)
      */
-    public void rotate(float angle)
+    public void rotate(double angle)
     {
-        float rx = (float) ((mX * Math.cos(angle)) - (mY * Math.sin(angle)));
-        float ry = (float) ((mY * Math.sin(angle)) + (mY * Math.cos(angle)));
+        double rx = (mX * Math.cos(angle)) - (mY * Math.sin(angle));
+        double ry = (mY * Math.sin(angle)) + (mY * Math.cos(angle));
 
         mX = rx;
         mY = ry;
@@ -49,9 +49,9 @@ public class Vector2D implements Cloneable
     /**
      * Retourne la norme du vecteur
      */
-    public float norm()
+    public double norm()
     {
-        return (float) Math.sqrt(mX * mX + mY * mY);
+        return  Math.sqrt(mX * mX + mY * mY);
     }
 
     @Override
@@ -63,12 +63,12 @@ public class Vector2D implements Cloneable
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Vector2D vector = (Vector2D) obj;
+        final Vector2D other = (Vector2D) obj;
 
-        if (Float.floatToIntBits(this.mX) != Float.floatToIntBits(vector.mX)) {
+        if (Double.doubleToLongBits(this.mX) != Double.doubleToLongBits(other.mX)) {
             return false;
         }
-        if (Float.floatToIntBits(this.mY) != Float.floatToIntBits(vector.mY)) {
+        if (Double.doubleToLongBits(this.mY) != Double.doubleToLongBits(other.mY)) {
             return false;
         }
 
@@ -80,8 +80,8 @@ public class Vector2D implements Cloneable
     {
         int hash = 7;
 
-        hash = 83 * hash + Float.floatToIntBits(this.mX);
-        hash = 83 * hash + Float.floatToIntBits(this.mY);
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.mX) ^ (Double.doubleToLongBits(this.mX) >>> 32));
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.mY) ^ (Double.doubleToLongBits(this.mY) >>> 32));
 
         return hash;
     }
@@ -123,7 +123,7 @@ public class Vector2D implements Cloneable
      *
      * @return L'instance courante avec l'opération réalisée
      */
-    public Vector2D mul(float a)
+    public Vector2D mul(double a)
     {
         mX *= a;
         mY *= a;
@@ -151,7 +151,7 @@ public class Vector2D implements Cloneable
      */
     public Vector2D rotate90()
     {
-        float tmp = mX;
+        double tmp = mX;
 
         mX = -mY;
         mY = tmp;
@@ -166,18 +166,18 @@ public class Vector2D implements Cloneable
      *
      * @return La distance
      */
-    public float dist(Vector2D vector)
+    public double dist(Vector2D vector)
     {
-        float dx = mX - vector.mX;
-        float dy = mY - vector.mY;
+        double dx = mX - vector.mX;
+        double dy = mY - vector.mY;
 
-        return (float) Math.sqrt(dx * dx + dy * dy);
+        return Math.sqrt(dx * dx + dy * dy);
     }
 
     /**
      * Retourne la composante X du vecteur
      */
-    public float getX()
+    public double getX()
     {
         return mX;
     }
@@ -185,7 +185,7 @@ public class Vector2D implements Cloneable
     /**
      * Retourne lacomposante Y du vecteur
      */
-    public float getY()
+    public double getY()
     {
         return mY;
     }

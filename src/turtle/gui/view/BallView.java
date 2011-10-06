@@ -19,12 +19,12 @@ import turtle.entity.field.Ball;
  */
 public class BallView implements ViewInterface
 {
-    protected static float mBallDiameter = 10.0f;
+    protected static double mBallDiameter = 10.0;
 
     public static void paint(Ball ball, Graphics2D g)
     {
         Point2D position = ball.getPosition();
-        Shape circle = new Ellipse2D.Float((float) (position.getX() - mBallDiameter / 2), (float) (position.getY() - mBallDiameter / 2), mBallDiameter, mBallDiameter);
+        Shape circle = new Ellipse2D.Double((double) (position.getX() - mBallDiameter / 2), (double) (position.getY() - mBallDiameter / 2), mBallDiameter, mBallDiameter);
 
         g.setColor(Color.WHITE);
         g.fill(circle);

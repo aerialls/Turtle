@@ -23,7 +23,7 @@ import turtle.entity.Turtle;
  */
 public class TurtleView implements ViewInterface
 {
-    protected static float mTurtleDiameter = 15.0f;
+    protected static double mTurtleDiameter = 15.0;
 
     public static void paint(Turtle turtle, Graphics2D g)
     {
@@ -31,7 +31,7 @@ public class TurtleView implements ViewInterface
 
         g.setColor(turtle.getColor());
 
-        Shape circle = new Ellipse2D.Float((float) (position.getX() - mTurtleDiameter / 2), (float) (position.getY() - mTurtleDiameter / 2), mTurtleDiameter, mTurtleDiameter);
+        Shape circle = new Ellipse2D.Double((double) (position.getX() - mTurtleDiameter / 2), (double) (position.getY() - mTurtleDiameter / 2), mTurtleDiameter, mTurtleDiameter);
 
         g.draw(circle);
         g.drawLine((int) position.getX(), (int) (position.getY() - mTurtleDiameter / 2), (int) position.getX(), (int) (position.getY() + mTurtleDiameter / 2));

@@ -33,7 +33,7 @@ public class Goal
      */
     public Goal(Point2D positionA, Point2D positionB)
     {
-        mLine = new Line2D.Float(positionA, positionB);
+        mLine = new Line2D.Double(positionA, positionB);
     }
 
     /**

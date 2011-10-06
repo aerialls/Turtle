@@ -55,7 +55,7 @@ public class TurtleFactory
      * @param position  La position sur le terrain de foot
      * @param direction La direction du joueur
      */
-    public Turtle createAttacker(Field field, Goal goal, Team team, Point2D position, float direction)
+    public Turtle createAttacker(Field field, Goal goal, Team team, Point2D position, double direction)
     {
         return new Turtle(goal, team, new Attacker(field), position, direction);
     }
@@ -69,7 +69,7 @@ public class TurtleFactory
      * @param position  La position sur le terrain de foot
      * @param direction La direction du joueur
      */
-    public Turtle createDefender(Field field, Goal goal, Team team, Point2D position, float direction)
+    public Turtle createDefender(Field field, Goal goal, Team team, Point2D position, double direction)
     {
         return new Turtle(goal, team, new Defender(field), position, direction);
     }

@@ -83,11 +83,11 @@ public class TeamBuilder
         Team team = new Team(color, name);
         Goal goal;
 
-        float height = (float) (fieldDimension.getHeight() / 2);
-        float width  = (float) (fieldDimension.getWidth() / 4);
+        double height = (double) (fieldDimension.getHeight() / 2);
+        double width  = (double) (fieldDimension.getWidth() / 4);
 
         if (teamPosition == TEAM_RIGHT) {
-            width = (float) (fieldDimension.getWidth() - width);
+            width = fieldDimension.getWidth() - width;
             goal = field.getGoalB();
         } else {
             goal = field.getGoalA();
@@ -95,7 +95,7 @@ public class TeamBuilder
 
         TurtleFactory factory = TurtleFactory.getInstance();
 
-        factory.createAttacker(field, goal, team, new Point2D.Float(width, height), 0.0f);
+        factory.createAttacker(field, goal, team, new Point2D.Double(width, height), 0.0f);
 
         return team;
     }
