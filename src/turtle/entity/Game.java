@@ -120,6 +120,15 @@ public class Game extends Observable
      */
     private void checkGoals()
     {
+        Ball ball = mField.getBall();
+        Set<Team> teams = getTeams();
+
+        for (Team team : teams) {
+            if (team.getGoal().contains(ball)) {
+                team.incrementScore(1);
+                mField.resetBallPosition();
+            }
+        }
     }
 
     /**
@@ -144,6 +153,19 @@ public class Game extends Observable
     public Team getTeamB()
     {
         return mTeamB;
+    }
+
+    /**
+     * Retourne l'ensemble des équipes d'une partie
+     */
+    public Set<Team> getTeams()
+    {
+        Set<Team> teams = new HashSet<Team>();
+
+        teams.add(mTeamA);
+        teams.add(mTeamB);
+
+        return teams;
     }
 
     /**
