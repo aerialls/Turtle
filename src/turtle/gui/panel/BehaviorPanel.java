@@ -12,6 +12,7 @@ package turtle.gui.panel;
 import java.awt.BorderLayout;
 import java.awt.Insets;
 import javax.swing.JPanel;
+import turtle.controller.Kernel;
 import turtle.entity.Game;
 
 /**
@@ -23,11 +24,20 @@ import turtle.entity.Game;
  */
 public class BehaviorPanel extends JPanel
 {
+    /**
+     * Le jeu
+     */
     protected Game mGame;
 
-    public BehaviorPanel(Game game)
+    /**
+     * Le contrôlleur
+     */
+    protected Kernel mKernel;
+
+    public BehaviorPanel(Kernel kernel, Game game)
     {
         mGame = game;
+        mKernel = kernel;
 
         initialize();
     }
@@ -39,8 +49,8 @@ public class BehaviorPanel extends JPanel
     {
         setLayout(new BorderLayout());
 
-        add(new TeamBehaviorPanel(mGame.getTeamA()), BorderLayout.NORTH);
-        add(new TeamBehaviorPanel(mGame.getTeamB()), BorderLayout.SOUTH);
+        add(new TeamBehaviorPanel(mKernel, mGame.getTeamA()), BorderLayout.NORTH);
+        add(new TeamBehaviorPanel(mKernel, mGame.getTeamB()), BorderLayout.SOUTH);
     }
 
     @Override

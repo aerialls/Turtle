@@ -9,7 +9,10 @@
 
 package turtle.controller;
 
+import java.util.ArrayList;
+import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.entity.Game;
+import turtle.entity.Team;
 import turtle.util.Log;
 
 /**
@@ -120,5 +123,22 @@ public class Kernel implements Runnable
 
         mGame.setLaunched(false);
         mThread = null;
+    }
+
+    /**
+     * Change le comportement d'une équipe
+     *
+     * @param team     L'équipe
+     * @param behavior Le nouveau comportement
+     */
+    public void changeTeamBehavior(Team team, TeamBehaviorInterface behavior)
+    {
+        ArrayList<TeamBehaviorInterface> behaviors = team.getAvailableBehaviors();
+
+        if (behaviors.contains(behavior)) {
+            team.setBehavior(behavior);
+        } else {
+            Log.e(String.format("The behavior %s cannot be used for the team %s", behavior, team));
+        }
     }
 }

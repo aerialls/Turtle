@@ -191,4 +191,10 @@ public class Team
 
         mAvailableBehaviors.add(new Aggressive(this));
     }
+
+    @Override
+    public String toString()
+    {
+        return mName;
+    }
 }

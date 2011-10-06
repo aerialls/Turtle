@@ -55,7 +55,7 @@ public class InformationWindow extends AbstractWindow implements MouseListener
         mStateButton = new JButton(mButtonStart);
         mStateButton.addMouseListener(this);
 
-        mBehaviorPanel = new BehaviorPanel(mGame);
+        mBehaviorPanel = new BehaviorPanel(mKernel, mGame);
 
         add(mStateButton, BorderLayout.WEST);
         add(mBehaviorPanel, BorderLayout.EAST);

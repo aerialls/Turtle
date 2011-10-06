@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import turtle.behavior.team.TeamBehaviorInterface;
+import turtle.controller.Kernel;
 import turtle.entity.Team;
 import turtle.util.Log;
 
@@ -30,11 +31,20 @@ import turtle.util.Log;
  */
 public class TeamBehaviorPanel extends JPanel implements ActionListener
 {
+    /**
+     * L'équipe concernée
+     */
     protected Team mTeam;
 
-    public TeamBehaviorPanel(Team team)
+    /**
+     * Le contrôlleur
+     */
+    protected Kernel mKernel;
+
+    public TeamBehaviorPanel(Kernel kernel, Team team)
     {
         mTeam = team;
+        mKernel = kernel;
 
         initialize();
     }
@@ -71,7 +81,7 @@ public class TeamBehaviorPanel extends JPanel implements ActionListener
         if (behavior != oldBehavior) {
             Log.i(String.format("Behavior change for Team %s (old=%s, new=%s)", mTeam.getName(), mTeam.getBehavior(), behavior));
 
-            mTeam.setBehavior(behavior);
+            mKernel.changeTeamBehavior(mTeam, behavior);
         }
     }
 }
