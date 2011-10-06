@@ -50,27 +50,25 @@ public class TurtleFactory
      * Création d'un nouvel attaquant
      *
      * @param field     Le terrain de foot
-     * @param goal      Le but de l'équipe
      * @param team      L'équipe du joueur
      * @param position  La position sur le terrain de foot
      * @param direction La direction du joueur
      */
-    public Turtle createAttacker(Field field, Goal goal, Team team, Point2D position, double direction)
+    public Turtle createAttacker(Field field, Team team, Point2D position, double direction)
     {
-        return new Turtle(goal, team, new Attacker(field), position, direction);
+        return new Turtle(team, new Attacker(field), position, direction);
     }
 
     /**
      * Création d'un nouveau défenseur
      *
      * @param field     Le terrain de foot
-     * @param goal      Le but de l'équipe
      * @param team      L'équipe du joueur
      * @param position  La position sur le terrain de foot
      * @param direction La direction du joueur
      */
-    public Turtle createDefender(Field field, Goal goal, Team team, Point2D position, double direction)
+    public Turtle createDefender(Field field,  Team team, Point2D position, double direction)
     {
-        return new Turtle(goal, team, new Defender(field), position, direction);
+        return new Turtle(team, new Defender(field), position, direction);
     }
 }

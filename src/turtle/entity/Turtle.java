@@ -41,11 +41,6 @@ public class Turtle
     protected Team mTeam;
 
     /**
-     * Le but du joueur
-     */
-    protected Goal mGoal;
-
-    /**
      * Le comportement du joueur
      */
     protected TurtleBehaviorInterface mBehavior;
@@ -53,13 +48,12 @@ public class Turtle
     /**
      * Création d'un joueur
      *
-     * @param goal      Le but sur le terrain
      * @param team      L'équipe du joueur
      * @param behavior  Le comportement
      * @param position  La position sur le terrain
      * @param direction La direction sur le terrain
      */
-    public Turtle(Goal goal, Team team, TurtleBehaviorInterface behavior, Point2D position, double direction)
+    public Turtle(Team team, TurtleBehaviorInterface behavior, Point2D position, double direction)
     {
         if (behavior == null) {
             throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");
@@ -73,7 +67,6 @@ public class Turtle
         team.addTurtle(this);
 
         mTeam = team;
-        mGoal = goal;
         mBehavior = behavior;
         mPosition = position;
         mDirection = direction;
@@ -162,13 +155,5 @@ public class Turtle
     public Color getColor()
     {
         return mTeam.getColor();
-    }
-
-    /**
-     * Retourne le but du joueur
-     */
-    public Goal getGoal()
-    {
-        return mGoal;
     }
 }

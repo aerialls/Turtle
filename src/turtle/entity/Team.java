@@ -16,6 +16,7 @@ import java.util.Set;
 
 import turtle.behavior.team.Aggressive;
 import turtle.behavior.team.TeamBehaviorInterface;
+import turtle.entity.field.Goal;
 
 /**
  * Représentation d'une équipe
@@ -41,6 +42,11 @@ public class Team
     protected String mName;
 
     /**
+     * Le but de l'équipe
+     */
+    protected Goal mGoal;
+
+    /**
      * Le score actuel de l'équipe
      */
     protected int mScore;
@@ -61,13 +67,14 @@ public class Team
      * @param color   La couleur de l'équipe
      * @param name    Le nom de l'équipe
      */
-    public Team(Color color, String name)
+    public Team(Goal goal, Color color, String name)
     {
         mTurtles = new HashSet<Turtle>();
 
         createAvailableBehaviors();
 
         mColor = color;
+        mGoal = goal;
         mName = name;
         mScore = 0;
     }
@@ -121,6 +128,14 @@ public class Team
     public String getName()
     {
         return mName;
+    }
+
+    /**
+     * Retourne le goal de l'équipe
+     */
+    public Goal getGoal()
+    {
+        return mGoal;
     }
 
     /**

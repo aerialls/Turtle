@@ -80,7 +80,6 @@ public class TeamBuilder
 
         Log.i(String.format("Team creation (name=%s, color=%s, teamPosition=%s)", name, color, teamPosition));
 
-        Team team = new Team(color, name);
         Goal goal;
 
         double height = (double) (fieldDimension.getHeight() / 2);
@@ -93,9 +92,10 @@ public class TeamBuilder
             goal = field.getGoalA();
         }
 
+        Team team = new Team(goal, color, name);
         TurtleFactory factory = TurtleFactory.getInstance();
 
-        factory.createAttacker(field, goal, team, new Point2D.Double(width, height), 0.0f);
+        factory.createAttacker(field, team, new Point2D.Double(width, height), 0.0f);
 
         return team;
     }
