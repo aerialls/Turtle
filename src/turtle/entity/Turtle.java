@@ -12,6 +12,7 @@ package turtle.entity;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
+import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
 import turtle.util.Log;
 import turtle.util.Vector2D;
@@ -82,6 +83,14 @@ public class Turtle
      */
     public void update(long elapsedTime)
     {
+        TeamBehaviorInterface teamBehavior = mTeam.getBehavior();
+        Vector2D vector = mBehavior.getNextSpeedVector(elapsedTime);
+
+        if (teamBehavior != null) {
+            teamBehavior.apply(vector, elapsedTime);
+        }
+
+        mSpeedVector = vector;
     }
 
     /**
@@ -167,16 +176,6 @@ public class Turtle
     public void setTeam(Team team)
     {
         mTeam = team;
-    }
-
-    /**
-     * Retourne la vitesse de déplacement du joueur
-     *
-     * @return La vitesse
-     */
-    public float getSpeed()
-    {
-        return mBehavior.getSpeed();
     }
 
     /**

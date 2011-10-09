@@ -10,6 +10,7 @@
 package turtle.behavior.turtle;
 
 import turtle.entity.Turtle;
+import turtle.util.Vector2D;
 
 /**
  * Interface pour l'ensemble des comportements d'un joueur
@@ -21,7 +22,7 @@ public interface TurtleBehaviorInterface
 {
     public void setTurtle(Turtle turtle);
 
-    public float getSpeed();
+    public Vector2D getNextSpeedVector(long elapsedTime);
 
     public String getName();
 }

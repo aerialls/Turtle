@@ -10,6 +10,7 @@
 package turtle.behavior.team;
 
 import turtle.entity.Team;
+import turtle.util.Vector2D;
 
 /**
  * Comportement agressif d'une équipe
@@ -22,5 +23,10 @@ public class Aggressive extends AbstractTeamBehavior
     public Aggressive(Team team)
     {
         super(team);
+    }
+
+    @Override
+    public void apply(Vector2D vector, long elapsedTime)
+    {
     }
 }

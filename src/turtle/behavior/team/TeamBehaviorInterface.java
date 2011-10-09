@@ -9,6 +9,8 @@
 
 package turtle.behavior.team;
 
+import turtle.util.Vector2D;
+
 /**
  * Interface pour l'ensemble des comportements d'une équipe
  *
@@ -18,4 +20,6 @@ package turtle.behavior.team;
 public interface TeamBehaviorInterface
 {
     public String getName();
+
+    public void apply(Vector2D vector, long elapsedTime);
 }

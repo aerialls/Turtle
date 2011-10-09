@@ -10,6 +10,7 @@
 package turtle.behavior.turtle;
 
 import turtle.entity.field.Field;
+import turtle.util.Vector2D;
 
 /**
  * Comportement d'un attaquant
@@ -25,8 +26,8 @@ public class Attacker extends AbstractTurtleBehavior
     }
 
     @Override
-    public float getSpeed()
+    public Vector2D getNextSpeedVector(long elapsedTime)
     {
-        return 5.0f;
+        return null;
     }
 }
