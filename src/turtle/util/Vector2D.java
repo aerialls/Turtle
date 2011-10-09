@@ -45,7 +45,7 @@ public class Vector2D implements Cloneable
     public void rotate(double angle)
     {
         double rx = (mX * Math.cos(angle)) - (mY * Math.sin(angle));
-        double ry = (mY * Math.sin(angle)) + (mY * Math.cos(angle));
+        double ry = (mY * Math.cos(angle)) + (mX * Math.sin(angle));
 
         mX = rx;
         mY = ry;
