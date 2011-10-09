@@ -10,7 +10,6 @@
 package turtle.entity;
 
 import java.awt.Color;
-import java.awt.geom.Point2D;
 import java.util.HashSet;
 import java.util.Observable;
 
