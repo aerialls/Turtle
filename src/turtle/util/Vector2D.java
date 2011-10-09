@@ -52,9 +52,9 @@ public class Vector2D implements Cloneable
     }
 
     /**
-     * Retourne la norme du vecteur
+     * Retourne la taille du vecteur
      */
-    public double norm()
+    public double length()
     {
         return  Math.sqrt(mX * mX + mY * mY);
     }
@@ -134,6 +134,44 @@ public class Vector2D implements Cloneable
         mY *= a;
 
         return this;
+    }
+
+    public double inner(Vector2D vector)
+    {
+        return mX * vector.mX + mY * vector.mY;
+    }
+
+    /**
+     * Retourne l'angle entre le vecteur courant et un autre vecteur
+     *
+     * @param vector L'autre vecteur
+     *
+     * @return Retourne l'angle en radiant
+     */
+    public double angle(Vector2D vector)
+    {
+        Vector2D v = new Vector2D(this);
+        Vector2D w = new Vector2D(vector);
+
+        v.normalize();
+        w.normalize();
+
+        return Math.acos(v.inner(w));
+    }
+
+    public void normalize()
+    {
+        double length = length();
+
+        if (length != 0.0) {
+            set(mX / length, mY / length);
+        }
+    }
+
+    public void set(double x, double y)
+    {
+        mX = x;
+        mY = y;
     }
 
     /**
