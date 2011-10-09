@@ -15,6 +15,7 @@ import java.awt.geom.Point2D;
 import turtle.controller.Kernel;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
 import turtle.util.Log;
+import turtle.util.Vector2D;
 
 /**
  * Représentation d'un joueur de foot
@@ -33,6 +34,11 @@ public class Turtle
      * La direction du joueur sur le terrain
      */
     protected double mDirection;
+
+    /**
+     * Le vecteur vitesse
+     */
+    protected Vector2D mSpeedVector;
 
     /**
      * L'équipe du joueur
@@ -65,6 +71,7 @@ public class Turtle
         behavior.setTurtle(this);
         team.addTurtle(this);
 
+        mSpeedVector = new Vector2D();
         mTeam = team;
         mBehavior = behavior;
         mPosition = position;
@@ -116,6 +123,24 @@ public class Turtle
     public void setPosition(double x, double y)
     {
         mPosition = new Point2D.Double(x, y);
+    }
+
+    /**
+     * Change le vecteur vitesse du joueur
+     *
+     * @param vector Le nouveau vecteur de vitesse
+     */
+    public void setSpeedVector(Vector2D vector)
+    {
+        mSpeedVector = vector;
+    }
+
+    /**
+     * Retourne le vecteur de vitesse
+     */
+    public Vector2D getSpeedVector()
+    {
+        return mSpeedVector;
     }
 
     /**

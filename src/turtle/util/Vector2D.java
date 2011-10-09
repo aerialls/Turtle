@@ -20,6 +20,11 @@ public class Vector2D implements Cloneable
     protected double mX;
     protected double mY;
 
+    public Vector2D()
+    {
+        this(0, 0);
+    }
+
     public Vector2D(double x, double y)
     {
         mX = x;
