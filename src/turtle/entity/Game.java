@@ -92,13 +92,6 @@ public class Game extends Observable
         mTeamA.update(elapsedTime);
         mTeamB.update(elapsedTime);
 
-        float v = 0.01f;
-        float d = v * elapsedTime;
-
-        // Just a sample for the first prototype
-        Point2D p = mField.getBall().getPosition();
-        p.setLocation(p.getX() - d, p.getY());
-
         setChanged();
     }
 
@@ -125,8 +118,8 @@ public class Game extends Observable
 
         for (Team team : teams) {
             if (team.getGoal().contains(ball)) {
-                team.incrementScore(1);
                 mField.resetBallPosition();
+                team.incrementScore();
             }
         }
     }

@@ -107,6 +107,14 @@ public class Team
     }
 
     /**
+     * Augmente le score de l'équipe de 1
+     */
+    public void incrementScore()
+    {
+        mScore += 1;
+    }
+
+    /**
      * Retourne l'ensemble des joueurs
      */
     public Set<Turtle> getTurtles()
