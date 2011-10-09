@@ -12,6 +12,7 @@ package turtle.entity;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import turtle.behavior.team.Aggressive;
@@ -84,6 +85,11 @@ public class Team
      */
     public void update(long elapsedTime)
     {
+        Iterator<Turtle> it = mTurtles.iterator();
+        while (it.hasNext()) {
+            Turtle turtle = it.next();
+            turtle.update(elapsedTime);
+        }
     }
 
     /**

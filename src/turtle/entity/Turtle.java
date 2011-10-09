@@ -12,7 +12,6 @@ package turtle.entity;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
-import turtle.controller.Kernel;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
 import turtle.util.Log;
 import turtle.util.Vector2D;
@@ -64,10 +63,6 @@ public class Turtle
             throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");
         }
 
-        if (Kernel.DEBUG) {
-            Log.i(String.format("Turtle creation (behavior=%s, position=%s)", behavior, position));
-        }
-
         behavior.setTurtle(this);
         team.addTurtle(this);
 
@@ -76,6 +71,17 @@ public class Turtle
         mBehavior = behavior;
         mPosition = position;
         mDirection = direction;
+
+        Log.i(String.format("Turtle creation (behavior=%s, position=%s)", behavior, position));
+    }
+
+    /**
+     * Met à jour la position d'un joueur
+     *
+     * @param elapsedTime Le temps écoulé depuis le dernier appel
+     */
+    public void update(long elapsedTime)
+    {
     }
 
     /**
