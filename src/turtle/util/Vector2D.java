@@ -136,7 +136,7 @@ public class Vector2D implements Cloneable
         return this;
     }
 
-    public double inner(Vector2D vector)
+    public double dot(Vector2D vector)
     {
         return mX * vector.mX + mY * vector.mY;
     }
@@ -156,7 +156,14 @@ public class Vector2D implements Cloneable
         v.normalize();
         w.normalize();
 
-        return Math.acos(v.inner(w));
+        return Math.acos(v.dot(w));
+    }
+
+    public double angle()
+    {
+        Vector2D vector = new Vector2D(1, 0);
+
+        return angle(vector);
     }
 
     public void normalize()
