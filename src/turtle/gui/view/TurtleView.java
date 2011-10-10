@@ -11,7 +11,9 @@ package turtle.gui.view;
 
 import java.awt.Graphics2D;
 import java.awt.Shape;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import turtle.entity.Turtle;
 
@@ -32,8 +34,9 @@ public class TurtleView implements ViewInterface
         g.setColor(turtle.getColor());
 
         Shape circle = new Ellipse2D.Double((double) (position.getX() - mTurtleDiameter / 2), (double) (position.getY() - mTurtleDiameter / 2), mTurtleDiameter, mTurtleDiameter);
-
         g.draw(circle);
+
         g.drawLine((int) position.getX(), (int) (position.getY() - mTurtleDiameter / 2), (int) position.getX(), (int) (position.getY() + mTurtleDiameter / 2));
+        g.drawLine((int) (position.getX() - mTurtleDiameter / 2), (int) position.getY(), (int) (position.getX() + mTurtleDiameter / 2), (int) position.getY());
     }
 }

@@ -31,11 +31,6 @@ public class Turtle
     protected Point2D mPosition;
 
     /**
-     * La direction du joueur sur le terrain
-     */
-    protected double mDirection;
-
-    /**
      * Le vecteur vitesse
      */
     protected Vector2D mSpeedVector;
@@ -56,9 +51,8 @@ public class Turtle
      * @param team      L'équipe du joueur
      * @param behavior  Le comportement
      * @param position  La position sur le terrain
-     * @param direction La direction sur le terrain
      */
-    public Turtle(Team team, TurtleBehaviorInterface behavior, Point2D position, double direction)
+    public Turtle(Team team, TurtleBehaviorInterface behavior, Point2D position)
     {
         if (behavior == null) {
             throw new IllegalArgumentException("A Turtle needs to have a TurtleBehavior.");
@@ -71,7 +65,6 @@ public class Turtle
         mTeam = team;
         mBehavior = behavior;
         mPosition = position;
-        mDirection = direction;
 
         Log.i(String.format("Turtle creation (behavior=%s, position=%s)", behavior, position));
     }
@@ -109,24 +102,6 @@ public class Turtle
     public void setPosition(Point2D position)
     {
         mPosition = position;
-    }
-
-    /**
-     * Retourne la direction du joueur sur le terrain
-     */
-    public double getDirection()
-    {
-        return mDirection;
-    }
-
-    /**
-     * Change la direction du joueur sur le terrain
-     *
-     * @param direction La direction du joueur
-     */
-    public void setDirection(double direction)
-    {
-        mDirection = direction;
     }
 
     /**

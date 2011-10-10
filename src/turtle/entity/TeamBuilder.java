@@ -95,7 +95,7 @@ public class TeamBuilder
         Team team = new Team(goal, color, name);
         TurtleFactory factory = TurtleFactory.getInstance();
 
-        factory.createAttacker(field, team, new Point2D.Double(width, height), 0.0f);
+        factory.createAttacker(field, team, new Point2D.Double(width, height));
 
         return team;
     }
