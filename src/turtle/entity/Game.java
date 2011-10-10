@@ -71,8 +71,8 @@ public class Game extends Observable
         // Creation of the teams
         TeamBuilder builder = TeamBuilder.getInstance();
 
-        mTeamA = builder.create(mField, Color.RED, "A", TeamBuilder.TEAM_LEFT);
-        mTeamB = builder.create(mField, Color.BLUE, "B", TeamBuilder.TEAM_RIGHT);
+        mTeamA = builder.create(mField, new Color(0, 204, 255), "A", TeamBuilder.TEAM_LEFT);
+        mTeamB = builder.create(mField, new Color(255, 51, 51), "B", TeamBuilder.TEAM_RIGHT);
     }
 
     /**
