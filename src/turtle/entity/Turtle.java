@@ -161,13 +161,11 @@ public class Turtle
     }
 
     /**
-     * Associe une équipe au joueur
-     *
-     * @param team L'équipe
+     * Retourne l'équipe du joueur
      */
-    public void setTeam(Team team)
+    public Team getTeam()
     {
-        mTeam = team;
+        return mTeam;
     }
 
     /**
