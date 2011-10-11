@@ -9,7 +9,10 @@
 
 package turtle.behavior.turtle;
 
+import java.awt.geom.Point2D;
+import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
+import turtle.entity.field.Goal;
 import turtle.util.Vector2D;
 
 /**
@@ -28,6 +31,22 @@ public class Attacker extends AbstractTurtleBehavior
     @Override
     public Vector2D getNextSpeedVector(long elapsedTime)
     {
-        return null;
+        Vector2D vector = new Vector2D();
+        Ball ball = mField.getBall();
+
+        Point2D turtlePosition = mTurtle.getPosition();
+        Point2D ballPosition = ball.getPosition();
+
+        // The ball is near the player
+        if (mTurtle.isAround(ball)) {
+            Goal goal = mTurtle.getTeam().getGoal();
+
+            return null;
+        }
+
+        vector.set(ballPosition.getX() - turtlePosition.getX(), ballPosition.getY() - ballPosition.getY());
+        vector.normalize();
+
+        return vector;
     }
 }
