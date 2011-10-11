@@ -89,6 +89,16 @@ public class Turtle
     }
 
     /**
+     * Met à jour la position du joueur en fonction de sa vitesse
+     */
+    public void move()
+    {
+        if (mSpeedVector != null) {
+            mPosition.setLocation(mPosition.getX() + mSpeedVector.getX(), mPosition.getY() + mSpeedVector.getY());
+        }
+    }
+
+    /**
      * Regarde si la ball est proche du joueur
      *
      * @param ball La balle du terrain

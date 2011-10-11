@@ -73,6 +73,8 @@ public class Field
         if (!checkBallPosition()) {
             // The ball is off limit
             resetBallPosition();
+        } else {
+            mBall.move();
         }
     }
 

@@ -63,6 +63,16 @@ public class Ball
     }
 
     /**
+     * Met à jour la position du ballon en fonction de sa vitesse
+     */
+    public void move()
+    {
+        if (mSpeedVector != null) {
+            mPosition.setLocation(mPosition.getX() + mSpeedVector.getX(), mPosition.getY() + mSpeedVector.getY());
+        }
+    }
+
+    /**
      * Change la position du ballon
      *
      * @param position La nouvelle position du ballon

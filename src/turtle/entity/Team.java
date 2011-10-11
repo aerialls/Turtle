@@ -88,7 +88,9 @@ public class Team
         Iterator<Turtle> it = mTurtles.iterator();
         while (it.hasNext()) {
             Turtle turtle = it.next();
+
             turtle.update(elapsedTime);
+            turtle.move();
         }
     }
 
