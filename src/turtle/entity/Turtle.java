@@ -12,8 +12,10 @@ package turtle.entity;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
+import java.awt.geom.Rectangle2D;
 import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
+import turtle.entity.field.Ball;
 import turtle.util.Log;
 import turtle.util.Vector2D;
 
@@ -84,6 +86,21 @@ public class Turtle
         }
 
         mSpeedVector = vector;
+    }
+
+    /**
+     * Regarde si la ball est proche du joueur
+     *
+     * @param ball La balle du terrain
+     *
+     * @return Vrai si la balle est proche du joueur, faux sinon
+     */
+    public boolean isAround(Ball ball)
+    {
+        int delta = 10;
+        Rectangle2D rectangle = new Rectangle2D.Double(mPosition.getX() - delta, mPosition.getY() - delta, 2 * delta, 2 * delta);
+
+        return rectangle.contains(ball.getPosition());
     }
 
     /**
