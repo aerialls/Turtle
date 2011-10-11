@@ -10,6 +10,7 @@
 package turtle.entity.field;
 
 import java.awt.geom.Point2D;
+import turtle.util.Vector2D;
 
 /**
  * Représentation d'un ballon de foot
@@ -25,6 +26,11 @@ public class Ball
     protected Point2D mPosition;
 
     /**
+     * Le vecteur vitesse du ballon
+     */
+    protected Vector2D mSpeedVector;
+
+    /**
      * Construction du ballon
      *
      * @param position La position sur le terrain
@@ -32,6 +38,7 @@ public class Ball
     public Ball(Point2D position)
     {
         mPosition = position;
+        mSpeedVector = null;
     }
 
     /**
@@ -71,5 +78,23 @@ public class Ball
     public Point2D getPosition()
     {
         return mPosition;
+    }
+
+    /**
+     * Change la vitesse du ballon
+     *
+     * @param vector Le vecteur vitesse
+     */
+    public void setSpeedVector(Vector2D vector)
+    {
+        mSpeedVector = vector;
+    }
+
+    /**
+     * Retourne le vecteur vitesse du ballon
+     */
+    public Vector2D getSpeedVector()
+    {
+        return mSpeedVector;
     }
 }
