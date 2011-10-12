@@ -81,7 +81,7 @@ public class Turtle
         TeamBehaviorInterface teamBehavior = mTeam.getBehavior();
         Vector2D vector = mBehavior.getNextSpeedVector(elapsedTime);
 
-        if (teamBehavior != null) {
+        if (teamBehavior != null && vector != null) {
             teamBehavior.apply(vector, elapsedTime);
         }
 
