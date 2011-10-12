@@ -44,7 +44,7 @@ public class Attacker extends AbstractTurtleBehavior
             return null;
         }
 
-        vector.set(ballPosition.getX() - turtlePosition.getX(), ballPosition.getY() - ballPosition.getY());
+        vector.set(ballPosition.getX() - turtlePosition.getX(), ballPosition.getY() - turtlePosition.getY());
         vector.normalize();
 
         return vector;
