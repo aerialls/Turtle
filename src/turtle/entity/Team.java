@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import turtle.behavior.team.Aggressive;
+import turtle.behavior.team.Stationary;
 import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.entity.field.Goal;
 
@@ -206,6 +207,7 @@ public class Team
         mAvailableBehaviors = new ArrayList<TeamBehaviorInterface>();
 
         mAvailableBehaviors.add(new Aggressive(this));
+        mAvailableBehaviors.add(new Stationary(this));
     }
 
     @Override
