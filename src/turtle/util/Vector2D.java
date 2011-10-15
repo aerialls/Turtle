@@ -66,7 +66,7 @@ public class Vector2D implements Cloneable
      */
     public Vector2D setLength(double length)
     {
-        mul(length / getLength());
+        scale(length / getLength());
 
         return this;
     }
@@ -140,7 +140,7 @@ public class Vector2D implements Cloneable
      *
      * @return L'instance courante avec l'opération réalisée
      */
-    public Vector2D mul(double a)
+    public Vector2D scale(double a)
     {
         mX *= a;
         mY *= a;
