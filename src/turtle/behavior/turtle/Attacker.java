@@ -13,6 +13,7 @@ import java.awt.geom.Point2D;
 import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
+import turtle.util.Random;
 import turtle.util.Vector2D;
 
 /**
@@ -43,6 +44,6 @@ public class Attacker extends AbstractTurtleBehavior
         }
 
         vector.set(ballPosition.getX() - turtlePosition.getX(), ballPosition.getY() - turtlePosition.getY());
-        vector.normalize();
+        vector.setLength(Random.between(0.05, 0.08));
     }
 }

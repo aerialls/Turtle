@@ -96,7 +96,6 @@ public class Turtle
      */
     private void move(long elapsedTime)
     {
-        elapsedTime /= 10;
         mPosition.setLocation(mPosition.getX() + mSpeedVector.getX() * elapsedTime, mPosition.getY() + mSpeedVector.getY() * elapsedTime);
     }
 

@@ -54,9 +54,21 @@ public class Vector2D implements Cloneable
     /**
      * Retourne la taille du vecteur
      */
-    public double length()
+    public double getLength()
     {
         return  Math.sqrt(mX * mX + mY * mY);
+    }
+
+    /**
+     * Change la taille du vecteur
+     *
+     * @param length La taille du vecteur
+     */
+    public Vector2D setLength(double length)
+    {
+        mul(length / getLength());
+
+        return this;
     }
 
     @Override
@@ -168,7 +180,7 @@ public class Vector2D implements Cloneable
 
     public void normalize()
     {
-        double length = length();
+        double length = getLength();
 
         if (length != 0.0) {
             set(mX / length, mY / length);

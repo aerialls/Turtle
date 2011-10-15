@@ -70,11 +70,11 @@ public class Field
      */
     public void update(long elapsedTime)
     {
-        if (!checkBallPosition()) {
+        if (checkBallPosition()) {
+            mBall.move(elapsedTime);
+        } else {
             // The ball is off limit
             resetBallPosition();
-        } else {
-            mBall.move();
         }
     }
 

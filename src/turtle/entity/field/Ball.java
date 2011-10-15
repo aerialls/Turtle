@@ -37,8 +37,8 @@ public class Ball
      */
     public Ball(Point2D position)
     {
+        mSpeedVector = new Vector2D();
         mPosition = position;
-        mSpeedVector = null;
     }
 
     /**
@@ -65,11 +65,9 @@ public class Ball
     /**
      * Met à jour la position du ballon en fonction de sa vitesse
      */
-    public void move()
+    public void move(long elapsedTime)
     {
-        if (mSpeedVector != null) {
-            mPosition.setLocation(mPosition.getX() + mSpeedVector.getX(), mPosition.getY() + mSpeedVector.getY());
-        }
+        mPosition.setLocation(mPosition.getX() + mSpeedVector.getX() * elapsedTime, mPosition.getY() + mSpeedVector.getY() * elapsedTime);
     }
 
     /**
