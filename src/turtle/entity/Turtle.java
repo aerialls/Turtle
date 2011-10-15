@@ -78,24 +78,26 @@ public class Turtle
      */
     public void update(long elapsedTime)
     {
-        TeamBehaviorInterface teamBehavior = mTeam.getBehavior();
-        Vector2D vector = mBehavior.getNextSpeedVector(elapsedTime);
+        Vector2D vector = new Vector2D();
 
-        if (teamBehavior != null && vector != null) {
+        TeamBehaviorInterface teamBehavior = mTeam.getBehavior();
+        mBehavior.apply(vector, elapsedTime);
+
+        if (teamBehavior != null) {
             teamBehavior.apply(vector, elapsedTime);
         }
 
+        move(elapsedTime);
         mSpeedVector = vector;
     }
 
     /**
      * Met à jour la position du joueur en fonction de sa vitesse
      */
-    public void move()
+    private void move(long elapsedTime)
     {
-        if (mSpeedVector != null) {
-            mPosition.setLocation(mPosition.getX() + mSpeedVector.getX(), mPosition.getY() + mSpeedVector.getY());
-        }
+        elapsedTime /= 10;
+        mPosition.setLocation(mPosition.getX() + mSpeedVector.getX() * elapsedTime, mPosition.getY() + mSpeedVector.getY() * elapsedTime);
     }
 
     /**

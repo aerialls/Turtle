@@ -9,7 +9,7 @@
 
 package turtle.behavior.team;
 
-import turtle.util.Vector2D;
+import turtle.behavior.BehaviorInterface;
 
 /**
  * Interface pour l'ensemble des comportements d'une équipe
@@ -17,9 +17,6 @@ import turtle.util.Vector2D;
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-public interface TeamBehaviorInterface
+public interface TeamBehaviorInterface extends BehaviorInterface
 {
-    public String getName();
-
-    public void apply(Vector2D vector, long elapsedTime);
 }

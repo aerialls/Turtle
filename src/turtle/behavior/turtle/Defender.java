@@ -26,8 +26,7 @@ public class Defender extends AbstractTurtleBehavior
     }
 
     @Override
-    public Vector2D getNextSpeedVector(long elapsedTime)
+    public void apply(Vector2D vector, long elapsedTime)
     {
-        return null;
     }
 }

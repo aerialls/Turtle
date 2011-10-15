@@ -29,9 +29,8 @@ public class Attacker extends AbstractTurtleBehavior
     }
 
     @Override
-    public Vector2D getNextSpeedVector(long elapsedTime)
+    public void apply(Vector2D vector, long elapsedTime)
     {
-        Vector2D vector = new Vector2D();
         Ball ball = mField.getBall();
 
         Point2D turtlePosition = mTurtle.getPosition();
@@ -40,13 +39,10 @@ public class Attacker extends AbstractTurtleBehavior
         // The ball is near the player
         if (mTurtle.isAround(ball)) {
             Goal goal = mTurtle.getTeam().getGoal();
-
-            return null;
+            return;
         }
 
         vector.set(ballPosition.getX() - turtlePosition.getX(), ballPosition.getY() - turtlePosition.getY());
         vector.normalize();
-
-        return vector;
     }
 }

@@ -9,8 +9,8 @@
 
 package turtle.behavior.turtle;
 
+import turtle.behavior.BehaviorInterface;
 import turtle.entity.Turtle;
-import turtle.util.Vector2D;
 
 /**
  * Interface pour l'ensemble des comportements d'un joueur
@@ -18,11 +18,7 @@ import turtle.util.Vector2D;
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
  */
-public interface TurtleBehaviorInterface
+public interface TurtleBehaviorInterface extends BehaviorInterface
 {
     public void setTurtle(Turtle turtle);
-
-    public Vector2D getNextSpeedVector(long elapsedTime);
-
-    public String getName();
 }
