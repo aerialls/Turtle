@@ -15,7 +15,6 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import java.util.Iterator;
 import javax.swing.JFrame;
-
 import turtle.controller.Kernel;
 import turtle.entity.Game;
 import turtle.entity.Turtle;

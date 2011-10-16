@@ -17,7 +17,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
 import turtle.controller.Kernel;
 import turtle.entity.Game;
 import turtle.util.Log;

@@ -12,7 +12,6 @@ package turtle.entity;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
-
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
 import turtle.util.Log;

@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-
 import turtle.behavior.team.Aggressive;
 import turtle.behavior.team.Stationary;
 import turtle.behavior.team.TeamBehaviorInterface;

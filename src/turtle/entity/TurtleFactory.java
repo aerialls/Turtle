@@ -10,7 +10,6 @@
 package turtle.entity;
 
 import java.awt.geom.Point2D;
-
 import turtle.behavior.turtle.Attacker;
 import turtle.behavior.turtle.Defender;
 import turtle.behavior.turtle.Goalkeeper;

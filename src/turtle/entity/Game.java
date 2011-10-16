@@ -12,7 +12,6 @@ package turtle.entity;
 import java.awt.Color;
 import java.util.HashSet;
 import java.util.Observable;
-
 import java.util.Set;
 import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
