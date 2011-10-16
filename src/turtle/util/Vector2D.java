@@ -193,6 +193,11 @@ public class Vector2D implements Cloneable
         mY = y;
     }
 
+    public void setNull()
+    {
+        set(0,0);
+    }
+
     /**
      * Inversion le vecteur
      *
