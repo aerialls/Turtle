@@ -10,6 +10,7 @@
 package turtle.behavior.team;
 
 import turtle.entity.Team;
+import turtle.util.Random;
 import turtle.util.Vector2D;
 
 /**
@@ -28,5 +29,8 @@ public class Aggressive extends AbstractTeamBehavior
     @Override
     public void apply(Vector2D vector, long elapsedTime)
     {
+        // Augmentation de la vitesse mais perte de précision
+        vector.scale(Random.between(1.05, 1.5));
+        vector.rotate(Random.between(-1, +1));
     }
 }
