@@ -87,6 +87,8 @@ public class Game extends Observable
         checkGoals();
 
         // Teams
+        //TODO : Il faut changer le système pour que le traitement
+        // se réalise de manière aléatoire, sinon les rouges sont avantagés
         mTeamA.update(elapsedTime);
         mTeamB.update(elapsedTime);
 
