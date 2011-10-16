@@ -79,6 +79,19 @@ public class Field
     }
 
     /**
+     * Regarde si le ballon se raproche ou non du but
+     *
+     * @param goal Le but de l'équipe
+     * @param ball Le ballon du terrain
+     *
+     * @return Vrai si le ballon se raproche du but, faux autrement
+     */
+    public boolean gettingCloser(Goal goal, Ball ball)
+    {
+        return (goal.getRectangle().getX() - mDimension.getWidth() / 2.0) * ball.getSpeedVector().getX() > 0;
+    }
+
+    /**
      * Retourne les dimensions du terrain
      */
     public Dimension getDimension()
@@ -116,6 +129,7 @@ public class Field
     public void resetBallPosition()
     {
         mBall.setPosition(new Point2D.Double((double) mDimension.getWidth() / 2, (double) mDimension.getHeight() / 2));
+        mBall.setNullSpeed();
     }
 
     /**

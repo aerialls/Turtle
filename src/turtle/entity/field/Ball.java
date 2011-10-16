@@ -81,6 +81,14 @@ public class Ball
     }
 
     /**
+     * Annule le vecteur vitesse du ballon
+     */
+    public void setNullSpeed()
+    {
+        mSpeedVector.set(0, 0);
+    }
+
+    /**
      * Retourne la position du ballon
      */
     public Point2D getPosition()
