@@ -87,8 +87,8 @@ public class Turtle
             teamBehavior.apply(vector, elapsedTime);
         }
 
-        move(elapsedTime);
         mSpeedVector = vector;
+        move(elapsedTime);
     }
 
     /**
