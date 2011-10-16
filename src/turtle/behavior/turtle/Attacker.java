@@ -55,7 +55,7 @@ public class Attacker extends AbstractTurtleBehavior
 
             y = Random.between(y - delta, y + delta);
             ballVector.set(x - turtlePosition.getX() , y - turtlePosition.getY());
-            ballVector.setLength(Random.between(0.08, 0.13));
+            ballVector.setLength(Random.between(0.08, 0.15));
 
             ball.shoot(mTurtle, ballVector);
         } else {
@@ -66,7 +66,7 @@ public class Attacker extends AbstractTurtleBehavior
             // S'il avance du bon côté, le joueur n'a pas a courrir après
 
             if (mField.gettingCloser(goal, ball)) {
-                vector.setLength(Random.between(0.00, 0.01));
+                vector.setLength(Random.between(0.00, 0.05));
             } else {
                 vector.setLength(Random.between(0.03, 0.06));
             }
