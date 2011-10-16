@@ -13,6 +13,7 @@ import java.awt.geom.Point2D;
 
 import turtle.behavior.turtle.Attacker;
 import turtle.behavior.turtle.Defender;
+import turtle.behavior.turtle.Goalkeeper;
 import turtle.entity.field.Field;
 
 /**
@@ -67,5 +68,17 @@ public class TurtleFactory
     public Turtle createDefender(Field field,  Team team, Point2D position)
     {
         return new Turtle(team, new Defender(field), position);
+    }
+
+    /**
+     * Création d'un nouveau gardien de but
+     *
+     * @param field     Le terrain de foot
+     * @param team      L'équipe du joueur
+     * @param position  La position sur le terrain de foot
+     */
+    public Turtle createGoalkeeper(Field field,  Team team, Point2D position)
+    {
+        return new Turtle(team, new Goalkeeper(field), position);
     }
 }
