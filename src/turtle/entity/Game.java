@@ -117,8 +117,10 @@ public class Game extends Observable
 
         for (Team team : teams) {
             if (team.getGoal().contains(ball)) {
+                Turtle turtle = (Turtle) ball.getLastShooter();
+                turtle.getTeam().incrementScore();
+
                 mField.resetBallPosition();
-                team.incrementScore();
             }
         }
     }

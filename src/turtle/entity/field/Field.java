@@ -140,8 +140,8 @@ public class Field
      */
     public void resetBallPosition()
     {
+        mBall.reset();
         mBall.setPosition(new Point2D.Double((double) mDimension.getWidth() / 2, (double) mDimension.getHeight() / 2));
-        mBall.setNullSpeed();
     }
 
     /**

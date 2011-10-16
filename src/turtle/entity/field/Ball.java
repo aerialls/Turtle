@@ -31,6 +31,14 @@ public class Ball
     protected Vector2D mSpeedVector;
 
     /**
+     * Le dernier object qui a shooté dans le ballon
+     *
+     * Il n'est pas question ici de stocker directement un objet
+     * de type {@link Turtle} pour isoler correctement ce package
+     */
+    protected Object mLastShooter;
+
+    /**
      * Construction du ballon
      *
      * @param position La position sur le terrain
@@ -71,6 +79,28 @@ public class Ball
     }
 
     /**
+     * Tir dans le ballon
+     *
+     * @param shooter L'objet qui a tiré dans le ballon
+     * @param speed Le vecteur vitesse du tir
+     */
+    public void shoot(Object shooter, Vector2D speed)
+    {
+        mLastShooter = shooter;
+        mSpeedVector = speed;
+    }
+
+    /**
+     * Remet à zero le ballon
+     */
+    public void reset()
+    {
+        mPosition.setLocation(0, 0);
+        mLastShooter = null;
+        mSpeedVector.setNull();
+    }
+
+    /**
      * Change la position du ballon
      *
      * @param position La nouvelle position du ballon
@@ -94,6 +124,15 @@ public class Ball
     public Point2D getPosition()
     {
         return mPosition;
+    }
+
+    /**
+     * Retourne le dernier objet qui a shooté
+     * dans le ballon
+     */
+    public Object getLastShooter()
+    {
+        return mLastShooter;
     }
 
     /**

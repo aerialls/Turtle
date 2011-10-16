@@ -15,7 +15,6 @@ import turtle.entity.Team;
 import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
-import turtle.util.Log;
 import turtle.util.Random;
 import turtle.util.Vector2D;
 
@@ -58,7 +57,7 @@ public class Attacker extends AbstractTurtleBehavior
             ballVector.set(x - turtlePosition.getX() , y - turtlePosition.getY());
             ballVector.setLength(Random.between(0.08, 0.13));
 
-            ball.setSpeedVector(ballVector);
+            ball.shoot(mTurtle, ballVector);
         } else {
             // Vecteur en direction de la balle
             vector.set(ballPosition.getX() - turtlePosition.getX(), ballPosition.getY() - turtlePosition.getY());
