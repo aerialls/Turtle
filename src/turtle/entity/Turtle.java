@@ -87,6 +87,8 @@ public class Turtle
             teamBehavior.apply(vector, elapsedTime);
         }
 
+        Log.i(String.format("PLAYER - New speed vector (team=%s, player=%s, vector=%s)", mTeam, this, vector));
+
         mSpeedVector = vector;
         move(elapsedTime);
     }
