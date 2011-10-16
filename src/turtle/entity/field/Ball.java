@@ -37,7 +37,7 @@ public class Ball
      */
     public Ball(Point2D position)
     {
-        mSpeedVector = new Vector2D(0.15, 0.09);
+        mSpeedVector = new Vector2D();
         mPosition = position;
     }
 
