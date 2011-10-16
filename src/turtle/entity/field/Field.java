@@ -79,6 +79,18 @@ public class Field
     }
 
     /**
+     * Retourne l'autre but présent sur le terrain
+     *
+     * @param goal Le but
+     *
+     * @return L'autre but présent sur le terrain
+     */
+    public Goal getOtherGoal(Goal goal)
+    {
+        return (goal == mGoalA) ? mGoalB : mGoalA;
+    }
+
+    /**
      * Regarde si le ballon se raproche ou non du but
      *
      * @param goal Le but de l'équipe

@@ -11,9 +11,7 @@ package turtle.gui.view;
 
 import java.awt.Graphics2D;
 import java.awt.Shape;
-import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import turtle.entity.Turtle;
 
@@ -25,18 +23,16 @@ import turtle.entity.Turtle;
  */
 public class TurtleView implements ViewInterface
 {
-    protected static double mTurtleDiameter = 15.0;
-
     public static void paint(Turtle turtle, Graphics2D g)
     {
         Point2D position = turtle.getPosition();
 
         g.setColor(turtle.getColor());
 
-        Shape circle = new Ellipse2D.Double((double) (position.getX() - mTurtleDiameter / 2), (double) (position.getY() - mTurtleDiameter / 2), mTurtleDiameter, mTurtleDiameter);
+        Shape circle = new Ellipse2D.Double((double) (position.getX() - turtle.getDiameter()), (double) (position.getY() - turtle.getDiameter()), turtle.getDiameter() * 2, turtle.getDiameter() * 2);
         g.draw(circle);
 
-        g.drawLine((int) position.getX(), (int) (position.getY() - mTurtleDiameter / 2), (int) position.getX(), (int) (position.getY() + mTurtleDiameter / 2));
-        g.drawLine((int) (position.getX() - mTurtleDiameter / 2), (int) position.getY(), (int) (position.getX() + mTurtleDiameter / 2), (int) position.getY());
+        g.drawLine((int) position.getX(), (int) (position.getY() - turtle.getDiameter()), (int) position.getX(), (int) (position.getY() + turtle.getDiameter()));
+        g.drawLine((int) (position.getX() - turtle.getDiameter()), (int) position.getY(), (int) (position.getX() + turtle.getDiameter()), (int) position.getY());
     }
 }

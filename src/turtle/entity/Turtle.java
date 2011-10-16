@@ -38,6 +38,11 @@ public class Turtle
     protected Vector2D mSpeedVector;
 
     /**
+     * Le diamètre d'un joueur
+     */
+    protected final int mDiameter = 7;
+
+    /**
      * L'équipe du joueur
      */
     protected Team mTeam;
@@ -110,8 +115,7 @@ public class Turtle
      */
     public boolean isAround(Ball ball)
     {
-        int delta = 10;
-        Rectangle2D rectangle = new Rectangle2D.Double(mPosition.getX() - delta, mPosition.getY() - delta, 2 * delta, 2 * delta);
+        Rectangle2D rectangle = new Rectangle2D.Double(mPosition.getX() - mDiameter, mPosition.getY() - mDiameter, 2 * mDiameter, 2 * mDiameter);
 
         return rectangle.contains(ball.getPosition());
     }
@@ -179,6 +183,14 @@ public class Turtle
     public Team getTeam()
     {
         return mTeam;
+    }
+
+    /**
+     * Retourne le diamiètre du joueur
+     */
+    public int getDiameter()
+    {
+        return mDiameter;
     }
 
     /**

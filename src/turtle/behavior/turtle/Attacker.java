@@ -11,6 +11,7 @@ package turtle.behavior.turtle;
 
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
+import turtle.entity.Team;
 import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
@@ -35,7 +36,8 @@ public class Attacker extends AbstractTurtleBehavior
     public void apply(Vector2D vector, long elapsedTime)
     {
         Ball ball = mField.getBall();
-        Goal goal = mTurtle.getTeam().getGoal();
+        Team team = mTurtle.getTeam();
+        Goal goal = mField.getOtherGoal(team.getGoal());
 
         Point2D turtlePosition = mTurtle.getPosition();
         Point2D ballPosition = ball.getPosition();
