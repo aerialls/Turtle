@@ -39,6 +39,11 @@ public class Ball
     protected Object mLastShooter;
 
     /**
+     * Le Coefficient de frottement du ballon sur le terrain (en m.s-2)
+     */
+    protected final double mFriction = 3.9e-1;
+
+    /**
      * Construction du ballon
      *
      * @param position La position sur le terrain
@@ -75,7 +80,14 @@ public class Ball
      */
     public void move(long elapsedTime)
     {
+        if (mSpeedVector.getLength() < 1e-2) {
+            mSpeedVector.setNull();
+        }
+
         mPosition.setLocation(mPosition.getX() + mSpeedVector.getX() * elapsedTime, mPosition.getY() + mSpeedVector.getY() * elapsedTime);
+
+        double friction = 1 - mFriction * ((double) elapsedTime / 1000);
+        mSpeedVector.scale(friction);
     }
 
     /**
