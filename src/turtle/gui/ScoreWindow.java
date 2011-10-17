@@ -69,16 +69,17 @@ public class ScoreWindow extends AbstractWindow
 
         JPanel shooter = new JPanel();
         JLabel title = createJLabel("Dernier tireur : ", 10, null);
+        shooter.setBackground(Color.LIGHT_GRAY);
 
         shooter.add(title);
         shooter.add(mLastShooterLabel);
 
         // Score
-        mScoreTeamALabel  = createJLabel("0", 40, mGame.getTeamA().getColor());
-        mScoreTeamBLabel  = createJLabel("0", 40, mGame.getTeamB().getColor());
+        mScoreTeamALabel  = createJLabel("0", 30, mGame.getTeamA().getColor());
+        mScoreTeamBLabel  = createJLabel("0", 30, mGame.getTeamB().getColor());
 
         JPanel score = new JPanel();
-        JLabel dash = createJLabel(" - ", 40, null);
+        JLabel dash = createJLabel(" - ", 30, null);
 
         score.add(mScoreTeamALabel);
         score.add(dash);
@@ -98,7 +99,7 @@ public class ScoreWindow extends AbstractWindow
         setTitle("Score");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(170, 140);
+        setSize(170, 130);
         setResizable(false);
 
         if (mParent != null) {
