@@ -69,7 +69,7 @@ public class ScoreWindow extends AbstractWindow
 
         JPanel shooter = new JPanel();
         JLabel title = createJLabel("Dernier tireur : ", 10, null);
-        shooter.setBackground(Color.LIGHT_GRAY);
+        shooter.setBackground(new Color(219,219,219));
 
         shooter.add(title);
         shooter.add(mLastShooterLabel);
