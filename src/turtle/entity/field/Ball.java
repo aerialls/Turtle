@@ -39,7 +39,7 @@ public class Ball
     protected Object mLastShooter;
 
     /**
-     * Le Coefficient de frottement du ballon sur le terrain (en m.s-2)
+     * Le Coefficient de frottement du ballon sur le terrain (en s^-1)
      */
     protected final double mFriction = 3.9e-1;
 
