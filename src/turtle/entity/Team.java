@@ -11,9 +11,9 @@ package turtle.entity;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.Set;
+import java.util.List;
 import turtle.behavior.team.Aggressive;
 import turtle.behavior.team.Stationary;
 import turtle.behavior.team.TeamBehaviorInterface;
@@ -30,7 +30,7 @@ public class Team
     /**
      * L'ensemble des joueurs de l'équipe
      */
-    protected Set<Turtle> mTurtles;
+    protected List<Turtle> mTurtles;
 
     /**
      * La couleur des joueurs
@@ -70,7 +70,7 @@ public class Team
      */
     public Team(Goal goal, Color color, String name)
     {
-        mTurtles = new HashSet<Turtle>();
+        mTurtles = new ArrayList<Turtle>();
 
         createAvailableBehaviors();
 
@@ -85,6 +85,10 @@ public class Team
      */
     public void update(long elapsedTime)
     {
+        // Il est nécessaire de mélanger les joueurs
+        // pour avoir un traitement le plus aléatoire possible
+        Collections.shuffle(mTurtles);
+
         Iterator<Turtle> it = mTurtles.iterator();
         while (it.hasNext()) {
             Turtle turtle = it.next();
@@ -123,7 +127,7 @@ public class Team
     /**
      * Retourne l'ensemble des joueurs
      */
-    public Set<Turtle> getTurtles()
+    public List<Turtle> getTurtles()
     {
         return mTurtles;
     }

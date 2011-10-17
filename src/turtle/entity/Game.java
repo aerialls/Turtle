@@ -10,9 +10,11 @@
 package turtle.entity;
 
 import java.awt.Color;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Observable;
-import java.util.Set;
 import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
 
@@ -87,10 +89,14 @@ public class Game extends Observable
         checkGoals();
 
         // Teams
-        //TODO : Il faut changer le système pour que le traitement
-        // se réalise de manière aléatoire, sinon les rouges sont avantagés
-        mTeamA.update(elapsedTime);
-        mTeamB.update(elapsedTime);
+        List<Team> teams = getTeams();
+        Collections.shuffle(teams);
+        Iterator<Team> it = teams.iterator();
+
+        while (it.hasNext()) {
+            Team team = it.next();
+            team.update(elapsedTime);
+        }
 
         setChanged();
     }
@@ -98,9 +104,9 @@ public class Game extends Observable
     /**
      * Retourne l'ensemble des joueurs du jeu
      */
-    public Set<Turtle> getTurtles()
+    public List<Turtle> getTurtles()
     {
-        Set<Turtle> turtles = new HashSet<Turtle>();
+        List<Turtle> turtles = new ArrayList<Turtle>();
 
         turtles.addAll(mTeamA.getTurtles());
         turtles.addAll(mTeamB.getTurtles());
@@ -114,9 +120,10 @@ public class Game extends Observable
     private void checkGoals()
     {
         Ball ball = mField.getBall();
-        Set<Team> teams = getTeams();
 
-        for (Team team : teams) {
+        Iterator<Team> it = getTeams().iterator();
+        while (it.hasNext()) {
+            Team team = it.next();
             if (team.getGoal().contains(ball)) {
                 Turtle turtle = (Turtle) ball.getLastShooter();
                 turtle.getTeam().incrementScore();
@@ -153,9 +160,9 @@ public class Game extends Observable
     /**
      * Retourne l'ensemble des équipes d'une partie
      */
-    public Set<Team> getTeams()
+    public List<Team> getTeams()
     {
-        Set<Team> teams = new HashSet<Team>();
+        List<Team> teams = new ArrayList<Team>();
 
         teams.add(mTeamA);
         teams.add(mTeamB);
