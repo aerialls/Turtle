@@ -82,6 +82,7 @@ public class Ball
     {
         if (mSpeedVector.getLength() < 1e-2) {
             mSpeedVector.setNull();
+            return;
         }
 
         mPosition.setLocation(mPosition.getX() + mSpeedVector.getX() * elapsedTime, mPosition.getY() + mSpeedVector.getY() * elapsedTime);
