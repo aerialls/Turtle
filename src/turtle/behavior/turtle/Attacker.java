@@ -71,7 +71,7 @@ public class Attacker extends AbstractTurtleBehavior
                 vector.setLength(Random.between(0.03, 0.06));
             }
 
-            vector.rotate(Random.between(-0.5,0.5));
+            vector.rotate(Random.degreesToRadians(-25, 25));
         }
     }
 }

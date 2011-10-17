@@ -17,8 +17,35 @@ package turtle.util;
  */
 public class Random
 {
+    /**
+     * Création d'un nombre aléatoire entre deux bornes
+     *
+     * @param a La borne inférieure
+     * @param b La borne supérieure
+     *
+     * @return Un nombre aléatoire
+     */
     public static double between(double a, double b)
     {
         return a + Math.random() * (b - a);
+    }
+
+    /**
+     * Création d'un nombre aléatoire entre deux angles en degrés
+     * La méthode s'occupe de la conversion en radian
+     *
+     * @param a L'angle inférieur
+     * @param b L'angle supérieur
+     *
+     * @return Le nombre aléatoire en radian
+     *
+     * @see Random#between(double, double)
+     */
+    public static double degreesToRadians(double a, double b)
+    {
+        a = Math.toRadians(a);
+        b = Math.toRadians(b);
+
+        return between(a, b);
     }
 }
