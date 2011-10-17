@@ -40,7 +40,7 @@ public class Vector2D implements Cloneable
     /**
      * Effectue une rotation du vecteur
      *
-     * @param angle L'angle de rotation (en gradient)
+     * @param angle L'angle de rotation (en radian)
      */
     public void rotate(double angle)
     {
