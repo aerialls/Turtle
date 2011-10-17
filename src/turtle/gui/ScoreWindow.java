@@ -19,6 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import turtle.controller.Kernel;
 import turtle.entity.Game;
+import turtle.entity.Team;
+import turtle.entity.Turtle;
 
 /**
  * Fenêtre ou les scores sont affichés
@@ -43,6 +45,11 @@ public class ScoreWindow extends AbstractWindow
      */
     protected JLabel mTimeLabel;
 
+    /**
+     * Le label où est affiché le dernier tireur du ballon
+     */
+    protected JLabel mLastShooterLabel;
+
     public ScoreWindow(Kernel kernel, Game game, AbstractWindow parent)
     {
         super(kernel, game, parent);
@@ -57,12 +64,21 @@ public class ScoreWindow extends AbstractWindow
      */
     private void initialize()
     {
-        JPanel score = new JPanel();
-        JLabel dash = createJLabel(" - ", 40, null);
+        // Ball last shooter
+        mLastShooterLabel = createJLabel("Personne", 10, null);
+
+        JPanel shooter = new JPanel();
+        JLabel title = createJLabel("Dernier tireur : ", 10, null);
+
+        shooter.add(title);
+        shooter.add(mLastShooterLabel);
 
         // Score
         mScoreTeamALabel  = createJLabel("0", 40, mGame.getTeamA().getColor());
         mScoreTeamBLabel  = createJLabel("0", 40, mGame.getTeamB().getColor());
+
+        JPanel score = new JPanel();
+        JLabel dash = createJLabel(" - ", 40, null);
 
         score.add(mScoreTeamALabel);
         score.add(dash);
@@ -74,14 +90,15 @@ public class ScoreWindow extends AbstractWindow
 
         time.add(mTimeLabel);
 
-        add(score, BorderLayout.NORTH);
+        add(shooter, BorderLayout.NORTH);
+        add(score, BorderLayout.CENTER);
         add(time, BorderLayout.SOUTH);
 
         // Window informations
         setTitle("Score");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(170, 120);
+        setSize(170, 140);
         setResizable(false);
 
         if (mParent != null) {
@@ -100,12 +117,28 @@ public class ScoreWindow extends AbstractWindow
     @Override
     public void updateView(Object arg)
     {
+        // Last shooter
+        updateLastShooter();
+
         // Score
         mScoreTeamALabel.setText(String.valueOf(mGame.getTeamA().getScore()));
         mScoreTeamBLabel.setText(String.valueOf(mGame.getTeamB().getScore()));
 
         // Remaining time
         mTimeLabel.setText(getRemainingString(mGame.getRemainingTime()));
+    }
+
+    private void updateLastShooter()
+    {
+        Object object = mGame.getBall().getLastShooter();
+
+        if (object != null && object instanceof Turtle) {
+            Team team = ((Turtle) object).getTeam();
+
+            mLastShooterLabel.setText(String.format("Equipe %s", team.getName()));
+        } else {
+            mLastShooterLabel.setText("Personne");
+        }
     }
 
     private String getRemainingString(long remainingTime)
