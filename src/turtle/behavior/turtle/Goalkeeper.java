@@ -47,7 +47,7 @@ public class Goalkeeper extends AbstractTurtleBehavior
                 Vector2D speed = new Vector2D();
                 Goal goal = mField.getOtherGoal(mTurtle.getTeam().getGoal());
 
-                speed.set(goal.getRectangle().getCenterX(), Random.between(0, height));
+                speed.set(goal.getRectangle().getCenterX() - turtlePosition.getX(), Random.between(0, height) - turtlePosition.getY());
                 speed.setLength(Random.between(0.15, 0.30));
 
                 ball.shoot(mTurtle, speed);
