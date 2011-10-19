@@ -10,6 +10,7 @@
 package turtle.entity;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -56,24 +57,38 @@ public class Game extends Observable
      */
     protected Field mField;
 
+
     /**
-     * Création du modèle
+     * Construction du modèle pour le jeu de foot
+     *
+     * @param maxTime        La durée d'une partie en secondes
+     * @param fieldDimension Les dimensions du terrain
      */
-    public Game()
+    public Game(int maxTime, Dimension fieldDimension)
     {
         mLaunched = false;
 
         mCurrentTime = 0;
         // Hardcoded for the moment
-        mMaxTime = 600000;
+        mMaxTime = maxTime;
 
-        mField = new Field(700, 500);
+        mField = new Field(fieldDimension);
 
         // Creation of the teams
         TeamBuilder builder = TeamBuilder.getInstance();
 
         mTeamA = builder.create(mField, new Color(17, 119, 187), "A", TeamBuilder.TEAM_LEFT);
         mTeamB = builder.create(mField, new Color(255, 51, 51), "B", TeamBuilder.TEAM_RIGHT);
+    }
+
+    /**
+     * Construction du modèle pour le jeu de foot par défaut
+     * Le temps de la partie sera de 10min avec un terrain
+     * de taille 700x500
+     */
+    public Game()
+    {
+        this(600000, new Dimension(700, 500));
     }
 
     /**

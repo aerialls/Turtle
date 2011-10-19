@@ -42,10 +42,19 @@ public class Field
 
     /**
      * Construction du terrain de foot
+     *
+     * @param dimension Les dimensions du terrain
      */
-    public Field(int width, int height)
+    public Field(Dimension dimension)
     {
-        mDimension = new Dimension(width, height);
+        if (dimension == null) {
+            throw new IllegalArgumentException("The field dimension cannot be null.");
+        }
+
+        mDimension = dimension;
+
+        double width = dimension.getWidth();
+        double height = dimension.getHeight();
 
         // The ball
         mBall = new Ball(new Point2D.Double((double) mDimension.getWidth() / 2, (double) mDimension.getHeight() / 2));
@@ -63,6 +72,17 @@ public class Field
         x = width - (widthGoal + x);
 
         mGoalB = new Goal(new Point2D.Double(x, y), widthGoal, heightGoal);
+    }
+
+    /**
+     * Construction du terrain de foot
+     *
+     * @param width  La largeur du terrain
+     * @param height La hauteur du terrain
+     */
+    public Field(int width, int height)
+    {
+        this(new Dimension(width, height));
     }
 
     /**
