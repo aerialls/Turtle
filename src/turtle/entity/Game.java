@@ -11,6 +11,7 @@ package turtle.entity;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -101,6 +102,8 @@ public class Game extends Observable
 
         checkGoals();
 
+        checkCollision();
+
         // Il est là aussi nécessaire de mélanger les équipes
         // pour avoir un jeu équitable
         List<Team> teams = getTeams();
@@ -145,6 +148,28 @@ public class Game extends Observable
                 turtle.getTeam().incrementScore();
 
                 mField.resetBallPosition();
+            }
+        }
+    }
+
+    private void checkCollision()
+    {
+        List<Turtle> turtles = getTurtles();
+        Collections.shuffle(turtles);
+        int length = turtles.size();
+
+        for (int i = 0 ; i < length ; i++) {
+            Turtle ti = turtles.get(i);
+            ti.setCollision(false);
+            for (int j = i + 1 ; j < length ; j++) {
+                Turtle tj = turtles.get(j);
+
+                Rectangle2D ri = ti.getSquareRepresentation();
+                Rectangle2D rj = tj.getSquareRepresentation();
+
+                if (!tj.getCollision() && ri.intersects(rj)) {
+                    ti.setCollision(true);
+                }
             }
         }
     }
