@@ -32,6 +32,11 @@ public class Turtle
     protected Point2D mPosition;
 
     /**
+     * La position initiale du joueur sur le terrain
+     */
+    protected Point2D mInitialPosition;
+
+    /**
      * Le vecteur vitesse
      */
     protected Vector2D mSpeedVector;
@@ -71,6 +76,7 @@ public class Turtle
         mTeam = team;
         mBehavior = behavior;
         mPosition = position;
+        mInitialPosition = (Point2D) position.clone();
 
         Log.i(String.format("Turtle creation (behavior=%s, position=%s)", behavior, position));
     }
@@ -142,6 +148,14 @@ public class Turtle
     public Point2D getPosition()
     {
         return mPosition;
+    }
+
+    /**
+     * Retourne la position initial du joueur sur le terrain
+     */
+    public Point2D getInitialPosition()
+    {
+        return mInitialPosition;
     }
 
     /**
