@@ -108,13 +108,30 @@ public class Turtle
     /**
      * Regarde si la ball est proche du joueur
      *
-     * @param ball La balle du terrain
+     * @param ball Le ballon du terrain
      *
      * @return Vrai si la balle est proche du joueur, faux sinon
      */
     public boolean isAround(Ball ball)
     {
-        Rectangle2D rectangle = new Rectangle2D.Double(mPosition.getX() - mDiameter, mPosition.getY() - mDiameter, 2 * mDiameter, 2 * mDiameter);
+        return isAround(ball, mDiameter);
+    }
+
+    /**
+     * Regarde si la ball est proche du joueur
+     *
+     * Cette méthode s'occupe de créer un carré centré autour
+     * du joueur de demi longueur {distance} et regarde si le ballon
+     * est présent dans ce carré
+     *
+     * @param ball     Le ballon du terrain
+     * @param distance La distance de recherche max
+     *
+     * @return Vrai si le ballon est dans le carré, faux sinon
+     */
+    public boolean isAround(Ball ball, double distance)
+    {
+        Rectangle2D rectangle = new Rectangle2D.Double(mPosition.getX() - distance, mPosition.getY() - distance, 2 * distance, 2 * distance);
 
         return rectangle.contains(ball.getPosition());
     }
