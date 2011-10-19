@@ -66,6 +66,7 @@ public class TeamBuilder
         mSchema.put(new Point2D.Double(0.4, 0.5), Attacker.class);
         mSchema.put(new Point2D.Double(0.25, 0.2), Defender.class);
         mSchema.put(new Point2D.Double(0.25, 0.8), Defender.class);
+        mSchema.put(new Point2D.Double(0.08, 0.5), Goalkeeper.class);
     }
 
     /**
