@@ -90,9 +90,11 @@ public class Turtle
     {
         Vector2D vector = new Vector2D();
 
+        // Le comportement du joueur
         TeamBehaviorInterface teamBehavior = mTeam.getBehavior();
         mBehavior.apply(vector, elapsedTime);
 
+        // Ainsi que le comportement de l'équipe
         if (teamBehavior != null) {
             teamBehavior.apply(vector, elapsedTime);
         }

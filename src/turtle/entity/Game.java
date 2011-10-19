@@ -67,14 +67,12 @@ public class Game extends Observable
     public Game(int maxTime, Dimension fieldDimension)
     {
         mLaunched = false;
-
         mCurrentTime = 0;
-        // Hardcoded for the moment
         mMaxTime = maxTime;
 
         mField = new Field(fieldDimension);
 
-        // Creation of the teams
+        // Création des équipes
         TeamBuilder builder = TeamBuilder.getInstance();
 
         mTeamA = builder.create(mField, new Color(17, 119, 187), "A", TeamBuilder.TEAM_LEFT);
@@ -98,12 +96,13 @@ public class Game extends Observable
     {
         mCurrentTime += elapsedTime;
 
-        // Field
+        // Terrain
         mField.update(elapsedTime);
 
         checkGoals();
 
-        // Teams
+        // Il est là aussi nécessaire de mélanger les équipes
+        // pour avoir un jeu équitable
         List<Team> teams = getTeams();
         Collections.shuffle(teams);
         Iterator<Team> it = teams.iterator();
@@ -113,6 +112,8 @@ public class Game extends Observable
             team.update(elapsedTime);
         }
 
+        // On informe le modèle qu'il a changé pour transmettre les
+        // informations à la vue
         setChanged();
     }
 

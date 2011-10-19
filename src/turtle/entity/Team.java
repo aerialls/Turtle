@@ -72,6 +72,7 @@ public class Team
     {
         mTurtles = new ArrayList<Turtle>();
 
+        // Création des comportements pour cette équipe
         createAvailableBehaviors();
 
         mColor = color;
