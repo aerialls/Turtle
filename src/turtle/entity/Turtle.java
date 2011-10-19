@@ -15,6 +15,7 @@ import java.awt.geom.Rectangle2D;
 import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
 import turtle.entity.field.Ball;
+import turtle.util.Generate;
 import turtle.util.Log;
 import turtle.util.Vector2D;
 
@@ -139,9 +140,17 @@ public class Turtle
      */
     public boolean isAround(Ball ball, double distance)
     {
-        Rectangle2D rectangle = new Rectangle2D.Double(mPosition.getX() - distance, mPosition.getY() - distance, 2 * distance, 2 * distance);
+        Rectangle2D rectangle = Generate.squareCenteredOn(mPosition.getX(), mPosition.getY(), distance);
 
         return rectangle.contains(ball.getPosition());
+    }
+
+    /**
+     * Retourne un rectangle représentant le joueur sur le terrain
+     */
+    public Rectangle2D getSquareRepresentation()
+    {
+        return Generate.squareCenteredOn(mPosition.getX(), mPosition.getY(), mDiameter);
     }
 
     /**
