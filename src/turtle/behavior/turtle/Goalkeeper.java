@@ -39,6 +39,7 @@ public class Goalkeeper extends AbstractTurtleBehavior
         Ball ball = mField.getBall();
         Point2D turtlePosition  = mTurtle.getPosition();
 
+        //TODO Il ne faut pas regarder en fonction du joueur mais du goal
         if (mTurtle.isAround(ball, maxDistance)) {
             if (mTurtle.isAround(ball)) {
                 // Le goal est juste a coté du ballon
