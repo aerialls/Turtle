@@ -40,7 +40,9 @@ public class TurtleView implements ViewInterface
             g.drawLine((int) position.getX(), (int) (position.getY() - turtle.getDiameter()), (int) position.getX(), (int) (position.getY() + turtle.getDiameter()));
             g.drawLine((int) (position.getX() - turtle.getDiameter()), (int) position.getY(), (int) (position.getX() + turtle.getDiameter()), (int) position.getY());
         } else if (behavior instanceof Defender) {
-            // Do stuff later
+            double delta = 0.577 * turtle.getDiameter();
+            g.drawLine((int) (position.getX() - delta), (int) (position.getY() - delta), (int) (position.getX() + delta), (int) (position.getY() + delta));
+            g.drawLine((int) (position.getX() + delta), (int) (position.getY() - delta), (int) (position.getX() - delta), (int) (position.getY() + delta));
         }
     }
 }
