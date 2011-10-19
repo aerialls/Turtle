@@ -12,6 +12,13 @@ package turtle.entity;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import turtle.behavior.turtle.Attacker;
+import turtle.behavior.turtle.Defender;
+import turtle.behavior.turtle.Goalkeeper;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
 import turtle.util.Log;
@@ -37,7 +44,7 @@ public class TeamBuilder
     /**
      * Le nombre de joueur dans une équipe
      */
-    protected final int mPlayers = 6;
+    protected HashMap<Point2D, Class> mSchema;
 
     /**
      * L'instance pour le singleton
@@ -51,6 +58,14 @@ public class TeamBuilder
      */
     private TeamBuilder()
     {
+        mSchema = new HashMap<Point2D, Class>();
+
+        // Pour faciliter la position des joueurs, mSchema contient
+        // l'ensemble des positions des joueurs pour l'équipe de gauche
+        // sous la forme d'une position <= 1 et le classe pour le type de joueur
+        mSchema.put(new Point2D.Double(0.4, 0.5), Attacker.class);
+        mSchema.put(new Point2D.Double(0.25, 0.2), Defender.class);
+        mSchema.put(new Point2D.Double(0.25, 0.8), Defender.class);
     }
 
     /**
@@ -81,11 +96,7 @@ public class TeamBuilder
 
         Goal goal;
 
-        double height = (double) (fieldDimension.getHeight() / 2);
-        double width  = (double) (fieldDimension.getWidth() / 4);
-
         if (teamPosition == TEAM_RIGHT) {
-            width = fieldDimension.getWidth() - width;
             goal = field.getGoalB();
         } else {
             goal = field.getGoalA();
@@ -94,7 +105,34 @@ public class TeamBuilder
         Team team = new Team(goal, color, name);
         TurtleFactory factory = TurtleFactory.getInstance();
 
-        factory.createAttacker(field, team, new Point2D.Double(width, height));
+        // Pour chaque élément présent dans la map
+        Iterator<Entry<Point2D, Class>> it = mSchema.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<Point2D, Class> pairs = it.next();
+            Point2D position = pairs.getKey();
+            Class type = pairs.getValue();
+
+            double x = fieldDimension.getWidth() * position.getX();
+            double y = fieldDimension.getHeight() * position.getY();
+
+            // Si le joueur est à droite, il est nécessaire d'inverser
+            // sa position sur l'axe des x
+            if (teamPosition == TEAM_RIGHT) {
+                x = fieldDimension.getWidth() - x;
+            }
+
+            Point2D turtlePosition = new Point2D.Double(x, y);
+
+            if (type == Attacker.class) {
+                factory.createAttacker(field, team, turtlePosition);
+            } else if (type == Defender.class) {
+                factory.createDefender(field, team, turtlePosition);
+            } else if (type == Goalkeeper.class) {
+                factory.createGoalkeeper(field, team, turtlePosition);
+            } else {
+                Log.e("Unknown type");
+            }
+        }
 
         return team;
     }
