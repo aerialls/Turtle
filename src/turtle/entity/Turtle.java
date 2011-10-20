@@ -15,10 +15,10 @@ import java.awt.geom.Rectangle2D;
 import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
 import turtle.entity.field.Ball;
-import turtle.util.Circle2D;
+import turtle.util.geom.Circle2D;
 import turtle.util.Generate;
 import turtle.util.Log;
-import turtle.util.Vector2D;
+import turtle.util.geom.Vector2D;
 
 /**
  * Représentation d'un joueur de foot

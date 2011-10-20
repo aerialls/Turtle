@@ -10,7 +10,7 @@
 package turtle.entity.field;
 
 import java.awt.geom.Point2D;
-import turtle.util.Vector2D;
+import turtle.util.geom.Vector2D;
 
 /**
  * Représentation d'un ballon de foot

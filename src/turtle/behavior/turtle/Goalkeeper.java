@@ -15,10 +15,10 @@ import java.awt.geom.Rectangle2D;
 import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
-import turtle.util.Circle2D;
+import turtle.util.geom.Circle2D;
 import turtle.util.Generate;
 import turtle.util.Random;
-import turtle.util.Vector2D;
+import turtle.util.geom.Vector2D;
 
 /**
  * Comportement d'un gardien de but

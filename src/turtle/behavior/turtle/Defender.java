@@ -10,7 +10,7 @@
 package turtle.behavior.turtle;
 
 import turtle.entity.field.Field;
-import turtle.util.Vector2D;
+import turtle.util.geom.Vector2D;
 
 /**
  * Comportement d'un défenseur

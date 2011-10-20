@@ -11,7 +11,7 @@ package turtle.behavior.team;
 
 import turtle.entity.Team;
 import turtle.util.Random;
-import turtle.util.Vector2D;
+import turtle.util.geom.Vector2D;
 
 /**
  * Comportement agressif d'une équipe

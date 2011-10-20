@@ -9,7 +9,7 @@
 
 package turtle.behavior;
 
-import turtle.util.Vector2D;
+import turtle.util.geom.Vector2D;
 
 /**
  * Interface pour un comportement

@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-package turtle.util;
+package turtle.util.geom;
 
 /**
  * Gestion des vecteurs en deux dimensions
