@@ -9,11 +9,13 @@
 
 package turtle.behavior.turtle;
 
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
+import turtle.util.Circle2D;
 import turtle.util.Generate;
 import turtle.util.Random;
 import turtle.util.Vector2D;
@@ -40,10 +42,10 @@ public class Goalkeeper extends AbstractTurtleBehavior
         Ball ball = mField.getBall();
         Point2D turtlePosition  = mTurtle.getPosition();
         Rectangle2D goalRectangle = mTurtle.getTeam().getGoal().getRectangle();
-        Rectangle2D rectangle = Generate.squareCenteredOn(goalRectangle.getCenterX(), goalRectangle.getCenterY(), 2 * goalRectangle.getHeight());
+        Circle2D circle = new Circle2D(goalRectangle.getCenterX(), goalRectangle.getCenterY(), 1.5 * goalRectangle.getHeight());
 
         // On regarde si le ballon est proche du goal
-        if (rectangle.contains(ball.getPosition())) {
+        if (circle.contains(ball.getPosition())) {
             if (mTurtle.isAround(ball)) {
                 // Le goal est juste a coté du ballon
                 // Il le tire alors à l'autre bout du terrain

@@ -15,6 +15,7 @@ import java.awt.geom.Rectangle2D;
 import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.behavior.turtle.TurtleBehaviorInterface;
 import turtle.entity.field.Ball;
+import turtle.util.Circle2D;
 import turtle.util.Generate;
 import turtle.util.Log;
 import turtle.util.Vector2D;
@@ -140,9 +141,8 @@ public class Turtle
     /**
      * Regarde si la ball est proche du joueur
      *
-     * Cette méthode s'occupe de créer un carré centré autour
-     * du joueur de demi longueur {distance} et regarde si le ballon
-     * est présent dans ce carré
+     * Cette méthode s'occupe de créer un cercle de diamiètre {distance}
+     * et regarde si le ballon est présent dans ce cercle
      *
      * @param ball     Le ballon du terrain
      * @param distance La distance de recherche max
@@ -151,9 +151,9 @@ public class Turtle
      */
     public boolean isAround(Ball ball, double distance)
     {
-        Rectangle2D rectangle = Generate.squareCenteredOn(mPosition.getX(), mPosition.getY(), distance);
+        Circle2D circle = new Circle2D(mPosition.getX(), mPosition.getY(), distance);
 
-        return rectangle.contains(ball.getPosition());
+        return circle.contains(ball.getPosition());
     }
 
     /**
