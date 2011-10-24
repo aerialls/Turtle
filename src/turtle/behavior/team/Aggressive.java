@@ -10,6 +10,8 @@
 package turtle.behavior.team;
 
 import turtle.entity.Team;
+import turtle.entity.Turtle;
+import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
 import turtle.util.Random;
 import turtle.util.geom.Vector2D;
@@ -30,8 +32,17 @@ public class Aggressive extends AbstractTeamBehavior
     @Override
     public void apply(Vector2D vector, long elapsedTime)
     {
+        Ball ball = mField.getBall();
+        Turtle lastShooter = (Turtle) ball.getLastShooter();
+
+        if (lastShooter != null && lastShooter.getTeam() == mTeam) {
+            // Le ballon a été tiré par l'équipe du joueur
+            Vector2D speed = ball.getSpeedVector();
+            speed.rotate(Random.degreesToRadians(-3, +3));
+        }
+
         // Augmentation de la vitesse mais perte de précision
-        vector.scale(Random.between(1.05, 1.5));
+        vector.scale(Random.between(1.2, 1.5));
         vector.rotate(Random.between(-1, +1));
     }
 }
