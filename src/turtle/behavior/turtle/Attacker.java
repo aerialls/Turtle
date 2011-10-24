@@ -68,7 +68,7 @@ public class Attacker extends AbstractTurtleBehavior
             if (mField.gettingCloser(goal, ball)) {
                 vector.setLength(Random.between(0.00, 0.05));
             } else {
-                vector.setLength(Random.between(0.03, 0.06));
+                vector.setLength(Random.between(0.05, 0.08));
             }
 
             vector.rotate(Random.degreesToRadians(-25, 25));

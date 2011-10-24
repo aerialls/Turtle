@@ -56,6 +56,7 @@ public class Defender extends AbstractTurtleBehavior
 
                 vector.set(ballPosition.getX() - turtlePosition.getX(), ballPosition.getY() - turtlePosition.getY());
                 vector.setLength(Random.between(0.04, 0.05));
+                vector.rotate(Random.degreesToRadians(-25, 25));
             }
         } else {
             if (turtlePosition.distance(initialPosition) > 0.1) {

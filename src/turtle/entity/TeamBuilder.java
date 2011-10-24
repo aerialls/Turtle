@@ -61,8 +61,11 @@ public class TeamBuilder
         // l'ensemble des positions des joueurs pour l'équipe de gauche
         // sous la forme d'une position <= 1 et le classe pour le type de joueur
         mSchema.put(new Point2D.Double(0.4, 0.5), TurtleBehavior.ATTACKER);
-        mSchema.put(new Point2D.Double(0.25, 0.2), TurtleBehavior.DEFENDER);
-        mSchema.put(new Point2D.Double(0.25, 0.8), TurtleBehavior.DEFENDER);
+
+        mSchema.put(new Point2D.Double(0.35, 0.2), TurtleBehavior.DEFENDER);
+        mSchema.put(new Point2D.Double(0.2, 0.5), TurtleBehavior.DEFENDER);
+        mSchema.put(new Point2D.Double(0.35, 0.8), TurtleBehavior.DEFENDER);
+
         mSchema.put(new Point2D.Double(0.08, 0.5), TurtleBehavior.GOALKEEPER);
     }
 
