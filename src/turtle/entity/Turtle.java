@@ -77,7 +77,6 @@ public class Turtle
         }
 
         behavior.setTurtle(this);
-        team.addTurtle(this);
 
         mSpeedVector = new Vector2D();
         mTeam = team;

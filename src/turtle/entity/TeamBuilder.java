@@ -120,17 +120,22 @@ public class TeamBuilder
             }
 
             Point2D turtlePosition = new Point2D.Double(x, y);
+            Turtle turtle = null;
 
             switch (type) {
                 case ATTACKER:
-                    factory.createAttacker(field, team, turtlePosition);
+                    turtle = factory.createAttacker(field, team, turtlePosition);
                     break;
                 case DEFENDER:
-                    factory.createDefender(field, team, turtlePosition);
+                    turtle = factory.createDefender(field, team, turtlePosition);
                     break;
                 case GOALKEEPER:
-                    factory.createGoalkeeper(field, team, turtlePosition);
+                    turtle = factory.createGoalkeeper(field, team, turtlePosition);
                     break;
+            }
+
+            if (turtle != null) {
+                team.addTurtle(turtle);
             }
         }
 
