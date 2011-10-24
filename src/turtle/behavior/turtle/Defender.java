@@ -9,7 +9,11 @@
 
 package turtle.behavior.turtle;
 
+import java.awt.geom.Point2D;
+import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
+import turtle.util.Random;
+import turtle.util.geom.Circle2D;
 import turtle.util.geom.Vector2D;
 
 /**
@@ -28,5 +32,34 @@ public class Defender extends AbstractTurtleBehavior
     @Override
     public void apply(Vector2D vector, long elapsedTime)
     {
+        Ball ball = mField.getBall();
+        Point2D initialPosition = mTurtle.getInitialPosition();
+        Point2D turtlePosition  = mTurtle.getPosition();
+        Circle2D circle = new Circle2D(initialPosition.getX(), initialPosition.getY(), mTurtle.getDiameter() * 20);
+
+        if (circle.contains(ball.getPosition())) {
+            // Le ballon est proche du joueur
+            if (mTurtle.isAround(ball)) {
+                Vector2D speed = new Vector2D();
+
+                speed.set(2, 2);
+                speed.setLength(Random.between(0.15, 0.30));
+
+                ball.shoot(mTurtle, speed);
+            } else {
+                // Le ballon est proche mais pas encore assez donc
+                // Le joueur avance !
+                Point2D ballPosition = ball.getPosition();
+
+                vector.set(ballPosition.getX() - turtlePosition.getX(), ballPosition.getY() - turtlePosition.getY());
+                vector.setLength(Random.between(0.04, 0.05));
+            }
+        } else {
+            if (turtlePosition.distance(initialPosition) > 0.1) {
+                // Le goal n'est pas à sa place de départ
+                vector.set(initialPosition.getX() - turtlePosition.getX(), initialPosition.getY() - turtlePosition.getY());
+                vector.setLength(Random.between(0.05, 0.08));
+            }
+        }
     }
 }
