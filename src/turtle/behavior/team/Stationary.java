@@ -10,6 +10,7 @@
 package turtle.behavior.team;
 
 import turtle.entity.Team;
+import turtle.entity.field.Field;
 import turtle.util.geom.Vector2D;
 
 /**
@@ -20,9 +21,9 @@ import turtle.util.geom.Vector2D;
  */
 public class Stationary extends AbstractTeamBehavior
 {
-    public Stationary(Team team)
+    public Stationary(Field field, Team team)
     {
-        super(team);
+        super(field, team);
     }
 
     @Override

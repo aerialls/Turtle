@@ -10,6 +10,7 @@
 package turtle.behavior.team;
 
 import turtle.entity.Team;
+import turtle.entity.field.Field;
 import turtle.util.Random;
 import turtle.util.geom.Vector2D;
 
@@ -21,9 +22,9 @@ import turtle.util.geom.Vector2D;
  */
 public class Aggressive extends AbstractTeamBehavior
 {
-    public Aggressive(Team team)
+    public Aggressive(Field field, Team team)
     {
-        super(team);
+        super(field, team);
     }
 
     @Override

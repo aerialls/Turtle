@@ -10,6 +10,7 @@
 package turtle.behavior.team;
 
 import turtle.entity.Team;
+import turtle.entity.field.Field;
 
 /**
  * Comportement abstrait pour une équipe
@@ -19,11 +20,20 @@ import turtle.entity.Team;
  */
 public abstract class AbstractTeamBehavior implements TeamBehaviorInterface
 {
+    /**
+     * L'équipe
+     */
     protected Team mTeam;
 
-    public AbstractTeamBehavior(Team team)
+    /**
+     * Le terrain de foot
+     */
+    protected Field mField;
+
+    public AbstractTeamBehavior(Field field, Team team)
     {
         mTeam = team;
+        mField = field;
     }
 
     @Override

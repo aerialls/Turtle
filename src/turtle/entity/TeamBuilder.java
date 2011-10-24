@@ -12,10 +12,15 @@ package turtle.entity;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import turtle.behavior.team.Aggressive;
+import turtle.behavior.team.Stationary;
+import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
 import turtle.util.Log;
@@ -92,6 +97,7 @@ public class TeamBuilder
     public Team create(Field field, Color color, String name, int teamPosition)
     {
         Dimension fieldDimension = field.getDimension();
+        TurtleFactory factory = TurtleFactory.getInstance();
 
         Log.i(String.format("Team creation (name=%s, color=%s, teamPosition=%s)", name, color, teamPosition));
 
@@ -104,12 +110,15 @@ public class TeamBuilder
         }
 
         Team team = new Team(goal, color, name);
-        TurtleFactory factory = TurtleFactory.getInstance();
+
+        // Création des comportements
+        addAvailableBehaviors(field, team);
 
         // Pour chaque élément présent dans la map
         Iterator<Entry<Point2D, TurtleBehavior>> it = mSchema.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<Point2D, TurtleBehavior> pairs = it.next();
+
             Point2D position = pairs.getKey();
             TurtleBehavior type = pairs.getValue();
 
@@ -143,6 +152,22 @@ public class TeamBuilder
         }
 
         return team;
+    }
+
+    /**
+     * Ajoute les comportements à l'équipe
+     *
+     * @param field Le terrain de foot
+     * @param team L'équipe
+     */
+    private void addAvailableBehaviors(Field field, Team team)
+    {
+        List<TeamBehaviorInterface> behaviors = new ArrayList<TeamBehaviorInterface>();
+
+        behaviors.add(new Aggressive(field, team));
+        behaviors.add(new Stationary(field, team));
+
+        team.addAvailableBehaviors(behaviors);
     }
 
     /**

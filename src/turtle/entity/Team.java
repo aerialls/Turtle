@@ -11,11 +11,10 @@ package turtle.entity;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import turtle.behavior.team.Aggressive;
-import turtle.behavior.team.Stationary;
 import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.entity.field.Goal;
 
@@ -71,9 +70,7 @@ public class Team
     public Team(Goal goal, Color color, String name)
     {
         mTurtles = new ArrayList<Turtle>();
-
-        // Création des comportements pour cette équipe
-        createAvailableBehaviors();
+        mAvailableBehaviors = new ArrayList<TeamBehaviorInterface>();
 
         mColor = color;
         mGoal = goal;
@@ -201,15 +198,23 @@ public class Team
     }
 
     /**
-     * Création de l'ensemble des comportements
-     * disponible pour l'équipe
+     * Ajoute un nouveau comportement pour l'équipe
+     *
+     * @param behavior Le comportement
      */
-    private void createAvailableBehaviors()
+    public void addAvailableBehavior(TeamBehaviorInterface behavior)
     {
-        mAvailableBehaviors = new ArrayList<TeamBehaviorInterface>();
+        mAvailableBehaviors.add(behavior);
+    }
 
-        mAvailableBehaviors.add(new Aggressive(this));
-        mAvailableBehaviors.add(new Stationary(this));
+    /**
+     * Ajoute plusieurs comportement pour l'équipe
+     *
+     * @param behaviors La collection contenant l'ensemble des comportements
+     */
+    public void addAvailableBehaviors(Collection<TeamBehaviorInterface> behaviors)
+    {
+        mAvailableBehaviors.addAll(behaviors);
     }
 
     @Override
