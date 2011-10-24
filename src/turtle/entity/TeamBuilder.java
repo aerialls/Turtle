@@ -16,9 +16,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import turtle.behavior.turtle.Attacker;
-import turtle.behavior.turtle.Defender;
-import turtle.behavior.turtle.Goalkeeper;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
 import turtle.util.Log;
@@ -44,7 +41,7 @@ public class TeamBuilder
     /**
      * Le nombre de joueur dans une équipe
      */
-    protected HashMap<Point2D, Class> mSchema;
+    protected HashMap<Point2D, TurtleBehavior> mSchema;
 
     /**
      * L'instance pour le singleton
@@ -58,15 +55,15 @@ public class TeamBuilder
      */
     private TeamBuilder()
     {
-        mSchema = new HashMap<Point2D, Class>();
+        mSchema = new HashMap<Point2D, TurtleBehavior>();
 
         // Pour faciliter la position des joueurs, mSchema contient
         // l'ensemble des positions des joueurs pour l'équipe de gauche
         // sous la forme d'une position <= 1 et le classe pour le type de joueur
-        mSchema.put(new Point2D.Double(0.4, 0.5), Attacker.class);
-        mSchema.put(new Point2D.Double(0.25, 0.2), Defender.class);
-        mSchema.put(new Point2D.Double(0.25, 0.8), Defender.class);
-        mSchema.put(new Point2D.Double(0.08, 0.5), Goalkeeper.class);
+        mSchema.put(new Point2D.Double(0.4, 0.5), TurtleBehavior.ATTACKER);
+        mSchema.put(new Point2D.Double(0.25, 0.2), TurtleBehavior.DEFENDER);
+        mSchema.put(new Point2D.Double(0.25, 0.8), TurtleBehavior.DEFENDER);
+        mSchema.put(new Point2D.Double(0.08, 0.5), TurtleBehavior.GOALKEEPER);
     }
 
     /**
@@ -107,11 +104,11 @@ public class TeamBuilder
         TurtleFactory factory = TurtleFactory.getInstance();
 
         // Pour chaque élément présent dans la map
-        Iterator<Entry<Point2D, Class>> it = mSchema.entrySet().iterator();
+        Iterator<Entry<Point2D, TurtleBehavior>> it = mSchema.entrySet().iterator();
         while (it.hasNext()) {
-            Map.Entry<Point2D, Class> pairs = it.next();
+            Map.Entry<Point2D, TurtleBehavior> pairs = it.next();
             Point2D position = pairs.getKey();
-            Class type = pairs.getValue();
+            TurtleBehavior type = pairs.getValue();
 
             double x = fieldDimension.getWidth() * position.getX();
             double y = fieldDimension.getHeight() * position.getY();
@@ -124,17 +121,29 @@ public class TeamBuilder
 
             Point2D turtlePosition = new Point2D.Double(x, y);
 
-            if (type == Attacker.class) {
-                factory.createAttacker(field, team, turtlePosition);
-            } else if (type == Defender.class) {
-                factory.createDefender(field, team, turtlePosition);
-            } else if (type == Goalkeeper.class) {
-                factory.createGoalkeeper(field, team, turtlePosition);
-            } else {
-                Log.e("Unknown type");
+            switch (type) {
+                case ATTACKER:
+                    factory.createAttacker(field, team, turtlePosition);
+                    break;
+                case DEFENDER:
+                    factory.createDefender(field, team, turtlePosition);
+                    break;
+                case GOALKEEPER:
+                    factory.createGoalkeeper(field, team, turtlePosition);
+                    break;
             }
         }
 
         return team;
+    }
+
+    /**
+     * Comportement d'un joueur
+     */
+    private enum TurtleBehavior
+    {
+        ATTACKER,
+        DEFENDER,
+        GOALKEEPER
     }
 }
