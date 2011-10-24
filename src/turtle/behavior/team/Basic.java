@@ -14,7 +14,7 @@ import turtle.entity.field.Field;
 import turtle.util.geom.Vector2D;
 
 /**
- * Comportement agressif d'une équipe
+ * Comportement basique d'une équipe
  *
  * @author Julien Brochet <julien.brochet@etu.univ-lyon1.fr>
  * @since 1.0
