@@ -148,10 +148,29 @@ public class Game extends Observable
                 turtle.getTeam().incrementScore();
 
                 mField.resetBallPosition();
+                resetTurtlesPosition();
             }
         }
     }
 
+    /**
+     * Place les joueurs à leurs positions d'origine
+     */
+    private void resetTurtlesPosition()
+    {
+        List<Turtle> turtles = getTurtles();
+        Iterator<Turtle> it = turtles.iterator();
+
+        while (it.hasNext()) {
+            Turtle turtle = it.next();
+            turtle.resetPosition();
+        }
+    }
+
+    /**
+     * S'occupe de vérifier les collisions
+     * (Ne marche pas très bien ...)
+     */
     private void checkCollision()
     {
         List<Turtle> turtles = getTurtles();

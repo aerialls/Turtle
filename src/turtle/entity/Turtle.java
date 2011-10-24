@@ -126,6 +126,14 @@ public class Turtle
     }
 
     /**
+     * Place le joueur à sa position d'origine
+     */
+    public void resetPosition()
+    {
+        mPosition = (Point2D) mInitialPosition.clone();
+    }
+
+    /**
      * Regarde si la ball est proche du joueur
      *
      * @param ball Le ballon du terrain
