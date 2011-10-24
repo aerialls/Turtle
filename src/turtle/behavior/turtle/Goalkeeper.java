@@ -9,14 +9,12 @@
 
 package turtle.behavior.turtle;
 
-import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
 import turtle.entity.field.Goal;
 import turtle.util.geom.Circle2D;
-import turtle.util.Generate;
 import turtle.util.Random;
 import turtle.util.geom.Vector2D;
 
@@ -36,7 +34,6 @@ public class Goalkeeper extends AbstractTurtleBehavior
     @Override
     public void apply(Vector2D vector, long elapsedTime)
     {
-        double width  = mField.getDimension().getWidth();
         double height = mField.getDimension().getHeight();
 
         Ball ball = mField.getBall();
