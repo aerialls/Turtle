@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import turtle.behavior.team.Aggressive;
+import turtle.behavior.team.Basic;
 import turtle.behavior.team.Stationary;
 import turtle.behavior.team.TeamBehaviorInterface;
 import turtle.entity.field.Field;
@@ -165,6 +166,7 @@ public class TeamBuilder
         List<TeamBehaviorInterface> behaviors = new ArrayList<TeamBehaviorInterface>();
 
         behaviors.add(new Aggressive(field, team));
+        behaviors.add(new Basic(field, team));
         behaviors.add(new Stationary(field, team));
 
         team.addAvailableBehaviors(behaviors);
