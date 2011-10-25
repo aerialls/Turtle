@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Observable;
 import turtle.entity.field.Ball;
 import turtle.entity.field.Field;
+import turtle.util.geom.Circle2D;
 
 /**
  * Représentation d'un jeu de foot (au niveau du modèle)
@@ -169,6 +170,24 @@ public class Game extends Observable
 
     private boolean checkCollision(Turtle turtle)
     {
+        List<Turtle> turtles = getTurtles();
+
+        Iterator<Turtle> it = turtles.iterator();
+        while (it.hasNext()) {
+            Turtle tmp = it.next();
+
+            if (tmp == turtle) {
+                continue;
+            }
+
+            Rectangle2D c1 = tmp.getSquareRepresentation();
+            Rectangle2D c2 = turtle.getSquareRepresentation();
+
+            if (c1.intersects(c2)) {
+                return true;
+            }
+        }
+
         return false;
     }
 
