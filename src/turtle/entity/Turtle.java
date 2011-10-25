@@ -59,11 +59,6 @@ public class Turtle
     protected TurtleBehaviorInterface mBehavior;
 
     /**
-     * Determine si le joeur est en collision ou non
-     */
-    protected boolean mCollision;
-
-    /**
      * Création d'un joueur
      *
      * @param team      L'équipe du joueur
@@ -80,7 +75,6 @@ public class Turtle
 
         mSpeedVector = new Vector2D();
         mTeam = team;
-        mCollision = false;
         mBehavior = behavior;
         mPosition = position;
         mInitialPosition = (Point2D) position.clone();
@@ -95,11 +89,6 @@ public class Turtle
      */
     public void update(long elapsedTime)
     {
-        // Si le joueur est en collision, on saute son mouvement
-        if (mCollision) {
-            return;
-        }
-
         Vector2D vector = new Vector2D();
 
         // Le comportement du joueur
@@ -254,24 +243,6 @@ public class Turtle
     public Team getTeam()
     {
         return mTeam;
-    }
-
-    /**
-     * Retourne si le joueur est actuellement en collision avec un autre joueur
-     */
-    public boolean getCollision()
-    {
-        return mCollision;
-    }
-
-    /**
-     * Change l'état de collision du joueur
-     *
-     * @param collision Si oui ou non le joueur est en collision
-     */
-    public void setCollision(boolean collision)
-    {
-        mCollision = collision;
     }
 
     /**
