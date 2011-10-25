@@ -102,17 +102,17 @@ public class Game extends Observable
 
         checkGoals();
 
-        checkCollision();
+        List<Turtle> turtles = getTurtles();
+        Collections.shuffle(turtles);
 
-        // Il est là aussi nécessaire de mélanger les équipes
-        // pour avoir un jeu équitable
-        List<Team> teams = getTeams();
-        Collections.shuffle(teams);
-        Iterator<Team> it = teams.iterator();
-
+        Iterator<Turtle> it = turtles.iterator();
         while (it.hasNext()) {
-            Team team = it.next();
-            team.update(elapsedTime);
+            Turtle turtle = it.next();
+            turtle.update(elapsedTime);
+
+            if (checkCollision(turtle)) {
+                turtle.goBack(elapsedTime);
+            }
         }
 
         // On informe le modèle qu'il a changé pour transmettre les
@@ -167,30 +167,9 @@ public class Game extends Observable
         }
     }
 
-    /**
-     * S'occupe de vérifier les collisions
-     * (Ne marche pas très bien ...)
-     */
-    private void checkCollision()
+    private boolean checkCollision(Turtle turtle)
     {
-        List<Turtle> turtles = getTurtles();
-        Collections.shuffle(turtles);
-        int length = turtles.size();
-
-        for (int i = 0 ; i < length ; i++) {
-            Turtle ti = turtles.get(i);
-            ti.setCollision(false);
-            for (int j = i + 1 ; j < length ; j++) {
-                Turtle tj = turtles.get(j);
-
-                Rectangle2D ri = ti.getSquareRepresentation();
-                Rectangle2D rj = tj.getSquareRepresentation();
-
-                if (!tj.getCollision() && ri.intersects(rj)) {
-                    ti.setCollision(true);
-                }
-            }
-        }
+        return false;
     }
 
     /**

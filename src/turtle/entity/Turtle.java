@@ -118,7 +118,19 @@ public class Turtle
     }
 
     /**
+     * Supprime le dernier mouvement du joueur
+     *
+     * @param elapsedTime Le temps écoulé depuis le dernier appel
+     */
+    public void goBack(long elapsedTime)
+    {
+        mPosition.setLocation(mPosition.getX() - mSpeedVector.getX() * elapsedTime, mPosition.getY() - mSpeedVector.getY() * elapsedTime);
+    }
+
+    /**
      * Met à jour la position du joueur en fonction de sa vitesse
+     *
+     * @param elapsedTime Le temps écoulé depuis le dernier appel
      */
     private void move(long elapsedTime)
     {

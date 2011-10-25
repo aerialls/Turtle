@@ -79,22 +79,6 @@ public class Team
     }
 
     /**
-     * Fait avancer le jeu
-     */
-    public void update(long elapsedTime)
-    {
-        // Il est nécessaire de mélanger les joueurs
-        // pour avoir un traitement le plus aléatoire possible
-        Collections.shuffle(mTurtles);
-
-        Iterator<Turtle> it = mTurtles.iterator();
-        while (it.hasNext()) {
-            Turtle turtle = it.next();
-            turtle.update(elapsedTime);
-        }
-    }
-
-    /**
      * Ajoute un joueur dans l'équipe
      *
      * @param turtle Le joueur à ajouter
